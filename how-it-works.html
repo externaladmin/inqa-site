@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>How it works — inqa.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============ BRAND TOKENS ============ */
+  :root {
+    --coral: #F27B7B;
+    --patina: #4A766E;
+    --espresso: #3D2C2C;
+    --charcoal: #2D2A2A;
+    --slate: #5C5858;
+    --soft-blush: #FAE5E0;
+    --warm-white: #FAF8F6;
+    --warm-gray: #7A7170;
+    --display: 'Montserrat', sans-serif;
+    --body: 'Open Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    color: var(--charcoal);
+    background: var(--warm-white);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 56px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--espresso);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .wordmark .ai { color: var(--coral); font-weight: 400; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  nav ul a { color: var(--slate); text-decoration: none; transition: color 0.2s; }
+  nav ul a:hover { color: var(--coral); }
+  nav ul a.active { color: var(--espresso); border-bottom: 2px solid var(--coral); padding-bottom: 2px; }
+
+  /* ============ HERO ============ */
+  .hero {
+    background: var(--soft-blush);
+    padding: 110px 56px 130px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--coral);
+  }
+  h1.hero-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 1.02;
+    color: var(--espresso);
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+    max-width: 1000px;
+  }
+  h1.hero-title .lighter { font-weight: 400; }
+  h1.hero-title .accent { color: var(--coral); }
+  .hero-sub {
+    font-family: var(--body);
+    font-size: 19px;
+    color: var(--slate);
+    margin-top: 28px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+  .hero-decoration {
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,123,123,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ============ SHARED SECTION STYLES ============ */
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1.5px;
+    background: var(--patina);
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--espresso);
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  h2.section-title .accent { color: var(--coral); }
+
+  .section-lead {
+    font-family: var(--body);
+    font-size: 19px;
+    color: var(--slate);
+    margin-bottom: 56px;
+    max-width: 780px;
+    line-height: 1.6;
+  }
+
+  /* ============ OPERATIONAL TRUTHS ============ */
+  .truths-wrapper {
+    background: var(--warm-white);
+    padding: 100px 56px;
+  }
+  .truths-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .truths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .truths-grid-secondary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: calc(66.67% - 8px);
+  }
+
+  .truth-card {
+    border-radius: 14px;
+    padding: 36px 32px;
+    position: relative;
+  }
+  .truth-card.primary {
+    background: var(--soft-blush);
+    border: 1px solid rgba(242,123,123,0.18);
+  }
+  .truth-card.secondary {
+    background: var(--warm-white);
+    border: 1.5px solid rgba(74,118,110,0.22);
+  }
+
+  .truth-number {
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .truth-card.primary .truth-number { color: var(--coral); }
+  .truth-card.secondary .truth-number { color: var(--patina); }
+
+  .truth-name {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--espresso);
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+  }
+  .truth-desc {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* Rep handoff block */
+  .rep-handoff {
+    margin-top: 48px;
+    padding: 36px 40px;
+    background: var(--espresso);
+    border-radius: 14px;
+    max-width: 900px;
+  }
+  .rep-handoff p {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--soft-blush);
+    line-height: 1.65;
+  }
+
+  /* ============ USE CASES SECTION ============ */
+  .usecases-wrapper {
+    background: var(--soft-blush);
+    padding: 100px 56px;
+  }
+  .usecases-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .usecase-block {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 56px 0;
+    border-bottom: 1px solid rgba(74,118,110,0.14);
+  }
+  .usecase-block:last-child { border-bottom: none; }
+
+  .usecase-label-col {}
+  .usecase-scenario-tag {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--patina);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .usecase-scenario-name {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--espresso);
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+  }
+  .usecase-scenario-sub {
+    font-family: var(--body);
+    font-size: 15px;
+    color: var(--slate);
+    margin-top: 10px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .usecase-content-col {}
+  .usecase-situation {
+    font-family: var(--body);
+    font-size: 17px;
+    color: var(--charcoal);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .usecase-truths-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .usecase-truth-chip {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+  }
+  .usecase-truth-chip.coral {
+    background: var(--coral);
+    color: white;
+  }
+  .usecase-truth-chip.patina {
+    background: var(--patina);
+    color: white;
+  }
+
+  .usecase-outcome {
+    background: white;
+    border: 1px solid rgba(74,118,110,0.14);
+    border-radius: 10px;
+    padding: 22px 24px;
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--espresso);
+    line-height: 1.6;
+  }
+  .usecase-outcome strong {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--espresso);
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--patina);
+    margin-bottom: 8px;
+  }
+
+  /* ============ PARTNERSHIP SECTION ============ */
+  .partnership-wrapper {
+    background: var(--warm-white);
+    padding: 100px 56px;
+  }
+  .partnership-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .partnership-inner .eyebrow {
+    justify-content: center;
+  }
+  .partnership-quote {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--espresso);
+    line-height: 1.3;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .partnership-quote .accent { color: var(--coral); }
+  .partnership-body {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .partnership-tradeoff {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-top: 32px;
+    letter-spacing: 0.3px;
+  }
+  .partnership-tradeoff .accent { color: var(--coral); }
+
+  /* ============ CTA SECTION ============ */
+  .cta-wrapper {
+    background: var(--soft-blush);
+    padding: 100px 56px;
+    text-align: center;
+  }
+  .cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .cta-inner .eyebrow {
+    justify-content: center;
+  }
+  h2.cta-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--espresso);
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  .cta-sub {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--slate);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  .btn {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.3px;
+    display: inline-block;
+  }
+  .btn-primary {
+    background: var(--coral);
+    color: white;
+  }
+  .btn-primary:hover { background: #de6868; transform: translateY(-1px); }
+
+  /* ============ DARK THESIS ============ */
+  .thesis-wrapper {
+    background: var(--espresso);
+    padding: 130px 56px;
+    text-align: center;
+  }
+  .thesis-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .thesis-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--soft-blush);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    opacity: 0.6;
+  }
+  .thesis-line {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--warm-white);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+  .thesis-line-accent {
+    font-family: var(--display);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--coral);
+    letter-spacing: -1px;
+    margin-top: 6px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--soft-blush);
+    padding: 36px 56px;
+    text-align: center;
+  }
+  .footer-contact {
+    font-family: var(--display);
+    font-size: 13px;
+    color: var(--slate);
+  }
+  .footer-contact a { color: var(--espresso); text-decoration: none; font-weight: 600; }
+  .footer-contact a:hover { color: var(--coral); }
+
+  /* ============ CONTACT FORM ============ */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 32px auto 0;
+  }
+  .contact-form input {
+    font-family: var(--body);
+    font-size: 16px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(250,229,224,0.35);
+    border-radius: 8px;
+    color: var(--charcoal);
+    background: rgba(250,248,246,0.1);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .contact-form input:focus { border-color: var(--coral); }
+  .contact-form input::placeholder { color: rgba(250,229,224,0.5); }
+  .contact-form .btn { width: 100%; }
+  .contact-success { display: none; padding: 24px 0; }
+  .contact-success.visible { display: block; }
+  .contact-success-msg {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--soft-blush);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .hero { padding: 80px 24px 90px; }
+    h1.hero-title { font-size: 46px; letter-spacing: -1px; }
+    .truths-wrapper, .usecases-wrapper, .partnership-wrapper, .cta-wrapper { padding: 72px 24px; }
+    .truths-grid { grid-template-columns: 1fr; }
+    .truths-grid-secondary { grid-template-columns: 1fr; max-width: 100%; }
+    .usecase-block { grid-template-columns: 1fr; gap: 28px; }
+    .thesis-wrapper { padding: 90px 24px; }
+    .thesis-line, .thesis-line-accent { font-size: 36px; }
+    footer { padding: 28px 24px; }
+    h2.section-title { font-size: 32px; }
+    .partnership-quote { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a class="wordmark" href="/">inqa<span class="ai">.ai</span></a>
+  <ul>
+    <li><a href="/how-it-works" class="active">How it works</a></li>
+    <li><a href="/for-events">For events</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-decoration"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">How it works</div>
+    <h1 class="hero-title">A real conversation — <span class="accent">100% yours.</span></h1>
+    <p class="hero-sub">Not a chatbot. Not a generic LLM. The layer above your funnel — there's nothing to replace. Just more signals to capture. Powered by AI.</p>
+  </div>
+</section>
+
+<!-- ============ OPERATIONAL TRUTHS ============ -->
+<section class="truths-wrapper" id="truths">
+  <div class="truths-inner">
+    <div class="eyebrow">Five operational truths</div>
+    <h2 class="section-title">What inqa does — and how it does it.</h2>
+    <p class="section-lead">Every conversation inqa runs is governed by five capabilities. The first three are where the conversation earns its keep. The last two are what turn conversations into intelligence.</p>
+
+    <!-- Primary tier: 01–03 -->
+    <div class="truths-grid">
+      <div class="truth-card primary">
+        <div class="truth-number">01</div>
+        <div class="truth-name">Real-time matching</div>
+        <p class="truth-desc">"Listens to what buyers say — explicit and inferred — and matches it to the right answer. Answers, educates, cross-sells."</p>
+      </div>
+      <div class="truth-card primary">
+        <div class="truth-number">02</div>
+        <div class="truth-name">Built-in qualification</div>
+        <p class="truth-desc">"You define what fit looks like. The conversation surfaces the signals naturally. No four-page form."</p>
+      </div>
+      <div class="truth-card primary">
+        <div class="truth-number">03</div>
+        <div class="truth-name">Smart routing</div>
+        <p class="truth-desc">"Every conversation ends with a deliberate next step. Online sale, the right rep, an info packet, nurture, or a graceful no."</p>
+      </div>
+    </div>
+
+    <!-- Supporting tier: 04–05 -->
+    <div class="truths-grid-secondary">
+      <div class="truth-card secondary">
+        <div class="truth-number">04</div>
+        <div class="truth-name">Aggregate intelligence</div>
+        <p class="truth-desc">"Top questions, objections, competitor mentions, emerging use cases — across every conversation."</p>
+      </div>
+      <div class="truth-card secondary">
+        <div class="truth-number">05</div>
+        <div class="truth-name">Brand control</div>
+        <p class="truth-desc">"Your story, your values, your tone. Accurate. Consistent. Configurable per surface, segment, moment."</p>
+      </div>
+    </div>
+
+    <!-- Rep handoff -->
+    <div class="rep-handoff">
+      <p>"And if a conversation needs to reach a rep, they don't get a list — they get a brief, prioritized, contextualized handoff. Every first call is a productive second meeting."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USE CASE SCENARIOS ============ -->
+<section class="usecases-wrapper" id="scenarios">
+  <div class="usecases-inner">
+    <div class="eyebrow">In context</div>
+    <h2 class="section-title">How it plays out — for your scenario.</h2>
+    <p class="section-lead">The same five capabilities. Different buyer situations. Here's what inqa looks like when it's actually running.</p>
+
+    <!-- SCENARIO 1: New category -->
+    <div class="usecase-block">
+      <div class="usecase-label-col">
+        <div class="usecase-scenario-tag">Scenario 01</div>
+        <div class="usecase-scenario-name">Launching a new category</div>
+        <div class="usecase-scenario-sub">The product exists. The category doesn't yet.</div>
+      </div>
+      <div class="usecase-content-col">
+        <p class="usecase-situation">
+          You're not competing with an established alternative — you're asking buyers to see the world differently. The first question at every booth, after every ad, is some version of: "Wait — so what exactly is this?" The conversation that answers that question is the most important moment in your funnel. It happens hundreds of times a week, in places you're not.
+        </p>
+        <p class="usecase-situation">
+          inqa sits on your QR code, on your ad click, on your post-event follow-up link. When someone asks "how is this different from what I'm already doing?" — the conversation is trained to handle it precisely, in your voice, without a rep on the line.
+        </p>
+        <div class="usecase-truths-row">
+          <span class="usecase-truth-chip coral">01 Real-time matching</span>
+          <span class="usecase-truth-chip coral">02 Built-in qualification</span>
+          <span class="usecase-truth-chip patina">04 Aggregate intelligence</span>
+        </div>
+        <div class="usecase-outcome">
+          <strong>What you get</strong>
+          Across a week of conversations: the top "what is this?" framings your buyers use, which explanations land, which comparisons come up most. Your messaging team has a read on the category narrative — live, not in a quarterly survey.
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2: Complex consumer purchase -->
+    <div class="usecase-block">
+      <div class="usecase-label-col">
+        <div class="usecase-scenario-tag">Scenario 02</div>
+        <div class="usecase-scenario-name">A complex consumer purchase</div>
+        <div class="usecase-scenario-sub">High consideration. Spec-heavy. Personal.</div>
+      </div>
+      <div class="usecase-content-col">
+        <p class="usecase-situation">
+          The buyer did their research on YouTube before they walked into your booth. They came back to your website at 11pm with six tabs open. They have specific questions — about compatibility, about learning curve, about whether this is right for someone at their level. No one in a general awareness channel can answer those questions in the moment they're being asked.
+        </p>
+        <p class="usecase-situation">
+          inqa is trained on the full product knowledge — specs, comparisons, use cases by skill level, common objections. It runs on the ad click, on the QR from the product card, on the post-interest follow-up. A buyer who lands at midnight gets the same considered, accurate conversation as one who calls a specialist at noon.
+        </p>
+        <div class="usecase-truths-row">
+          <span class="usecase-truth-chip coral">01 Real-time matching</span>
+          <span class="usecase-truth-chip coral">03 Smart routing</span>
+          <span class="usecase-truth-chip patina">05 Brand control</span>
+        </div>
+        <div class="usecase-outcome">
+          <strong>What you get</strong>
+          Every spec question answered at the moment of peak consideration — not 48 hours later. Conversations that route to purchase, to a specialist, or to a nurture sequence based on where the buyer actually is — not based on which form they filled out.
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 3: Established brand defending innovation narrative -->
+    <div class="usecase-block">
+      <div class="usecase-label-col">
+        <div class="usecase-scenario-tag">Scenario 03</div>
+        <div class="usecase-scenario-name">An established brand defending its innovation narrative</div>
+        <div class="usecase-scenario-sub">Known name. Misunderstood direction.</div>
+      </div>
+      <div class="usecase-content-col">
+        <p class="usecase-situation">
+          Your brand is known. That's the problem. Buyers think they already understand what you do — and what they think is last decade's version. Every conversation in the market starts from the wrong premise. Enterprise procurement teams compare you to legacy alternatives. Analysts use frameworks that don't fit your current product. The narrative about your innovation is being written by sources you don't control.
+        </p>
+        <p class="usecase-situation">
+          inqa is trained specifically on the new narrative — the contrast with the legacy position, the proof points on the innovation direction, the handling of FUD-style objections from procurement. It runs at every awareness touchpoint: events where your team is explaining the change, ad campaigns repositioning the brand, content targeted at technical evaluators.
+        </p>
+        <div class="usecase-truths-row">
+          <span class="usecase-truth-chip coral">01 Real-time matching</span>
+          <span class="usecase-truth-chip coral">02 Built-in qualification</span>
+          <span class="usecase-truth-chip coral">03 Smart routing</span>
+          <span class="usecase-truth-chip patina">05 Brand control</span>
+        </div>
+        <div class="usecase-outcome">
+          <strong>What you get</strong>
+          Every buying conversation starts from the right premise — not the legacy one. Objections about the old narrative are handled with evidence, consistently, across every surface. Your innovation story reaches the right evaluators at the moment they're forming opinions.
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 4: Events -->
+    <div class="usecase-block">
+      <div class="usecase-label-col">
+        <div class="usecase-scenario-tag">Scenario 04</div>
+        <div class="usecase-scenario-name">Events — booth and conference</div>
+        <div class="usecase-scenario-sub">High cost. High moment. Short window.</div>
+      </div>
+      <div class="usecase-content-col">
+        <p class="usecase-situation">
+          You spent six figures to get to this conference. Your team had great conversations at the booth. Then the event ended. The badge scans went into a spreadsheet. The conversations that happened on the show floor — the specific questions, the real objections, the moments of genuine interest — disappeared. The follow-up email went to everyone equally, because no one knew the difference.
+        </p>
+        <p class="usecase-situation">
+          inqa runs at the booth via QR. The conversation starts when they scan — and continues after they leave. On the flight home, when they're actually thinking about it. In the week after, when the buying conversation with their team starts. The window that used to close when the conference ended now stays open.
+        </p>
+        <div class="usecase-truths-row">
+          <span class="usecase-truth-chip coral">01 Real-time matching</span>
+          <span class="usecase-truth-chip coral">02 Built-in qualification</span>
+          <span class="usecase-truth-chip coral">03 Smart routing</span>
+          <span class="usecase-truth-chip patina">04 Aggregate intelligence</span>
+        </div>
+        <div class="usecase-outcome">
+          <strong>What you get</strong>
+          Qualified signal from booth conversations — not badge data. Every follow-up starts with context. Your rep knows what they asked, what they cared about, and what the right next step is. The six-figure investment in being there converts into conversations that go somewhere.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PARTNERSHIP ============ -->
+<section class="partnership-wrapper" id="partnership">
+  <div class="partnership-inner">
+    <div class="eyebrow">How we work</div>
+    <p class="partnership-quote">AI agents aren't sold off the shelf. <span class="accent">They're tuned for you.</span></p>
+    <p class="partnership-body">inqa isn't a SaaS subscription. We work alongside your team — tuning the conversation, the qualification, the routing, the brand voice — against the conversion goals that matter to you.</p>
+    <p class="partnership-tradeoff">Less hands-off. More hands-on. <span class="accent">Ready in weeks, not months.</span></p>
+  </div>
+</section>
+
+<!-- ============ THESIS (dark rhythm break) ============ -->
+<section class="thesis-wrapper">
+  <div class="thesis-inner">
+    <div class="thesis-eyebrow">The whole point</div>
+    <p class="thesis-line">Change how someone thinks about something —</p>
+    <p class="thesis-line-accent">before others do.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-wrapper" id="contact">
+  <div class="cta-inner">
+    <div class="eyebrow">Ready to talk?</div>
+    <h2 class="cta-title">Let's make it real.</h2>
+    <p class="cta-sub">Tell us what you're launching. We'll show you exactly what inqa looks like in your scenario — no deck, no demo script, just a direct conversation.</p>
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xaqvlggg" method="POST">
+      <input type="text" name="first_name" placeholder="First name" required>
+      <input type="email" name="email" placeholder="Work email" required>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <div id="contact-success" class="contact-success">
+      <p class="contact-success-msg">Thanks — we'll be in touch shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-contact">inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026</div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('contact-success').classList.add('visible');
+        }
+      } catch(err) {}
+    });
+  }
+</script>
+
+</body>
+</html>
