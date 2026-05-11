@@ -267,6 +267,26 @@
   .usecase-block:last-child { border-bottom: none; }
 
   .usecase-label-col {}
+  .usecase-image {
+    margin-top: 20px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 180px;
+  }
+  .usecase-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .usecase-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(61,44,44,0.44);
+    border-radius: 8px;
+  }
   .usecase-scenario-tag {
     font-family: var(--display);
     font-size: 11px;
@@ -527,6 +547,7 @@
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
+    nav ul { gap: 16px; font-size: 12px; }
     .hero { padding: 80px 24px 90px; }
     h1.hero-title { font-size: 46px; letter-spacing: -1px; }
     .truths-wrapper, .usecases-wrapper, .partnership-wrapper, .cta-wrapper { padding: 72px 24px; }
@@ -625,6 +646,7 @@
         <div class="usecase-scenario-tag">Scenario 01</div>
         <div class="usecase-scenario-name">Launching a new category</div>
         <div class="usecase-scenario-sub">The product exists. The category doesn't yet.</div>
+        <div class="usecase-image"><img src="/category.jpg" alt=""></div>
       </div>
       <div class="usecase-content-col">
         <p class="usecase-situation">
@@ -651,6 +673,7 @@
         <div class="usecase-scenario-tag">Scenario 02</div>
         <div class="usecase-scenario-name">A complex consumer purchase</div>
         <div class="usecase-scenario-sub">High consideration. Spec-heavy. Personal.</div>
+        <div class="usecase-image"><img src="/research.jpg" alt=""></div>
       </div>
       <div class="usecase-content-col">
         <p class="usecase-situation">
@@ -677,6 +700,7 @@
         <div class="usecase-scenario-tag">Scenario 03</div>
         <div class="usecase-scenario-name">An established brand defending its innovation narrative</div>
         <div class="usecase-scenario-sub">Known name. Misunderstood direction.</div>
+        <div class="usecase-image"><img src="/enterprise.jpg" alt=""></div>
       </div>
       <div class="usecase-content-col">
         <p class="usecase-situation">
@@ -704,6 +728,7 @@
         <div class="usecase-scenario-tag">Scenario 04</div>
         <div class="usecase-scenario-name">Events — booth and conference</div>
         <div class="usecase-scenario-sub">High cost. High moment. Short window.</div>
+        <div class="usecase-image"><img src="/booth.jpg" alt=""></div>
       </div>
       <div class="usecase-content-col">
         <p class="usecase-situation">
