@@ -660,9 +660,45 @@
   }
   .partnership-tradeoff .accent { color: var(--coral); }
 
+  /* ============ SEGMENT SWITCHER ============ */
+  .switcher-framing {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+  .switcher-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .switcher-tab {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1.5px solid var(--espresso);
+    background: transparent;
+    color: var(--espresso);
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.2px;
+  }
+  .switcher-tab:hover { background: var(--espresso); color: white; }
+  .switcher-tab.active { background: var(--coral); border-color: var(--coral); color: white; }
+  .insights-grid {
+    transition: opacity 0.2s ease;
+  }
+  .insights-grid.fading { opacity: 0; }
+
   @media (max-width: 900px) {
     .insights-grid { grid-template-columns: 1fr; }
     .partnership-quote { font-size: 24px; }
+    .switcher-tabs { gap: 8px; }
+    .switcher-tab { font-size: 12px; padding: 8px 14px; }
   }
 
   /* ============ DARK THESIS SECTION (the rhythm break) ============ */
@@ -777,6 +813,7 @@
   <ul>
     <li><a href="/how-it-works">How it works</a></li>
     <li><a href="/for-events">For events</a></li>
+    <li><a href="/about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -1236,60 +1273,42 @@
     <h2 class="section-title">Synthesized intelligence — across every conversation.</h2>
     <p class="section-lead">Not a vanity dashboard. The kind of read on your market that lets you walk into a board meeting with answers — instead of guesses.</p>
 
-    <div class="insights-grid">
+    <p class="switcher-framing">What you might see, depending on what you're launching.</p>
+    <div class="switcher-tabs">
+      <button class="switcher-tab active" data-segment="0">Launching a new category</button>
+      <button class="switcher-tab" data-segment="1">Complex consumer purchase</button>
+      <button class="switcher-tab" data-segment="2">Defending innovation reputation</button>
+    </div>
+
+    <div class="insights-grid" id="insights-grid">
       <div class="insight-card">
         <div class="insight-card-label">Top questions this week</div>
-        <ul class="insight-card-list">
-          <li>How does this work for a 50-person team? <span class="count">42</span></li>
-          <li>What's the integration with HubSpot? <span class="count">31</span></li>
-          <li>Will this work for non-US buyers? <span class="count">28</span></li>
-          <li>What does pricing actually look like? <span class="count">24</span></li>
-          <li>How long does setup take? <span class="count">19</span></li>
-        </ul>
+        <ul class="insight-card-list" id="ic-questions"></ul>
       </div>
-
       <div class="insight-card">
         <div class="insight-card-label">Top objections</div>
-        <ul class="insight-card-list">
-          <li>"Worried about brand voice" <span class="count">38</span></li>
-          <li>"Already have a chatbot" <span class="count">29</span></li>
-          <li>"Concerned about AI accuracy" <span class="count">22</span></li>
-          <li>"Need to talk to my team first" <span class="count">17</span></li>
-        </ul>
-        <p class="insight-card-trend">"Brand voice" up 60% from last month.</p>
+        <ul class="insight-card-list" id="ic-objections"></ul>
+        <p class="insight-card-trend" id="ic-objections-trend"></p>
       </div>
-
       <div class="insight-card">
         <div class="insight-card-label">Competitor mentions</div>
-        <ul class="insight-card-list">
-          <li>Competitor A <span class="count">+18%</span></li>
-          <li>Competitor B <span class="count">−4%</span></li>
-          <li>Competitor C <span class="count">new</span></li>
-        </ul>
-        <p class="insight-card-trend">Competitor C appearing in conversations for the first time.</p>
+        <ul class="insight-card-list" id="ic-competitors"></ul>
+        <p class="insight-card-trend" id="ic-competitors-trend"></p>
       </div>
-
       <div class="insight-card">
         <div class="insight-card-label">Emerging segment</div>
-        <div class="insight-card-stat">+34%</div>
-        <p class="insight-card-headline">Mid-market healthcare orgs asking detailed questions this month.</p>
-        <p class="insight-card-trend">Wasn't in your defined ICP. Worth a closer look.</p>
+        <div class="insight-card-stat" id="ic-segment-stat"></div>
+        <p class="insight-card-headline" id="ic-segment-headline"></p>
+        <p class="insight-card-trend" id="ic-segment-trend"></p>
       </div>
-
       <div class="insight-card">
         <div class="insight-card-label">Conversion by channel</div>
-        <ul class="insight-card-list">
-          <li>Events <span class="count">14%</span></li>
-          <li>After ads <span class="count">9%</span></li>
-          <li>QR / OOH <span class="count">7%</span></li>
-          <li>Website <span class="count">4%</span></li>
-        </ul>
+        <ul class="insight-card-list" id="ic-conversion"></ul>
       </div>
-
       <div class="insight-card">
         <div class="insight-card-label">Brand voice consistency</div>
-        <div class="insight-card-stat">98%</div>
-        <p class="insight-card-headline">All conversations matching your approved tone, values, and edges.</p>
+        <div class="insight-card-stat" id="ic-brand-stat"></div>
+        <p class="insight-card-headline" id="ic-brand-headline"></p>
       </div>
     </div>
   </div>
@@ -1353,6 +1372,145 @@
       } catch(err) {}
     });
   }
+</script>
+
+<script>
+  const segments = [
+    {
+      questions: [
+        ["What actually is this?", "67"],
+        ["How is this different from what we have?", "54"],
+        ["Who else is doing this?", "41"],
+        ["Is this ready for production use?", "33"],
+        ["How do we get started?", "28"]
+      ],
+      objections: [
+        ["“Never heard of this category”", "52"],
+        ["“Not sure we need it yet”", "38"],
+        ["“How do I explain this internally?”", "29"],
+        ["“Worried about being too early”", "21"]
+      ],
+      objectionsTrend: "Category curiosity up 80% from last month.",
+      competitors: [
+        ["Existing workarounds", "+42%"],
+        ["Legacy tools", "−4%"],
+        ["DIY approach", "new"]
+      ],
+      competitorsTrend: "No dominant competitor yet — a defining moment.",
+      segmentStat: "+61%",
+      segmentHeadline: "Enterprise innovation teams asking category questions this month.",
+      segmentTrend: "Wasn’t in your defined ICP. The category is creating its own demand.",
+      conversion: [
+        ["Thought leadership", "22%"],
+        ["Events", "18%"],
+        ["Social", "11%"],
+        ["Website", "6%"]
+      ],
+      brandStat: "96%",
+      brandHeadline: "Category framing consistent across all conversations."
+    },
+    {
+      questions: [
+        ["What’s the difference between models?", "58"],
+        ["Is it right for my skill level?", "47"],
+        ["Will it work with my current setup?", "39"],
+        ["Can I try before buying?", "31"],
+        ["What’s the return policy?", "24"]
+      ],
+      objections: [
+        ["“Price feels high vs. alternatives”", "61"],
+        ["“Not sure it’s right for me”", "44"],
+        ["“Seen mixed reviews online”", "32"],
+        ["“Need to think about it”", "27"]
+      ],
+      objectionsTrend: "Price objections up 34% since competitor dropped price.",
+      competitors: [
+        ["Competitor A", "+28%"],
+        ["Competitor B", "+6%"],
+        ["Generic alternatives", "new"]
+      ],
+      competitorsTrend: "Buyers actively comparing — decision stage is close.",
+      segmentStat: "+48%",
+      segmentHeadline: "Gifting intent conversations rising sharply.",
+      segmentTrend: "Different buyer, different objections. Worth a dedicated response path.",
+      conversion: [
+        ["After ads", "16%"],
+        ["QR / in-store", "12%"],
+        ["Social", "8%"],
+        ["Website", "5%"]
+      ],
+      brandStat: "97%",
+      brandHeadline: "Spec and comparison answers matching approved accuracy thresholds."
+    },
+    {
+      questions: [
+        ["How does this compare to your old product?", "71"],
+        ["What’s the enterprise roadmap?", "55"],
+        ["Is this SOC 2 compliant?", "48"],
+        ["Who are your enterprise references?", "39"],
+        ["How does procurement typically work?", "27"]
+      ],
+      objections: [
+        ["“Your old product had issues”", "58"],
+        ["“Migration risk concerns us”", "49"],
+        ["“Competitor X says they do the same”", "37"],
+        ["“Our team won’t adopt a new system”", "31"]
+      ],
+      objectionsTrend: "Legacy objections up 72% — FUD campaign is active.",
+      competitors: [
+        ["Competitor A", "+52%"],
+        ["Competitor B", "+18%"],
+        ["Competitor C", "−8%"]
+      ],
+      competitorsTrend: "Competitor A running an active displacement campaign.",
+      segmentStat: "+39%",
+      segmentHeadline: "Mid-market segments showing enterprise-grade intent signals.",
+      segmentTrend: "Below your traditional ICP — but asking the right questions.",
+      conversion: [
+        ["Events", "19%"],
+        ["Direct outreach", "14%"],
+        ["Content", "7%"],
+        ["Website", "3%"]
+      ],
+      brandStat: "99%",
+      brandHeadline: "Innovation narrative holding steady despite active FUD."
+    }
+  ];
+
+  function renderSegment(i) {
+    const s = segments[i];
+    const grid = document.getElementById('insights-grid');
+
+    const listHTML = (items) => items.map(([label, count]) =>
+      `<li>${label} <span class="count">${count}</span></li>`).join('');
+
+    document.getElementById('ic-questions').innerHTML = listHTML(s.questions);
+    document.getElementById('ic-objections').innerHTML = listHTML(s.objections);
+    document.getElementById('ic-objections-trend').textContent = s.objectionsTrend;
+    document.getElementById('ic-competitors').innerHTML = listHTML(s.competitors);
+    document.getElementById('ic-competitors-trend').textContent = s.competitorsTrend;
+    document.getElementById('ic-segment-stat').textContent = s.segmentStat;
+    document.getElementById('ic-segment-headline').textContent = s.segmentHeadline;
+    document.getElementById('ic-segment-trend').textContent = s.segmentTrend;
+    document.getElementById('ic-conversion').innerHTML = listHTML(s.conversion);
+    document.getElementById('ic-brand-stat').textContent = s.brandStat;
+    document.getElementById('ic-brand-headline').textContent = s.brandHeadline;
+  }
+
+  renderSegment(0);
+
+  document.querySelectorAll('.switcher-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      const grid = document.getElementById('insights-grid');
+      grid.classList.add('fading');
+      setTimeout(() => {
+        document.querySelectorAll('.switcher-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        renderSegment(parseInt(this.dataset.segment));
+        grid.classList.remove('fading');
+      }, 200);
+    });
+  });
 </script>
 
 </body>
