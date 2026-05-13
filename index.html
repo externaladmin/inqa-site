@@ -359,6 +359,105 @@
     font-family: var(--display);
   }
 
+  /* ============ DIAGNOSTIC HEADLINE ============ */
+  h2.diag-headline {
+    font-size: 38px;
+    line-height: 1.25;
+    letter-spacing: -0.6px;
+    margin-bottom: 40px;
+  }
+  h2.diag-headline br + * ,
+  h2.diag-headline br { display: block; margin-top: 12px; }
+
+  /* ============ LOGO WALL (leak destinations) ============ */
+  .logo-wall-strip {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .logo-wall-caption {
+    font-family: var(--body);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--slate);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .logo-wall-slots {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .logo-wall-slot {
+    width: 80px;
+    height: 24px;
+    background: rgba(92,88,88,0.15);
+    border-radius: 4px;
+    opacity: 0.5;
+  }
+
+  /* ============ BIG 3 OUTCOMES ============ */
+  .big3-wrapper {
+    background: var(--soft-blush);
+    padding: 90px 56px;
+  }
+  .big3-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h2.big3-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--espresso);
+    letter-spacing: -0.8px;
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+  h2.big3-title .accent { color: var(--coral); }
+  .big3-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+  .big3-card {
+    background: white;
+    border: 1px solid rgba(74,118,110,0.2);
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .big3-number {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--coral);
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  .big3-icon-slot {
+    margin-bottom: 16px;
+  }
+  .big3-card-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--espresso);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .big3-card-body {
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--charcoal);
+    line-height: 1.65;
+  }
+
   /* ============ DEPLOYMENT STRIP ============ */
   .deploy-wrapper {
     background: var(--warm-white);
@@ -818,6 +917,11 @@
     .flow-arrow { display: none; }
     .mockup-inner { grid-template-columns: 1fr; }
     .phone { margin: 0 auto; }
+    .big3-cards { grid-template-columns: 1fr; }
+    .big3-wrapper { padding: 72px 24px; }
+    h2.big3-title { font-size: 32px; }
+    .logo-wall-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
+    h2.diag-headline { font-size: 28px; }
   }
 </style>
 </head>
@@ -855,8 +959,7 @@
 <section class="diagram-wrapper" id="diagram">
   <div class="diagram-inner">
     <div class="eyebrow">Where your awareness spend goes today</div>
-    <h2 class="section-title">Your channels create curiosity. <span class="accent">Then it leaves.</span></h2>
-    <p class="section-lead">Every channel you invest in creates a moment when a real person becomes interested in your product. Today, that moment ends somewhere you don't control.</p>
+    <h2 class="section-title diag-headline">You expect each event, ad, and post to create a <span class="accent">moment of curiosity.</span><br>Then buyers go to ChatGPT, Reddit, or peer forums.</h2>
 
     <!-- BEFORE -->
     <div class="diagram-row today">
@@ -878,6 +981,15 @@
         </div>
       </div>
       <p class="diagram-summary">You paid for the awareness. Someone else captured the conversation.</p>
+      <div class="logo-wall-strip">
+        <span class="logo-wall-caption">Where the conversation happens today —</span>
+        <div class="logo-wall-slots">
+          <div class="logo-wall-slot" data-logo="chatgpt" aria-label="ChatGPT wordmark"></div>
+          <div class="logo-wall-slot" data-logo="reddit" aria-label="Reddit wordmark"></div>
+          <div class="logo-wall-slot" data-logo="youtube" aria-label="YouTube wordmark"></div>
+          <div class="logo-wall-slot" data-logo="peer-forums" aria-label="Slack/Discord/peer communities"></div>
+        </div>
+      </div>
     </div>
 
     <!-- AFTER -->
@@ -899,7 +1011,38 @@
           <div class="flow-node-content">A real conversation,<br>100% yours</div>
         </div>
       </div>
-      <p class="diagram-summary">inqa is how you stay in the conversation — wherever you create awareness.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIG 3 OUTCOMES ============ -->
+<section class="big3-wrapper">
+  <div class="big3-inner">
+    <div class="eyebrow">With inqa</div>
+    <h2 class="big3-title">Three outcomes — that you <span class="accent">feel from day one.</span></h2>
+    <div class="big3-cards">
+
+      <div class="big3-card">
+        <div class="big3-number">01</div>
+        <div class="big3-icon-slot" data-icon="speech-bubbles" aria-label="Two overlapping speech bubbles" style="width:48px;height:48px;"></div>
+        <div class="big3-card-title">Real Conversations</div>
+        <p class="big3-card-body">Buyers get quick, accurate answers straight from your company. Natural back and forth — 100% your voice.</p>
+      </div>
+
+      <div class="big3-card">
+        <div class="big3-number">02</div>
+        <div class="big3-icon-slot" data-icon="branching-path" aria-label="A branching path" style="width:48px;height:48px;"></div>
+        <div class="big3-card-title">Smart Routing</div>
+        <p class="big3-card-body">Every conversation has a specific next step — qualified sales handoff, online purchase, info packet, or a graceful nurture.</p>
+      </div>
+
+      <div class="big3-card">
+        <div class="big3-number">03</div>
+        <div class="big3-icon-slot" data-icon="signal-chart" aria-label="A small signal or chart pattern" style="width:48px;height:48px;"></div>
+        <div class="big3-card-title">Actionable Insights</div>
+        <p class="big3-card-body">You see what your market is actually thinking. Top questions. Top objections. New use cases. Emerging segments. Competitor mentions.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1258,10 +1401,9 @@
   <div class="mockup-inner">
     <div class="mockup-side">
       <div class="eyebrow">How it works</div>
-      <h2 class="section-title">A real conversation — <span class="accent">100% yours.</span></h2>
-      <p>Voice or text, wherever curiosity strikes. On your booth wall. After your ad. On your QR code. On your website.</p>
-      <p>Not a chatbot. Not a generic LLM. The layer above your funnel — there's nothing to replace. Just more signals to capture. Powered by AI.</p>
-      <p style="font-style: italic; color: var(--slate); margin-top: 20px;">Not every impression starts a conversation — but the right ones will.</p>
+      <h2 class="section-title">One concierge. <span class="accent">Many surfaces.</span></h2>
+      <p style="font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--espresso); line-height: 1.35; margin-bottom: 16px;">A real conversation — natural back and forth — 100% yours. The layer before your funnel.</p>
+      <p style="font-style: italic; color: var(--slate); font-size: 15px;">Not a 2015 chatbot. There's nothing to replace. Just more signals to capture.</p>
     </div>
     <div class="phone" aria-label="inqa conversation mockup">
       <div class="phone-screen">
