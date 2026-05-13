@@ -5,7 +5,7 @@
 <title>inqa.ai — Website Concept</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Sora:wght@600&family=IBM+Plex+Sans:wght@400&family=Roboto:wght@700&display=swap" rel="stylesheet">
 <style>
   /* ============ BRAND TOKENS ============ */
   :root {
@@ -373,31 +373,51 @@
 
   /* ============ LOGO WALL (leak destinations) ============ */
   .logo-wall-strip {
-    margin-top: 20px;
+    margin-top: 24px;
     display: flex;
-    align-items: center;
-    gap: 24px;
+    flex-direction: column;
+    gap: 12px;
   }
   .logo-wall-caption {
     font-family: var(--body);
     font-size: 13px;
     font-style: italic;
     color: var(--slate);
-    white-space: nowrap;
-    flex-shrink: 0;
   }
   .logo-wall-slots {
     display: flex;
-    gap: 16px;
+    gap: 32px;
     align-items: center;
   }
   .logo-wall-slot {
-    font-family: var(--display);
+    color: var(--espresso);
+    opacity: 0.5;
+    line-height: 28px;
+    white-space: nowrap;
+  }
+  .logo-wall-slot[data-logo="chatgpt"] {
+    font-family: 'Sora', 'Inter', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.4px;
+  }
+  .logo-wall-slot[data-logo="reddit"] {
+    font-family: 'IBM Plex Sans', 'Nunito', 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.2px;
+  }
+  .logo-wall-slot[data-logo="youtube"] {
+    font-family: 'Roboto', 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 13px;
-    color: var(--slate);
-    opacity: 0.45;
-    letter-spacing: 0.2px;
+    font-size: 17px;
+    letter-spacing: 0;
+  }
+  .logo-wall-slot[data-logo="peer-forums"] {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.2px;
   }
 
   /* ============ BIG 3 OUTCOMES ============ */
@@ -989,9 +1009,9 @@
         <span class="logo-wall-caption">Where the conversation happens today —</span>
         <div class="logo-wall-slots">
           <div class="logo-wall-slot" data-logo="chatgpt">ChatGPT</div>
-          <div class="logo-wall-slot" data-logo="reddit">Reddit</div>
+          <div class="logo-wall-slot" data-logo="reddit">reddit</div>
           <div class="logo-wall-slot" data-logo="youtube">YouTube</div>
-          <div class="logo-wall-slot" data-logo="peer-forums">Peer forums</div>
+          <div class="logo-wall-slot" data-logo="peer-forums">Peer Forums</div>
         </div>
       </div>
     </div>
