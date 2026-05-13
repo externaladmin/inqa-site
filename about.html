@@ -259,20 +259,14 @@
     flex-direction: column;
     gap: 0;
   }
-  .founder-avatar {
-    width: 80px;
-    height: 80px;
-    background: var(--soft-blush);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--coral);
-    letter-spacing: 1px;
-    margin-bottom: 24px;
+  .founder-portrait {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    margin-bottom: 28px;
+    display: block;
     flex-shrink: 0;
   }
   .founder-name {
@@ -433,6 +427,7 @@
     .magentiq-wrapper,
     .contact-section { padding: 72px 24px; }
     .founders-grid { grid-template-columns: 1fr; gap: 48px; }
+    .founder-portrait { width: 140px; height: 140px; }
     footer { padding: 24px; }
   }
 </style>
@@ -500,7 +495,7 @@
 
       <!-- Deeps -->
       <div class="founder-card">
-        <div class="founder-avatar">DR</div>
+        <img class="founder-portrait" src="deeps.jpg" alt="Deeps Ramanathan">
         <div class="founder-name">Deeps Ramanathan</div>
         <div class="founder-title">Co-Founder &amp; CEO</div>
         <ul class="founder-bullets">
@@ -515,7 +510,7 @@
 
       <!-- Fei -->
       <div class="founder-card">
-        <div class="founder-avatar">FS</div>
+        <img class="founder-portrait" src="fei.jpg" alt="Fei Sha">
         <div class="founder-name">Fei Sha</div>
         <div class="founder-title">Co-Founder &amp; CTO</div>
         <ul class="founder-bullets">
