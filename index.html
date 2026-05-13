@@ -369,6 +369,7 @@
   }
   h2.diag-headline br + * ,
   h2.diag-headline br { display: block; margin-top: 12px; }
+  .diag-lighter { font-weight: 400; }
 
   /* ============ LOGO WALL (leak destinations) ============ */
   .logo-wall-strip {
@@ -391,11 +392,12 @@
     align-items: center;
   }
   .logo-wall-slot {
-    width: 80px;
-    height: 24px;
-    background: rgba(92,88,88,0.15);
-    border-radius: 4px;
-    opacity: 0.5;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--slate);
+    opacity: 0.45;
+    letter-spacing: 0.2px;
   }
 
   /* ============ BIG 3 OUTCOMES ============ */
@@ -415,7 +417,7 @@
     color: var(--espresso);
     letter-spacing: -0.8px;
     margin-bottom: 48px;
-    max-width: 700px;
+    white-space: nowrap;
   }
   h2.big3-title .accent { color: var(--coral); }
   .big3-cards {
@@ -921,7 +923,7 @@
     .phone { margin: 0 auto; }
     .big3-cards { grid-template-columns: 1fr; }
     .big3-wrapper { padding: 72px 24px; }
-    h2.big3-title { font-size: 32px; }
+    h2.big3-title { font-size: 28px; white-space: normal; }
     .logo-wall-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
     h2.diag-headline { font-size: 28px; }
   }
@@ -961,7 +963,7 @@
 <section class="diagram-wrapper" id="diagram">
   <div class="diagram-inner">
     <div class="eyebrow">Where your awareness spend goes today</div>
-    <h2 class="section-title diag-headline">You expect each event, ad, and post to create a <span class="accent">moment of curiosity.</span><br>Then buyers go to ChatGPT, Reddit, or peer forums.</h2>
+    <h2 class="section-title diag-headline">You expect each event, ad, and post to create a <span class="accent">moment of curiosity.</span><br><span class="diag-lighter">Then buyers go to ChatGPT, Reddit, or peer forums.</span></h2>
 
     <!-- BEFORE -->
     <div class="diagram-row today">
@@ -986,10 +988,10 @@
       <div class="logo-wall-strip">
         <span class="logo-wall-caption">Where the conversation happens today —</span>
         <div class="logo-wall-slots">
-          <div class="logo-wall-slot" data-logo="chatgpt" aria-label="ChatGPT wordmark"></div>
-          <div class="logo-wall-slot" data-logo="reddit" aria-label="Reddit wordmark"></div>
-          <div class="logo-wall-slot" data-logo="youtube" aria-label="YouTube wordmark"></div>
-          <div class="logo-wall-slot" data-logo="peer-forums" aria-label="Slack/Discord/peer communities"></div>
+          <div class="logo-wall-slot" data-logo="chatgpt">ChatGPT</div>
+          <div class="logo-wall-slot" data-logo="reddit">Reddit</div>
+          <div class="logo-wall-slot" data-logo="youtube">YouTube</div>
+          <div class="logo-wall-slot" data-logo="peer-forums">Peer forums</div>
         </div>
       </div>
     </div>
@@ -1403,7 +1405,7 @@
   <div class="mockup-inner">
     <div class="mockup-side">
       <div class="eyebrow">How it works</div>
-      <h2 class="section-title">One concierge. <span class="accent">Many surfaces.</span></h2>
+      <h2 class="section-title">One concierge.<br><span class="accent">Many surfaces.</span></h2>
       <p style="font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--espresso); line-height: 1.35; margin-bottom: 16px;">A real conversation — natural back and forth — 100% yours. The layer before your funnel.</p>
       <p style="font-style: italic; color: var(--slate); font-size: 15px;">Not a 2015 chatbot. There's nothing to replace. Just more signals to capture.</p>
     </div>
