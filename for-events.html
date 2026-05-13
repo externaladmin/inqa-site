@@ -494,6 +494,15 @@
     padding: 6px 14px;
     letter-spacing: 0.1px;
   }
+  .journey-human-note {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-top: 4px;
+    padding-left: 84px;
+    padding-bottom: 8px;
+  }
 
   /* ============ WHAT YOU'LL KNOW ============ */
   .insights-wrapper {
@@ -623,6 +632,29 @@
     letter-spacing: 0.3px;
   }
   .partnership-tradeoff .accent { color: var(--coral); }
+  .partnership-onboarding {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-top: 12px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .partnership-pricing {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-top: 28px;
+    margin-bottom: 4px;
+    letter-spacing: 0.1px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   /* ============ THESIS (dark rhythm break) ============ */
   .thesis-wrapper {
@@ -690,8 +722,15 @@
     font-family: var(--body);
     font-size: 18px;
     color: var(--slate);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     line-height: 1.6;
+  }
+  .cta-cohort {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-bottom: 28px;
   }
 
   /* ============ FOOTER ============ */
@@ -797,7 +836,7 @@
       <div class="problem-body">
         <p>Booth. Travel. Sponsorship. Hotel. Swag. A team of four for three days. You created a moment of genuine curiosity — someone stopped, listened, asked a question that mattered.</p>
         <p>Then the event ended. The conversation about your product — the real one, the one that happens on the flight home, in Slack with their team, in ChatGPT at midnight — happened somewhere you don't own. With information you didn't supply.</p>
-        <p>You got badge data. They got a generic follow-up email. And the six-figure investment became a spreadsheet of names.</p>
+        <p>You got badge data. The follow-up that went out couldn't tell anyone apart. And the six-figure investment became a spreadsheet of names.</p>
       </div>
     </div>
     <div class="spend-got">
@@ -923,9 +962,12 @@
         <div class="journey-step-body">
           <div class="journey-step-title">Routing — to the right next step</div>
           <p class="journey-step-desc">Every conversation ends with a deliberate next step. If they're ready to talk to a rep, the handoff comes with a brief — not a name in a spreadsheet. If they're not ready, they go into nurture with the right context. If they're clearly not a fit, a graceful close. No one gets the same generic follow-up email.</p>
+          <p class="journey-step-desc">Conversations flow into your CRM — HubSpot, Salesforce, Marketo — same as your existing forms do, with richer signal.</p>
           <span class="journey-step-aside">And if they need a rep — the rep gets a brief, not a list.</span>
         </div>
       </div>
+
+      <p class="journey-human-note">Always with a human in the loop — never a dead end.</p>
 
     </div>
   </div>
@@ -975,9 +1017,9 @@
 
       <div class="insight-card">
         <div class="insight-card-label">Conversion — events vs. other channels</div>
-        <div class="insight-card-stat">14%</div>
-        <p class="insight-card-headline">Event conversations converting at 14% — vs. 4% from website and 9% from ads.</p>
-        <p class="insight-card-note">Events create the highest-intent conversations. The question is whether you're capturing them. Now you have the number to prove it internally.</p>
+        <div class="insight-card-stat" style="font-size:64px;">3–4x</div>
+        <p class="insight-card-headline">Event conversations carry higher intent than any other channel. Industry research consistently shows 3–4x the conversion rate of website forms or ads.</p>
+        <p class="insight-card-note">Events create the highest-intent conversations. The question is whether you're capturing them.</p>
       </div>
     </div>
   </div>
@@ -990,6 +1032,8 @@
     <p class="partnership-quote">AI agents aren't sold off the shelf. <span class="accent">They're tuned for you.</span></p>
     <p class="partnership-body">inqa isn't a SaaS subscription. We work alongside your team — tuning the conversation, the qualification, the routing, the brand voice — against the conversion goals that matter to you.</p>
     <p class="partnership-tradeoff">Less hands-off. More hands-on. <span class="accent">Ready in weeks, not months.</span></p>
+    <p class="partnership-onboarding">A few weeks of tuning with our team — your product knowledge, your qualification logic, your brand voice. Live before your next event.</p>
+    <p class="partnership-pricing">Sized at roughly half the loaded cost of a junior sales rep — for a system that runs at every touchpoint, always on.</p>
   </div>
 </section>
 
@@ -1008,6 +1052,7 @@
     <div class="eyebrow">Ready to talk?</div>
     <h2 class="cta-title">Tell us about your next event.</h2>
     <p class="cta-sub">What's the conference? What are you launching there? We'll show you exactly what inqa would look like running at your booth — what the conversation captures, how it routes, what you'd know on the plane home.</p>
+    <p class="cta-cohort">We're working with our first cohort of customers now — happy to talk about being in it.</p>
     <form id="contact-form" class="contact-form" action="https://formspree.io/f/xaqvlggg" method="POST">
       <input type="text" name="first_name" placeholder="First name" required>
       <input type="email" name="email" placeholder="Work email" required>
