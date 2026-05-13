@@ -126,7 +126,8 @@
     color: var(--slate);
     margin-top: 28px;
     margin-bottom: 44px;
-    max-width: 720px;
+    max-width: 100%;
+    white-space: nowrap;
   }
   .cta-row {
     display: flex;
@@ -913,6 +914,7 @@
   @media (max-width: 900px) {
     nav ul { gap: 16px; font-size: 12px; }
     h1.hero-title { font-size: 48px; }
+    .hero-sub { white-space: normal; font-size: 16px; }
     .flow { grid-template-columns: 1fr; gap: 12px; }
     .flow-arrow { display: none; }
     .mockup-inner { grid-template-columns: 1fr; }
