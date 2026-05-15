@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For speakers — inqa.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============ BRAND TOKENS ============ */
+  :root {
+    --coral: #F27B7B;
+    --coral-dark: #993C1D;
+    --patina: #4A766E;
+    --patina-light: #E1F5EE;
+    --espresso: #3D2C2C;
+    --charcoal: #2D2A2A;
+    --slate: #5C5858;
+    --soft-blush: #FAE5E0;
+    --warm-white: #FAF8F6;
+    --warm-gray: #7A7170;
+    --display: 'Montserrat', sans-serif;
+    --body: 'Open Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    color: var(--charcoal);
+    background: var(--warm-white);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 56px;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100vw; height: 100%;
+    background: var(--warm-white);
+    border-bottom: 1px solid rgba(61,44,44,0.07);
+    z-index: -1;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--espresso);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .wordmark .ai { color: var(--coral); font-weight: 400; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  nav ul a { color: var(--slate); text-decoration: none; transition: color 0.2s; }
+  nav ul a:hover { color: var(--coral); }
+  nav ul a.active { color: var(--espresso); border-bottom: 2px solid var(--coral); padding-bottom: 2px; }
+
+  /* ============ HERO ============ */
+  .hero {
+    background: var(--soft-blush);
+    padding: 110px 56px 130px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-eyebrow::before { content: ""; width: 32px; height: 2px; background: var(--coral); }
+  h1.hero-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 1.08;
+    color: var(--espresso);
+    letter-spacing: -2px;
+    margin-bottom: 0;
+    max-width: 900px;
+  }
+  h1.hero-title .line2 {
+    display: block;
+    font-weight: 400;
+    font-size: 0.82em;
+    letter-spacing: -1.2px;
+    color: var(--espresso);
+    margin-top: 10px;
+    opacity: 0.72;
+  }
+  .hero-sub {
+    font-family: var(--body);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--slate);
+    margin-top: 32px;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 44px;
+  }
+  .hero-decoration {
+    position: absolute;
+    top: 50%; right: -100px;
+    transform: translateY(-50%);
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,123,123,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ============ BUTTONS ============ */
+  .btn {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.3px;
+    display: inline-block;
+  }
+  .btn-primary { background: var(--coral); color: white; }
+  .btn-primary:hover { background: #de6868; transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--espresso); border: 1.5px solid var(--espresso); }
+  .btn-secondary:hover { background: var(--espresso); color: white; }
+
+  /* ============ SHARED SECTION STYLES ============ */
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--patina); }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--espresso);
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  h2.section-title .accent { color: var(--coral); }
+
+  .section-lead {
+    font-family: var(--body);
+    font-size: 19px;
+    color: var(--slate);
+    margin-bottom: 56px;
+    max-width: 780px;
+    line-height: 1.6;
+  }
+
+  /* ============ SECTION 2 — WHERE THE QUESTIONS GO ============ */
+  .questions-wrapper {
+    background: var(--warm-white);
+    padding: 100px 56px;
+  }
+  .questions-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .questions-left h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--espresso);
+    letter-spacing: -0.8px;
+    margin-bottom: 40px;
+  }
+  .questions-verdict {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--espresso);
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1.5px solid rgba(74,118,110,0.18);
+  }
+  .questions-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .questions-eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--patina); }
+  .questions-some-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .questions-some-list p {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--espresso);
+    line-height: 1.6;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(61,44,44,0.07);
+  }
+  .questions-some-list p:last-child { border-bottom: none; }
+
+  /* ============ SECTION 3 — WHERE THE TALK ACTUALLY LIVES ============ */
+  .lives-wrapper {
+    background: var(--warm-white);
+    padding: 100px 56px;
+    border-top: 1px solid rgba(74,118,110,0.10);
+  }
+  .lives-inner { max-width: 1100px; margin: 0 auto; }
+  .lives-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .lives-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid rgba(74,118,110,0.14);
+    padding: 28px 24px 32px;
+    box-shadow: 0 2px 12px rgba(61,44,44,0.06);
+  }
+  .lives-card-accent {
+    width: 32px;
+    height: 3px;
+    background: var(--coral);
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .lives-card-name {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--espresso);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .lives-card-desc {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* ============ SECTION 4 — HOW IT WORKS FOR SPEAKERS ============ */
+  .flow-wrapper {
+    background: var(--soft-blush);
+    padding: 100px 56px;
+  }
+  .flow-inner { max-width: 1100px; margin: 0 auto; }
+
+  /* Journey steps */
+  .journey {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .journey::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 52px;
+    bottom: 52px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--coral), var(--patina));
+    z-index: 0;
+  }
+  .journey-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 28px;
+    align-items: start;
+    padding: 16px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .journey-step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .journey-step-num.coral { background: var(--coral); color: white; }
+  .journey-step-num.patina { background: var(--patina); color: white; }
+  .journey-step-num.espresso { background: var(--espresso); color: white; }
+  .journey-step-body { padding-top: 12px; padding-bottom: 24px; }
+  .journey-step-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--espresso);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .journey-step-desc {
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--slate);
+    line-height: 1.65;
+    max-width: 680px;
+  }
+  .journey-step-desc + .journey-step-desc { margin-top: 10px; }
+  .journey-step-aside {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--espresso);
+    background: white;
+    border: 1px solid rgba(74,118,110,0.16);
+    border-radius: 6px;
+    padding: 6px 14px;
+    letter-spacing: 0.1px;
+  }
+  .journey-human-note {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-top: 4px;
+    padding-left: 84px;
+    padding-bottom: 8px;
+  }
+
+  /* ============ SECTION 5 — TWO TRUTHS ============ */
+  .truths-wrapper {
+    background: var(--warm-white);
+    padding: 80px 56px;
+    text-align: center;
+    border-top: 1px solid rgba(74,118,110,0.10);
+  }
+  .truths-inner { max-width: 800px; margin: 0 auto; }
+  .truths-wrapper h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--espresso);
+    letter-spacing: -0.6px;
+    margin-bottom: 36px;
+  }
+  .truths-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 36px;
+  }
+  .truth-line {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--espresso);
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(61,44,44,0.08);
+    line-height: 1.4;
+  }
+  .truth-line:first-child { border-top: 1px solid rgba(61,44,44,0.08); }
+  .truths-closer {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--espresso);
+    margin-top: 36px;
+    letter-spacing: -0.3px;
+  }
+  .truths-closer .accent { color: var(--coral); }
+
+  /* ============ SECTION 6 — WHAT YOU'LL KNOW ============ */
+  .dashboard-wrapper {
+    background: var(--soft-blush);
+    padding: 100px 56px;
+  }
+  .dashboard-inner { max-width: 1100px; margin: 0 auto; }
+  .dashboard-frame {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-bottom: 32px;
+  }
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .dash-card {
+    background: white;
+    border: 1px solid rgba(74,118,110,0.14);
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 1px 3px rgba(45,42,42,0.04);
+  }
+  .dash-card-label {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .dash-card-list {
+    list-style: none;
+    padding: 0; margin: 0;
+  }
+  .dash-card-list li {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--charcoal);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(74,118,110,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .dash-card-list li:last-child { border-bottom: none; }
+  .dash-card-list .count {
+    color: var(--warm-gray);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .dash-card-stat {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--coral);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .dash-card-body {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .dash-card-note {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--patina);
+    margin-top: 10px;
+  }
+  .dash-card-quote {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--espresso);
+    line-height: 1.6;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(61,44,44,0.07);
+  }
+  .dash-card-quote:last-of-type { border-bottom: none; }
+  .dash-card-source {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--warm-gray);
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+  .dash-bar-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dash-bar-item { display: flex; flex-direction: column; gap: 4px; }
+  .dash-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--charcoal);
+  }
+  .dash-bar-label .pct {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--warm-gray);
+  }
+  .dash-bar-track {
+    height: 6px;
+    background: rgba(74,118,110,0.10);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .dash-bar-fill {
+    height: 100%;
+    background: var(--patina);
+    border-radius: 3px;
+    opacity: 0.7;
+  }
+
+  /* ============ SECTION 7 — HOW WE WORK ============ */
+  .partnership-wrapper {
+    background: var(--warm-white);
+    padding: 100px 56px;
+    border-top: 1px solid rgba(74,118,110,0.10);
+  }
+  .partnership-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .partnership-inner .eyebrow { justify-content: center; }
+  .partnership-quote {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--espresso);
+    line-height: 1.3;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .partnership-quote .accent { color: var(--coral); }
+  .partnership-body {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .partnership-onboarding {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-top: 12px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .partnership-pricing {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-top: 28px;
+    margin-bottom: 4px;
+    letter-spacing: 0.1px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .partnership-tradeoff {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-top: 32px;
+    letter-spacing: 0.3px;
+  }
+  .partnership-tradeoff .accent { color: var(--coral); }
+
+  /* ============ SECTION 8 — CROSS-REFERENCE ============ */
+  .crossref-wrapper {
+    background: var(--warm-white);
+    padding: 48px 56px;
+    text-align: center;
+    border-top: 1px solid rgba(74,118,110,0.10);
+  }
+  .crossref-line {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--slate);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .crossref-line a {
+    color: var(--patina);
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .crossref-line a:hover { color: var(--coral); }
+
+  /* ============ THESIS (dark rhythm break) ============ */
+  .thesis-wrapper {
+    background: var(--espresso);
+    padding: 130px 56px;
+    text-align: center;
+  }
+  .thesis-inner { max-width: 1000px; margin: 0 auto; }
+  .thesis-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--soft-blush);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    opacity: 0.6;
+  }
+  .thesis-line {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--warm-white);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+  .thesis-line-accent {
+    font-family: var(--display);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--coral);
+    letter-spacing: -1px;
+    margin-top: 6px;
+  }
+
+  /* ============ CTA ============ */
+  .cta-wrapper {
+    background: var(--warm-white);
+    padding: 100px 56px;
+    text-align: center;
+  }
+  .cta-inner { max-width: 700px; margin: 0 auto; }
+  .cta-inner .eyebrow { justify-content: center; }
+  h2.cta-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--espresso);
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  .cta-sub {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--slate);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .cta-cohort {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--slate);
+    margin-bottom: 28px;
+  }
+
+  /* ============ CONTACT FORM ============ */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 32px auto 0;
+  }
+  .contact-form input {
+    font-family: var(--body);
+    font-size: 16px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(74,118,110,0.25);
+    border-radius: 8px;
+    color: var(--charcoal);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .contact-form input:focus { border-color: var(--coral); }
+  .contact-form input::placeholder { color: var(--warm-gray); }
+  .contact-form .btn { width: 100%; }
+  .contact-success { display: none; padding: 24px 0; }
+  .contact-success.visible { display: block; }
+  .contact-success-msg {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--soft-blush);
+    padding: 36px 56px;
+    text-align: center;
+  }
+  .footer-contact {
+    font-family: var(--display);
+    font-size: 13px;
+    color: var(--slate);
+  }
+  .footer-contact a { color: var(--espresso); text-decoration: none; font-weight: 600; }
+  .footer-contact a:hover { color: var(--coral); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav ul { gap: 14px; font-size: 12px; }
+    .hero { padding: 80px 24px 90px; }
+    h1.hero-title { font-size: 48px; letter-spacing: -1.2px; }
+    .questions-wrapper, .lives-wrapper, .flow-wrapper, .dashboard-wrapper,
+    .partnership-wrapper, .truths-wrapper, .cta-wrapper, .crossref-wrapper { padding: 72px 24px; }
+    .questions-inner { grid-template-columns: 1fr; gap: 48px; }
+    .lives-grid { grid-template-columns: 1fr 1fr; }
+    .dashboard-grid { grid-template-columns: 1fr 1fr; }
+    .thesis-wrapper { padding: 90px 24px; }
+    .thesis-line, .thesis-line-accent { font-size: 36px; }
+    footer { padding: 28px 24px; }
+    h2.section-title, .questions-left h2, .truths-wrapper h2 { font-size: 28px; }
+    .partnership-quote { font-size: 24px; }
+    h2.cta-title { font-size: 36px; }
+    .journey::before { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .lives-grid { grid-template-columns: 1fr; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a class="wordmark" href="/">inqa<span class="ai">.ai</span></a>
+  <ul>
+    <li><a href="/how-it-works">How it works</a></li>
+    <li><a href="/for-events">For events</a></li>
+    <li><a href="/for-speakers" class="active">For speakers</a></li>
+    <li><a href="/for-funnels">For funnels</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============ SECTION 1 — HERO ============ -->
+<section class="hero">
+  <div class="hero-decoration"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">For speakers</div>
+    <h1 class="hero-title">
+      &ldquo;Any questions?&rdquo;
+      <span class="line2">Then silence. Then you walk off.</span>
+    </h1>
+    <p class="hero-sub">For founders, executives, and marketing leaders who speak — keynotes, panels, all-hands.</p>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary" href="#contact">Talk about your next talk</a>
+      <a class="btn btn-secondary" href="#how-it-works">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — WHERE THE QUESTIONS GO ============ -->
+<section class="questions-wrapper">
+  <div class="questions-inner">
+    <div class="questions-left">
+      <div class="questions-eyebrow">Where the questions go</div>
+      <h2>You finished. Three hands went up.<br>Two hundred didn't.</h2>
+      <p class="questions-verdict">The talk landed. The conversation didn't.</p>
+    </div>
+    <div class="questions-right">
+      <div class="questions-some-list">
+        <p>Some people don't ask in public.</p>
+        <p>Some have a question that takes longer than the Q&amp;A allows.</p>
+        <p>Some are still processing what you said.</p>
+        <p>Some thought of the question on the drive home.</p>
+        <p>Some asked their colleague instead. Or Reddit. Or ChatGPT.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — WHERE THE TALK ACTUALLY LIVES ============ -->
+<section class="lives-wrapper">
+  <div class="lives-inner">
+    <div class="eyebrow">Where the talk actually lives</div>
+    <h2 class="section-title">The questions don't end at Q&amp;A.<br><span class="accent">They start there.</span></h2>
+    <p class="section-lead">The hallway, the hotel bar, the train home, the next morning's group chat. People keep talking about what you said — to each other, to ChatGPT, to whoever happens to be nearby. The conversation continues. You just don't see it.</p>
+
+    <div class="lives-grid">
+      <div class="lives-card">
+        <div class="lives-card-accent"></div>
+        <div class="lives-card-name">The walk to the next session</div>
+        <p class="lives-card-desc">They mention something you said to a colleague. The colleague pushes back. Now there's a counter-argument forming you didn't get to address.</p>
+      </div>
+      <div class="lives-card">
+        <div class="lives-card-accent"></div>
+        <div class="lives-card-name">The drive home</div>
+        <p class="lives-card-desc">Two hours of dead time. They have a specific question that came to them mid-talk. By the time they're home, the question has become an objection.</p>
+      </div>
+      <div class="lives-card">
+        <div class="lives-card-accent"></div>
+        <div class="lives-card-name">The next morning's Slack</div>
+        <p class="lives-card-desc">They post in their team's channel: "so I saw this talk yesterday — what do you all think about [your idea]?" Their team forms an opinion without you in the room.</p>
+      </div>
+      <div class="lives-card">
+        <div class="lives-card-accent"></div>
+        <div class="lives-card-name">The follow-up search</div>
+        <p class="lives-card-desc">They search for your name. They find your old work. They find your competitor's response. They don't find what you actually said yesterday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — HOW INQA WORKS FOR SPEAKERS ============ -->
+<section class="flow-wrapper" id="how-it-works">
+  <div class="flow-inner">
+    <div class="eyebrow">How it works for speakers</div>
+    <h2 class="section-title">One QR. <span class="accent">During and after your talk.</span></h2>
+    <p class="section-lead" style="font-style:italic;">Not a chatbot. A real-time conversation trained on your talk, your point of view, your work. Captures the questions that never get asked — and the ones that come up later.</p>
+
+    <div class="journey">
+
+      <div class="journey-step">
+        <div class="journey-step-num coral">1</div>
+        <div class="journey-step-body">
+          <div class="journey-step-title">On the slide</div>
+          <p class="journey-step-desc">A QR code on your opening slide, your closing slide, and optionally every slide. Audiences scan when a question forms — not when Q&amp;A starts. No app. No form.</p>
+          <span class="journey-step-aside">No app. No form. Just a conversation.</span>
+        </div>
+      </div>
+
+      <div class="journey-step">
+        <div class="journey-step-num coral">2</div>
+        <div class="journey-step-body">
+          <div class="journey-step-title">During the talk</div>
+          <p class="journey-step-desc">In the room, while you're still on stage, people are typing or asking by voice. The conversation runs in your voice — trained on your topic, your data, your perspective.</p>
+          <p class="journey-step-desc" style="font-style:italic; color: var(--warm-gray);">Most audiences won't pull out phones mid-talk. The ones with the real questions will.</p>
+        </div>
+      </div>
+
+      <div class="journey-step">
+        <div class="journey-step-num patina">3</div>
+        <div class="journey-step-body">
+          <div class="journey-step-title">After the talk</div>
+          <p class="journey-step-desc">The talk ends. You walk off. The conversation doesn't. People keep asking — in the hallway, on the way to the next session, on the train home, three days later. The link stays live.</p>
+        </div>
+      </div>
+
+      <div class="journey-step">
+        <div class="journey-step-num patina">4</div>
+        <div class="journey-step-body">
+          <div class="journey-step-title">The read — for you</div>
+          <p class="journey-step-desc">The next morning: every question your audience actually had. What landed. What confused. Top themes. Top objections. Quotes you can use for your next post, your next deck, or to defend the talk against critics.</p>
+        </div>
+      </div>
+
+      <div class="journey-step">
+        <div class="journey-step-num espresso">5</div>
+        <div class="journey-step-body">
+          <div class="journey-step-title">Routed</div>
+          <p class="journey-step-desc">People who want to follow up — to your calendar, to your team, to a longer piece of content, to your book or your company. Every conversation ends with a deliberate next step.</p>
+          <span class="journey-step-aside">And if they need to talk to your team — the handoff comes with a brief.</span>
+        </div>
+      </div>
+
+      <p class="journey-human-note">Always with a human in the loop — never a dead end.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 — TWO TRUTHS ============ -->
+<section class="truths-wrapper">
+  <div class="truths-inner">
+    <h2>Two truths about your audience.</h2>
+    <div class="truths-list">
+      <div class="truth-line">Some people don't ask in public.</div>
+      <div class="truth-line">Some people don't ask at all — until later.</div>
+    </div>
+    <p class="truths-closer"><span class="accent">inqa serves both.</span></p>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 — WHAT YOU'LL KNOW ============ -->
+<section class="dashboard-wrapper" id="insights">
+  <div class="dashboard-inner">
+    <div class="eyebrow">What you'll know</div>
+    <h2 class="section-title">The read on your talk<br>you've never had.</h2>
+    <p class="section-lead">Not a vanity dashboard. The read on your audience that lets you know exactly what landed — and what to change for the next talk, the next deck, the next conference.</p>
+    <p class="dashboard-frame">What you might see, depending on the talk you give.</p>
+
+    <div class="dashboard-grid">
+
+      <div class="dash-card">
+        <div class="dash-card-label">Top questions from your audience</div>
+        <ul class="dash-card-list">
+          <li>"How do you actually do the thing you talked about?" <span class="count">84</span></li>
+          <li>"What about [edge case]?" <span class="count">62</span></li>
+          <li>"Where do I start?" <span class="count">41</span></li>
+          <li>"How does this work for my situation?" <span class="count">33</span></li>
+        </ul>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-label">Top themes</div>
+        <div class="dash-bar-row">
+          <div class="dash-bar-item">
+            <div class="dash-bar-label"><span>Practical application</span><span class="pct">38%</span></div>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:38%"></div></div>
+          </div>
+          <div class="dash-bar-item">
+            <div class="dash-bar-label"><span>Skepticism / pushback</span><span class="pct">22%</span></div>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:22%"></div></div>
+          </div>
+          <div class="dash-bar-item">
+            <div class="dash-bar-label"><span>Deeper context wanted</span><span class="pct">18%</span></div>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:18%"></div></div>
+          </div>
+          <div class="dash-bar-item">
+            <div class="dash-bar-label"><span>Connection to existing work</span><span class="pct">14%</span></div>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:14%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-label">Who showed up</div>
+        <ul class="dash-card-list">
+          <li>Director and above <span class="count">41%</span></li>
+          <li>Individual contributor <span class="count">28%</span></li>
+          <li>Founder / CEO <span class="count">14%</span></li>
+          <li>Unidentified <span class="count">17%</span></li>
+        </ul>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-label">Where you lost them</div>
+        <div class="dash-card-stat" style="font-size:42px; margin-bottom:12px;">Slide 14</div>
+        <p class="dash-card-body">The two minutes around slide 14 generated the most "I'm not sure I followed" signals. Worth reviewing.</p>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-label">Quotes you can use</div>
+        <div class="dash-card-quote">"This actually changes how I think about [topic]."<div class="dash-card-source">Director, healthcare</div></div>
+        <div class="dash-card-quote">"I want to send this to my whole team."<div class="dash-card-source">VP Engineering, fintech</div></div>
+        <p class="dash-card-note" style="margin-top:12px;">Three more reactions worth pulling into your next deck or post.</p>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-label">Conversion to next step</div>
+        <ul class="dash-card-list">
+          <li>Asked for a meeting <span class="count">14%</span></li>
+          <li>Downloaded the deck <span class="count">22%</span></li>
+          <li>Bought the book <span class="count">9%</span></li>
+          <li>Into nurture with follow-up <span class="count">55%</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 — HOW WE WORK ============ -->
+<section class="partnership-wrapper" id="partnership">
+  <div class="partnership-inner">
+    <div class="eyebrow">How we work</div>
+    <p class="partnership-quote">AI agents aren't sold off the shelf. <span class="accent">They're tuned for you.</span></p>
+    <p class="partnership-body">inqa isn't a SaaS subscription. We work alongside your team — tuning the conversation, the qualification, the routing, the brand voice — against what makes a talk land for your audience.</p>
+    <p class="partnership-onboarding">A few weeks of tuning with our team — your work, your point of view, your brand voice. Live before your next talk.</p>
+    <p class="partnership-pricing">Sized at roughly half the loaded cost of a junior sales rep — for a system that runs at every touchpoint, always on.</p>
+    <p class="partnership-tradeoff">Less hands-off. More hands-on. <span class="accent">Ready in weeks, not months.</span></p>
+  </div>
+</section>
+
+<!-- ============ SECTION 8 — CROSS-REFERENCE ============ -->
+<section class="crossref-wrapper">
+  <div class="crossref-line">
+    Sponsoring the booth too? Running ads, social, content? inqa is one concierge across all of them. <a href="/for-events">→ see how it works for events</a>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 — THESIS ============ -->
+<section class="thesis-wrapper">
+  <div class="thesis-inner">
+    <div class="thesis-eyebrow">The whole point</div>
+    <p class="thesis-line">Change how someone thinks about something —</p>
+    <p class="thesis-line-accent">before others do.</p>
+  </div>
+</section>
+
+<!-- ============ SECTION 10 — CTA ============ -->
+<section class="cta-wrapper" id="contact">
+  <div class="cta-inner">
+    <div class="eyebrow">Get in touch</div>
+    <h2 class="cta-title">Tell us about your next talk.</h2>
+    <p class="cta-sub">What's the talk? Who's the audience? We'll show you exactly what inqa would look like running during it — what the conversation captures, how it routes, what you'd know the next morning.</p>
+    <p class="cta-cohort">We're working with our first cohort of customers now — happy to talk about being in it.</p>
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xaqvlggg" method="POST">
+      <input type="text" name="first_name" placeholder="First name" required>
+      <input type="email" name="email" placeholder="Work email" required>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <div id="contact-success" class="contact-success">
+      <p class="contact-success-msg">Thanks — we'll be in touch shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-contact">inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026</div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('contact-success').classList.add('visible');
+        }
+      } catch(err) {}
+    });
+  }
+</script>
+
+</body>
+</html>
