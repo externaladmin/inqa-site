@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>[Brand] — [Tagline]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============ BRAND TOKENS — edit these first ============ */
+  :root {
+    --accent:       #F27B7B;   /* primary accent — buttons, highlights */
+    --accent-dark:  #993C1D;
+    --secondary:    #4A766E;   /* eyebrows, icons */
+    --secondary-light: #E1F5EE;
+    --heading:      #3D2C2C;   /* h1, h2 */
+    --body-dark:    #2D2A2A;   /* body copy */
+    --muted:        #5C5858;   /* secondary / italic text */
+    --bg-tinted:    #FAE5E0;   /* hero bg, card fills */
+    --bg-base:      #FAF8F6;   /* page background */
+    --display: 'Montserrat', sans-serif;
+    --body:    'Open Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    color: var(--body-dark);
+    background: var(--bg-base);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 56px;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: var(--bg-base);
+    border-bottom: 1px solid rgba(61,44,44,0.07);
+    z-index: -1;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--heading);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .wordmark .tld { color: var(--accent); font-weight: 400; }
+  nav ul { list-style: none; display: flex; gap: 36px; font-family: var(--display); font-size: 14px; font-weight: 600; }
+  nav ul a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  nav ul a:hover { color: var(--accent); }
+
+  /* ============ HERO ============ */
+  .hero {
+    background: var(--bg-tinted);
+    padding: 110px 56px 130px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--secondary);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-eyebrow::before { content: ""; width: 32px; height: 2px; background: var(--accent); }
+  h1.hero-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 0.98;
+    color: var(--heading);
+    letter-spacing: -2.5px;
+    margin-bottom: 12px;
+  }
+  h1.hero-title .lighter { font-weight: 400; letter-spacing: -1.5px; font-size: 0.9em; }
+  h1.hero-title .accent { color: var(--accent); }
+  .cta-row { display: flex; gap: 16px; align-items: center; }
+  .btn {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--heading); border: 1.5px solid var(--heading); }
+  .btn-secondary:hover { background: var(--heading); color: white; }
+  .hero-decoration {
+    position: absolute; top: 50%; right: -100px;
+    transform: translateY(-50%);
+    width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,123,123,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ============ SCROLLING GALLERY STRIP ============ */
+  .gallery-outer {
+    overflow: hidden;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .gallery-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    padding: 12px 24px;
+    animation: gallery-scroll 44s linear infinite;
+  }
+  .gallery-track:hover { animation-play-state: paused; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .gallery-card {
+    width: 220px;
+    flex-shrink: 0;
+    background: white;
+    border: 1px solid rgba(74,118,110,0.13);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(45,42,42,0.07);
+  }
+  .gallery-card-label {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .gallery-card-line { font-family: var(--body); font-size: 14px; color: var(--body-dark); line-height: 1.5; }
+
+  /* ============ SECTIONS ============ */
+  section.padded { padding: 100px 56px; max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--secondary);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--secondary); }
+  h2.section-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--heading);
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  h2 .accent { color: var(--accent); }
+  .section-lead { font-family: var(--body); font-size: 19px; color: var(--muted); margin-bottom: 40px; max-width: 780px; line-height: 1.6; }
+
+  /* ============ BEFORE / AFTER DIAGRAM ============ */
+  .diagram-wrapper { background: var(--bg-tinted); padding: 90px 56px; }
+  .diagram-inner { max-width: 1100px; margin: 0 auto; }
+  .diagram-row { border-radius: 14px; padding: 48px 56px; margin-bottom: 32px; }
+  .diagram-row.today { background: var(--heading); color: var(--bg-tinted); }
+  .diagram-row.with-brand { background: white; border: 1.5px solid rgba(74,118,110,0.2); }
+  .diagram-label { font-family: var(--display); font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; opacity: 0.7; }
+  .flow { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+  .flow-node { border-radius: 10px; padding: 16px 20px; min-width: 160px; }
+  .flow-node-label { font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; opacity: 0.7; }
+  .flow-node-content { font-size: 14px; font-weight: 600; }
+  .flow-arrow { font-size: 24px; opacity: 0.4; }
+  .diagram-summary { font-style: italic; font-size: 15px; opacity: 0.75; }
+
+  /* ============ FEATURE CARDS (3-up) ============ */
+  .big3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .big3-card { background: white; border: 1px solid rgba(74,118,110,0.15); border-radius: 16px; padding: 36px; }
+  .big3-number { font-family: var(--display); font-weight: 700; font-size: 64px; color: var(--secondary); line-height: 1; margin-bottom: 20px; opacity: 0.25; }
+  .big3-card-title { font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--heading); margin-bottom: 12px; }
+  .big3-card-body { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+  /* ============ INSIGHT / STAT CARDS ============ */
+  .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .insight-card { background: var(--heading); border-radius: 14px; padding: 32px; color: white; }
+  .insight-card-stat { font-family: var(--display); font-weight: 700; font-size: 56px; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+  .insight-card-label { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; opacity: 0.7; }
+  .insight-card-body { font-size: 14px; opacity: 0.8; line-height: 1.6; }
+
+  /* ============ CONTACT FORM ============ */
+  .contact-wrapper { background: var(--bg-tinted); padding: 100px 56px; }
+  .contact-inner { max-width: 680px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  input, textarea {
+    width: 100%;
+    font-family: var(--body);
+    font-size: 15px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(61,44,44,0.15);
+    border-radius: 8px;
+    background: white;
+    color: var(--body-dark);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus, textarea:focus { border-color: var(--secondary); }
+  textarea { resize: vertical; margin-bottom: 20px; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--heading);
+    color: rgba(250,232,224,0.7);
+    padding: 48px 56px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer a { color: rgba(250,232,224,0.5); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav ul { display: none; }
+    .hero { padding: 60px 24px 80px; }
+    h1.hero-title { font-size: 44px; letter-spacing: -1.5px; }
+    h2.section-title { font-size: 28px; }
+    section.padded { padding: 60px 24px; }
+    .big3-grid { grid-template-columns: 1fr; }
+    .insights-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .diagram-row { padding: 28px 24px; }
+    .contact-wrapper { padding: 60px 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a class="wordmark" href="/">[brand]<span class="tld">.ai</span></a>
+  <ul>
+    <li><a href="/how-it-works">How it works</a></li>
+    <li><a href="/use-case">Use case</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="#contact" class="btn btn-primary">Talk to us</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-decoration"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">[Context — who this is for or what problem it solves]</div>
+    <h1 class="hero-title">
+      <span class="accent">[Brand]</span> is [main value prop] <span class="lighter">— [qualifier or moment].</span>
+    </h1>
+  </div>
+
+  <!-- Scrolling gallery strip — duplicate cards for seamless loop -->
+  <div class="gallery-outer" style="margin: 40px 0 0;">
+    <div class="gallery-track">
+      <div class="gallery-card"><div class="gallery-card-label">Channel 1</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 2</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 3</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 4</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 5</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 6</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="gallery-card"><div class="gallery-card-label">Channel 1</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 2</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 3</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 4</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 5</div><div class="gallery-card-line">Trigger → outcome</div></div>
+      <div class="gallery-card"><div class="gallery-card-label">Channel 6</div><div class="gallery-card-line">Trigger → outcome</div></div>
+    </div>
+  </div>
+
+  <div class="hero-inner" style="margin-top: 44px;">
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Primary CTA</a>
+      <a class="btn btn-secondary" href="#how-it-works">Secondary CTA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER DIAGRAM ============ -->
+<section class="diagram-wrapper">
+  <div class="diagram-inner">
+    <div class="eyebrow">The problem today</div>
+    <h2 class="section-title">[Problem headline] —<br><span class="accent">[consequence].</span></h2>
+
+    <div class="diagram-row today">
+      <div class="diagram-label">Today</div>
+      <div class="flow">
+        <div class="flow-node" style="background:rgba(255,255,255,0.08);">
+          <div class="flow-node-label">Your channels</div>
+          <div class="flow-node-content" style="color:rgba(250,232,224,0.9);">Channel A · Channel B · Channel C</div>
+        </div>
+        <div class="flow-arrow" style="color:rgba(250,232,224,0.4);">→</div>
+        <div class="flow-node" style="background:rgba(255,255,255,0.06);">
+          <div class="flow-node-label">Curiosity / intent</div>
+          <div class="flow-node-content" style="color:rgba(250,232,224,0.9);">Real people, real questions</div>
+        </div>
+        <div class="flow-arrow" style="color:rgba(250,232,224,0.4);">→</div>
+        <div class="flow-node" style="background:rgba(242,123,123,0.15); border: 1px solid rgba(242,123,123,0.3);">
+          <div class="flow-node-label">Goes to</div>
+          <div class="flow-node-content" style="color:#F27B7B;">[Competitor / alternative] · [Forum] · [Other]</div>
+        </div>
+      </div>
+      <p class="diagram-summary" style="color:rgba(250,232,224,0.75);">You paid for the awareness. [Someone else] captured the result.</p>
+    </div>
+
+    <div class="diagram-row with-brand">
+      <div class="diagram-label" style="color:var(--secondary);">With [Brand]</div>
+      <div class="flow">
+        <div class="flow-node" style="background:var(--bg-tinted);">
+          <div class="flow-node-label">Your channels</div>
+          <div class="flow-node-content">Channel A · Channel B · Channel C</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node" style="background:var(--bg-tinted);">
+          <div class="flow-node-label">Intent</div>
+          <div class="flow-node-content">Real questions</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node" style="background:var(--secondary-light); border: 1px solid rgba(74,118,110,0.2);">
+          <div class="flow-node-label">Captured by</div>
+          <div class="flow-node-content" style="color:var(--secondary);">[Brand] conversation</div>
+        </div>
+      </div>
+      <p class="diagram-summary" style="color:var(--muted);">[Positive outcome statement.]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREE FEATURE CARDS ============ -->
+<section class="padded" id="features">
+  <div class="eyebrow">How it works</div>
+  <h2 class="section-title">Three things [Brand] does<br><span class="accent">that nothing else does.</span></h2>
+  <p class="section-lead">[Supporting sentence that frames the three pillars below.]</p>
+
+  <div class="big3-grid">
+    <div class="big3-card">
+      <div class="big3-number">01</div>
+      <div class="big3-card-title">Feature One</div>
+      <p class="big3-card-body">[Description of the first core capability. What it does and why it matters.]</p>
+    </div>
+    <div class="big3-card">
+      <div class="big3-number">02</div>
+      <div class="big3-card-title">Feature Two</div>
+      <p class="big3-card-body">[Description of the second core capability.]</p>
+    </div>
+    <div class="big3-card">
+      <div class="big3-number">03</div>
+      <div class="big3-card-title">Feature Three</div>
+      <p class="big3-card-body">[Description of the third core capability.]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHT / STAT CARDS ============ -->
+<section class="padded" style="background: white;">
+  <div class="eyebrow">The signal</div>
+  <h2 class="section-title">What you learn<br><span class="accent">from every conversation.</span></h2>
+
+  <div class="insights-grid">
+    <div class="insight-card">
+      <div class="insight-card-stat">3–4x</div>
+      <div class="insight-card-label">Metric label</div>
+      <p class="insight-card-body">[Context for the stat — what it means and why it matters to the buyer.]</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-stat">89%</div>
+      <div class="insight-card-label">Metric label</div>
+      <p class="insight-card-body">[Context for the stat.]</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-stat">2 wks</div>
+      <div class="insight-card-label">Time to value</div>
+      <p class="insight-card-body">[Context for the stat.]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA ============ -->
+<section class="contact-wrapper" id="contact">
+  <div class="contact-inner">
+    <div class="eyebrow">Get in touch</div>
+    <h2 class="section-title">[CTA headline]</h2>
+    <p class="section-lead">[One sentence framing who should reach out and why.]</p>
+    <p style="font-family:var(--body); font-style:italic; font-size:15px; color:var(--muted); margin-bottom:24px;">[Cohort / timing / urgency note — optional]</p>
+    <form id="contact-form" action="https://formspree.io/f/[YOUR_FORMSPREE_ID]" method="POST">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Work email" required>
+      </div>
+      <textarea name="message" placeholder="What are you working on?" rows="4" style="display:block; width:100%; margin-bottom:20px;"></textarea>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div>[Brand Inc.], [Location]. <a href="/about">About</a> · <a href="/privacy">Privacy</a></div>
+  <div style="opacity:0.4; font-size:12px;">&copy; 2026 [Brand]</div>
+</footer>
+
+</body>
+</html>
