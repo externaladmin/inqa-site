@@ -697,6 +697,31 @@
     margin-top: 6px;
   }
 
+  /* ============ CROSSREF ============ */
+  .crossref-wrapper {
+    background: var(--warm-white);
+    padding: 64px 56px;
+    text-align: center;
+  }
+  .crossref-line {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--slate);
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .crossref-line a {
+    color: var(--slate);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s;
+  }
+  .crossref-line a:hover {
+    text-decoration-color: var(--coral);
+  }
+
   /* ============ CTA ============ */
   .cta-wrapper {
     background: var(--warm-white);
@@ -788,6 +813,7 @@
     h1.hero-title { font-size: 44px; letter-spacing: -1px; }
     .problem-wrapper, .leak-wrapper, .flow-wrapper, .insights-wrapper,
     .partnership-wrapper, .cta-wrapper { padding: 72px 24px; }
+    .crossref-wrapper { padding: 40px 24px; }
     .problem-inner { grid-template-columns: 1fr; gap: 48px; }
     .leak-grid { grid-template-columns: 1fr 1fr; }
     .insights-grid { grid-template-columns: 1fr; }
@@ -808,6 +834,7 @@
   <ul>
     <li><a href="/how-it-works">How it works</a></li>
     <li><a href="/for-events" class="active">For events</a></li>
+    <li><a href="/for-speakers">For speakers</a></li>
     <li><a href="/for-funnels">For funnels</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1045,6 +1072,11 @@
     <p class="thesis-line">Change how someone thinks about something —</p>
     <p class="thesis-line-accent">before others do.</p>
   </div>
+</section>
+
+<!-- ============ CROSSREF ============ -->
+<section class="crossref-wrapper">
+  <p class="crossref-line">Speaking at the conference too? inqa runs on your slide just as well as it runs at your booth &mdash; same concierge, different surface. <a href="/for-speakers">&rarr; see how it works for speakers</a></p>
 </section>
 
 <!-- ============ CTA ============ -->

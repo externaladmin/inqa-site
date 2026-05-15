@@ -221,6 +221,39 @@
     line-height: 1.6;
   }
 
+  /* ============ BUYER MANIFESTO ============ */
+  .manifesto-wrapper {
+    background: var(--warm-white);
+    padding: 96px 56px;
+    text-align: center;
+  }
+  .manifesto-setup {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--espresso);
+    margin-bottom: 48px;
+  }
+  .manifesto-quote {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 40px;
+    line-height: 1.45;
+    color: var(--espresso);
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .manifesto-consequence {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 23px;
+    color: var(--espresso);
+    margin-top: 48px;
+  }
+  .manifesto-consequence .kicker {
+    color: var(--coral);
+  }
+
   /* ============ BEFORE / AFTER DIAGRAM ============ */
   .diagram-wrapper {
     background: var(--soft-blush);
@@ -1216,6 +1249,15 @@
     h2.big3-title { font-size: 28px; white-space: normal; }
     .logo-wall-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
     h2.diag-headline { font-size: 28px; }
+    .manifesto-wrapper { padding: 64px 24px; }
+    .manifesto-quote { font-size: 24px; }
+    .manifesto-setup { font-size: 16px; margin-bottom: 32px; }
+    .manifesto-consequence { font-size: 18px; margin-top: 32px; }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .manifesto-quote { font-size: 32px; }
+    .manifesto-wrapper { padding: 80px 40px; }
   }
 </style>
 </head>
@@ -1227,6 +1269,7 @@
   <ul>
     <li><a href="/how-it-works">How it works</a></li>
     <li><a href="/for-events">For events</a></li>
+    <li><a href="/for-speakers">For speakers</a></li>
     <li><a href="/for-funnels">For funnels</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1271,11 +1314,52 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Events</div>
-          <div class="deploy-line">Booth scan <span class="arr">→</span> conversation that continues at home</div>
+          <div class="deploy-line">QR on the booth <span class="arr">→</span> conversation continues home</div>
         </div>
       </div>
 
-      <!-- CARD 2: Ads -->
+      <!-- CARD 2: Talks (NEW) -->
+      <div class="deploy-card">
+        <div class="deploy-card-image">
+          <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Presentation slide -->
+            <rect x="12" y="14" width="118" height="82" rx="6" fill="white" stroke="#4A766E" stroke-width="2"/>
+            <!-- Slide content lines -->
+            <rect x="22" y="26" width="50" height="5" rx="2" fill="#3D2C2C" opacity="0.18"/>
+            <rect x="22" y="36" width="38" height="4" rx="2" fill="#3D2C2C" opacity="0.1"/>
+            <rect x="22" y="45" width="44" height="4" rx="2" fill="#3D2C2C" opacity="0.08"/>
+            <rect x="22" y="54" width="34" height="4" rx="2" fill="#3D2C2C" opacity="0.07"/>
+            <!-- QR on slide -->
+            <rect x="96" y="22" width="26" height="26" rx="3" fill="#FAE5E0"/>
+            <rect x="100" y="26" width="7" height="7" rx="1" fill="#4A766E"/>
+            <rect x="109" y="26" width="3" height="3" rx="0.5" fill="#4A766E" opacity="0.7"/>
+            <rect x="113" y="26" width="3" height="3" rx="0.5" fill="#4A766E" opacity="0.5"/>
+            <rect x="109" y="31" width="3" height="3" rx="0.5" fill="#4A766E" opacity="0.5"/>
+            <rect x="100" y="35" width="7" height="7" rx="1" fill="#4A766E"/>
+            <rect x="109" y="38" width="7" height="3" rx="0.5" fill="#4A766E" opacity="0.6"/>
+            <!-- Stand/lectern hint -->
+            <rect x="67" y="96" width="4" height="18" rx="2" fill="#3D2C2C" opacity="0.15"/>
+            <rect x="55" y="112" width="28" height="4" rx="2" fill="#3D2C2C" opacity="0.12"/>
+            <!-- Arrow -->
+            <line x1="138" y1="65" x2="158" y2="65" stroke="#F27B7B" stroke-width="2.5" stroke-linecap="round"/>
+            <polyline points="152,59 158,65 152,71" stroke="#F27B7B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Phone -->
+            <rect x="164" y="30" width="38" height="66" rx="8" fill="#4A766E"/>
+            <path d="M172 96 L164 106 L184 96" fill="#4A766E"/>
+            <rect x="172" y="40" width="22" height="3.5" rx="1.5" fill="white" opacity="0.8"/>
+            <rect x="172" y="49" width="18" height="3.5" rx="1.5" fill="white" opacity="0.6"/>
+            <rect x="172" y="58" width="20" height="3.5" rx="1.5" fill="white" opacity="0.5"/>
+            <rect x="172" y="67" width="14" height="3.5" rx="1.5" fill="white" opacity="0.35"/>
+            <rect x="172" y="76" width="18" height="3.5" rx="1.5" fill="white" opacity="0.25"/>
+          </svg>
+        </div>
+        <div class="deploy-card-body">
+          <div class="deploy-label">Talks</div>
+          <div class="deploy-line">QR on the slide <span class="arr">→</span> questions captured after "any questions?"</div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Ads -->
       <div class="deploy-card">
         <div class="deploy-card-image">
           <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1299,11 +1383,11 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Ads</div>
-          <div class="deploy-line">Click-through to a real Q&amp;A — not a form</div>
+          <div class="deploy-line">Click-through link <span class="arr">→</span> instant conversation, not a form</div>
         </div>
       </div>
 
-      <!-- CARD 3: Social -->
+      <!-- CARD 4: Social -->
       <div class="deploy-card">
         <div class="deploy-card-image">
           <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1328,11 +1412,11 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Social</div>
-          <div class="deploy-line">Reply to a post <span class="arr">→</span> answer to the actual question</div>
+          <div class="deploy-line">Link in bio or post reply <span class="arr">→</span> answer to the actual question</div>
         </div>
       </div>
 
-      <!-- CARD 4: QR / OOH -->
+      <!-- CARD 5: OOH -->
       <div class="deploy-card">
         <div class="deploy-card-image">
           <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1356,12 +1440,12 @@
           </svg>
         </div>
         <div class="deploy-card-body">
-          <div class="deploy-label">QR / OOH</div>
-          <div class="deploy-line">Billboard scan <span class="arr">→</span> context they can act on</div>
+          <div class="deploy-label">OOH</div>
+          <div class="deploy-line">Billboard QR <span class="arr">→</span> context they can act on</div>
         </div>
       </div>
 
-      <!-- CARD 5: Email -->
+      <!-- CARD 6: Email -->
       <div class="deploy-card">
         <div class="deploy-card-image">
           <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1383,11 +1467,11 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Email</div>
-          <div class="deploy-line">They reply <span class="arr">→</span> conversation, not a thread</div>
+          <div class="deploy-line">Embedded link <span class="arr">→</span> conversation, not a thread</div>
         </div>
       </div>
 
-      <!-- CARD 6: Website -->
+      <!-- CARD 7: Website -->
       <div class="deploy-card">
         <div class="deploy-card-image">
           <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1411,11 +1495,11 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Website</div>
-          <div class="deploy-line">First question gets a real answer</div>
+          <div class="deploy-line">"Talk to our AI Product Expert · 24/7" <span class="arr">→</span> real answers, not a form</div>
         </div>
       </div>
 
-      <!-- DUPLICATE SET for seamless loop -->
+      <!-- DUPLICATE SET for seamless loop (7 cards) -->
 
       <div class="deploy-card">
         <div class="deploy-card-image">
@@ -1442,7 +1526,41 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Events</div>
-          <div class="deploy-line">Booth scan <span class="arr">→</span> conversation that continues at home</div>
+          <div class="deploy-line">QR on the booth <span class="arr">→</span> conversation continues home</div>
+        </div>
+      </div>
+
+      <div class="deploy-card">
+        <div class="deploy-card-image">
+          <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="14" width="118" height="82" rx="6" fill="white" stroke="#4A766E" stroke-width="2"/>
+            <rect x="22" y="26" width="50" height="5" rx="2" fill="#3D2C2C" opacity="0.18"/>
+            <rect x="22" y="36" width="38" height="4" rx="2" fill="#3D2C2C" opacity="0.1"/>
+            <rect x="22" y="45" width="44" height="4" rx="2" fill="#3D2C2C" opacity="0.08"/>
+            <rect x="22" y="54" width="34" height="4" rx="2" fill="#3D2C2C" opacity="0.07"/>
+            <rect x="96" y="22" width="26" height="26" rx="3" fill="#FAE5E0"/>
+            <rect x="100" y="26" width="7" height="7" rx="1" fill="#4A766E"/>
+            <rect x="109" y="26" width="3" height="3" rx="0.5" fill="#4A766E" opacity="0.7"/>
+            <rect x="113" y="26" width="3" height="3" rx="0.5" fill="#4A766E" opacity="0.5"/>
+            <rect x="109" y="31" width="3" height="3" rx="0.5" fill="#4A766E" opacity="0.5"/>
+            <rect x="100" y="35" width="7" height="7" rx="1" fill="#4A766E"/>
+            <rect x="109" y="38" width="7" height="3" rx="0.5" fill="#4A766E" opacity="0.6"/>
+            <rect x="67" y="96" width="4" height="18" rx="2" fill="#3D2C2C" opacity="0.15"/>
+            <rect x="55" y="112" width="28" height="4" rx="2" fill="#3D2C2C" opacity="0.12"/>
+            <line x1="138" y1="65" x2="158" y2="65" stroke="#F27B7B" stroke-width="2.5" stroke-linecap="round"/>
+            <polyline points="152,59 158,65 152,71" stroke="#F27B7B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="164" y="30" width="38" height="66" rx="8" fill="#4A766E"/>
+            <path d="M172 96 L164 106 L184 96" fill="#4A766E"/>
+            <rect x="172" y="40" width="22" height="3.5" rx="1.5" fill="white" opacity="0.8"/>
+            <rect x="172" y="49" width="18" height="3.5" rx="1.5" fill="white" opacity="0.6"/>
+            <rect x="172" y="58" width="20" height="3.5" rx="1.5" fill="white" opacity="0.5"/>
+            <rect x="172" y="67" width="14" height="3.5" rx="1.5" fill="white" opacity="0.35"/>
+            <rect x="172" y="76" width="18" height="3.5" rx="1.5" fill="white" opacity="0.25"/>
+          </svg>
+        </div>
+        <div class="deploy-card-body">
+          <div class="deploy-label">Talks</div>
+          <div class="deploy-line">QR on the slide <span class="arr">→</span> questions captured after "any questions?"</div>
         </div>
       </div>
 
@@ -1469,7 +1587,7 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Ads</div>
-          <div class="deploy-line">Click-through to a real Q&amp;A — not a form</div>
+          <div class="deploy-line">Click-through link <span class="arr">→</span> instant conversation, not a form</div>
         </div>
       </div>
 
@@ -1497,7 +1615,7 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Social</div>
-          <div class="deploy-line">Reply to a post <span class="arr">→</span> answer to the actual question</div>
+          <div class="deploy-line">Link in bio or post reply <span class="arr">→</span> answer to the actual question</div>
         </div>
       </div>
 
@@ -1524,8 +1642,8 @@
           </svg>
         </div>
         <div class="deploy-card-body">
-          <div class="deploy-label">QR / OOH</div>
-          <div class="deploy-line">Billboard scan <span class="arr">→</span> context they can act on</div>
+          <div class="deploy-label">OOH</div>
+          <div class="deploy-line">Billboard QR <span class="arr">→</span> context they can act on</div>
         </div>
       </div>
 
@@ -1550,7 +1668,7 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Email</div>
-          <div class="deploy-line">They reply <span class="arr">→</span> conversation, not a thread</div>
+          <div class="deploy-line">Embedded link <span class="arr">→</span> conversation, not a thread</div>
         </div>
       </div>
 
@@ -1577,7 +1695,7 @@
         </div>
         <div class="deploy-card-body">
           <div class="deploy-label">Website</div>
-          <div class="deploy-line">First question gets a real answer</div>
+          <div class="deploy-line">"Talk to our AI Product Expert · 24/7" <span class="arr">→</span> real answers, not a form</div>
         </div>
       </div>
 
@@ -1591,11 +1709,22 @@
   </div>
 </section>
 
+<!-- ============ BUYER MANIFESTO ============ -->
+<section class="manifesto-wrapper">
+  <p class="manifesto-setup">Today's buyer wants this:</p>
+  <p class="manifesto-quote">
+    &ldquo;Let me ask anything,<br>
+    get me there fast,<br>
+    and tell me what I need to know.&rdquo;
+  </p>
+  <p class="manifesto-consequence">If you&rsquo;re not providing it, <span class="kicker">someone else is.</span></p>
+</section>
+
 <!-- ============ DIAGRAM ============ -->
 <section class="diagram-wrapper" id="diagram">
   <div class="diagram-inner">
     <div class="eyebrow">Where your awareness spend goes today</div>
-    <h2 class="section-title diag-headline">You expect each event, ad, and post<br><span style="white-space:nowrap">to create a <span class="accent">moment of curiosity.</span></span><br><span class="diag-lighter">Then buyers go to ChatGPT, Reddit,<br>or peer forums.</span></h2>
+    <h2 class="section-title diag-headline">You expect each event, talk, ad, and post<br><span style="white-space:nowrap">to create a <span class="accent">moment of curiosity.</span></span><br><span class="diag-lighter">Then buyers go to ChatGPT, Reddit,<br>or peer forums.</span></h2>
 
     <!-- BEFORE -->
     <div class="diagram-row today">
@@ -1603,7 +1732,7 @@
       <div class="flow">
         <div class="flow-node your-stuff">
           <div class="flow-node-label">Your channels</div>
-          <div class="flow-node-content">Events, Ads, Social, Content, Conferences, Shop floor</div>
+          <div class="flow-node-content">Events, Talks, Ads, Social, Content, Conferences</div>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-node">
@@ -1625,7 +1754,7 @@
       <div class="flow">
         <div class="flow-node your-stuff">
           <div class="flow-node-label">Your channels</div>
-          <div class="flow-node-content">Events, Ads, Social, Content, Conferences, Shop floor</div>
+          <div class="flow-node-content">Events, Talks, Ads, Social, Content, Conferences</div>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-node">
@@ -1646,7 +1775,7 @@
 <section class="big3-wrapper">
   <div class="big3-inner">
     <div class="eyebrow">With inqa</div>
-    <h2 class="big3-title">Three outcomes — that you <span class="accent">feel from day one.</span></h2>
+    <h2 class="big3-title">Answers at the moment of curiosity. <span class="accent">That&rsquo;s 100% yours.</span></h2>
     <div class="big3-cards">
 
       <div class="big3-card">
