@@ -516,6 +516,41 @@
     color: var(--charcoal);
     line-height: 1.65;
   }
+  .big3-card-emphasis {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--espresso);
+  }
+
+  /* ============ TWO-WAY AWARENESS BEAT ============ */
+  .twoway-wrapper {
+    background: var(--warm-white);
+    padding: 80px 56px;
+  }
+  .twoway-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .twoway-body {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--espresso);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .twoway-body:last-child { margin-bottom: 0; }
+  .twoway-lead {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--espresso);
+  }
+  .twoway-coda {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--coral);
+  }
 
   /* ============ DEPLOYMENT STRIP ============ */
   .deploy-wrapper {
@@ -629,8 +664,7 @@
   }
   .mockup-italic {
     font-family: var(--body);
-    font-style: italic;
-    font-size: 15px;
+    font-size: 19px;
     color: var(--slate);
     line-height: 1.6;
     margin-bottom: 0;
@@ -654,7 +688,7 @@
     border-radius: 12px;
     padding: 24px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     aspect-ratio: 4 / 3;
     overflow: hidden;
@@ -669,11 +703,13 @@
     overflow: hidden;
   }
   .surface-caption {
-    font-family: var(--body);
-    font-size: 13px;
-    color: var(--slate);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--espresso);
     text-align: center;
-    margin-top: 16px;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
   }
 
   /* Cell 1 — phone pair */
@@ -1106,6 +1142,8 @@
     font-size: 15px;
     color: var(--slate);
     margin-bottom: 16px;
+    text-align: center;
+    margin-top: 40px;
   }
   .switcher-tabs {
     display: flex;
@@ -1246,6 +1284,8 @@
     .mockup-wrapper { padding: 72px 24px; }
     .big3-cards { grid-template-columns: 1fr; }
     .big3-wrapper { padding: 72px 24px; }
+    .twoway-wrapper { padding: 56px 24px; }
+    .twoway-lead { font-size: 20px; }
     h2.big3-title { font-size: 28px; white-space: normal; }
     .logo-wall-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
     h2.diag-headline { font-size: 28px; }
@@ -1806,7 +1846,7 @@
           </svg>
         </div>
         <div class="big3-card-title">Smart Routing</div>
-        <p class="big3-card-body">Every conversation has a specific next step — qualified sales handoff, online purchase, info packet, or a graceful nurture.</p>
+        <p class="big3-card-body">The conversation qualifies naturally — no forms, no gates, no four-field interruption. By the time it ends, you know exactly where the buyer is and what they need next. Qualified sales handoff, online purchase, info packet, or a graceful nurture.</p>
       </div>
 
       <div class="big3-card">
@@ -1820,10 +1860,19 @@
           </svg>
         </div>
         <div class="big3-card-title">Actionable Insights</div>
-        <p class="big3-card-body">You see what your market is actually thinking. Top questions. Top objections. New use cases. Emerging segments. Competitor mentions.</p>
+        <p class="big3-card-body">You see what your market is actually thinking. Top questions. Top objections. New use cases. Emerging segments. Competitor mentions. <strong class="big3-card-emphasis">The signal that lets you adjust your messaging before your next campaign — not after your next survey.</strong></p>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ============ TWO-WAY AWARENESS BEAT ============ -->
+<section class="twoway-wrapper">
+  <div class="twoway-inner">
+    <p class="twoway-body">Every awareness channel you run today is one-way.</p>
+    <p class="twoway-body">You push. Buyers receive. You get clicks back — not what they actually thought.</p>
+    <p class="twoway-body"><span class="twoway-lead">inqa makes awareness two-way.</span> Buyers ask real questions. You hear what&rsquo;s landing, what&rsquo;s confusing, and what your market actually needs to know. <span class="twoway-coda">Before your next campaign — not after your next survey.</span></p>
   </div>
 </section>
 
@@ -1833,12 +1882,10 @@
 
     <div class="mockup-intro">
       <div class="eyebrow">How it works</div>
-      <h2 class="section-title">One concierge.<br><span class="accent">Many surfaces.</span></h2>
+      <h2 class="section-title">One concierge. <span class="accent">Tailored for different channels.</span></h2>
       <p class="mockup-subhead">The layer before your funnel. 100% yours.</p>
       <p class="mockup-italic">Not a 2015 chatbot, but a better experience powered by AI. The inqa team is in the loop, always — tuning, improving, deploying side-by-side with your team. Your data is always yours and is only used to improve your setup.</p>
     </div>
-
-    <p class="multi-surface-caption">Same conversation. Wherever curiosity strikes.</p>
 
     <div class="multi-surface-grid">
 
@@ -2007,7 +2054,6 @@
     <h2 class="section-title">Synthesized intelligence —<br><span class="accent">across every conversation.</span></h2>
     <p class="section-lead">Not a vanity dashboard. The kind of read on your market that lets you walk into a board meeting with answers — instead of guesses.</p>
 
-    <p class="switcher-framing">What you might see, depending on what you're launching.</p>
     <div class="switcher-tabs">
       <button class="switcher-tab active" data-segment="0">Launching a new category</button>
       <button class="switcher-tab" data-segment="1">Complex consumer purchase</button>
@@ -2045,6 +2091,8 @@
         <p class="insight-card-headline" id="ic-brand-headline"></p>
       </div>
     </div>
+
+    <p class="switcher-framing">What you might see, depending on what you're launching.</p>
   </div>
 </section>
 
