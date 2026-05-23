@@ -285,14 +285,44 @@
     margin: 0 auto;
   }
 
+  /* Scenario tabs */
+  .scenario-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    border-bottom: 2px solid rgba(74,118,110,0.15);
+    padding-bottom: 0;
+  }
+  .scenario-tab {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate);
+    background: none;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 2.5px solid transparent;
+    margin-bottom: -2px;
+    border-radius: 0;
+    letter-spacing: 0.1px;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  .scenario-tab:hover { color: var(--espresso); }
+  .scenario-tab.active {
+    color: var(--coral);
+    border-bottom-color: var(--coral);
+  }
+
   .usecase-block {
-    display: grid;
+    display: none;
     grid-template-columns: 280px 1fr;
     gap: 60px;
     align-items: start;
-    padding: 56px 0;
-    border-bottom: 1px solid rgba(74,118,110,0.14);
+    padding: 48px 0 0;
   }
+  .usecase-block.active { display: grid; }
   .usecase-block:last-child { border-bottom: none; }
 
   .usecase-label-col {}
@@ -924,8 +954,15 @@
     <h2 class="section-title">How it plays out — for your scenario.</h2>
     <p class="section-lead">The same five capabilities. Different buyer situations. Here's what inqa looks like when it's actually running.</p>
 
+    <div class="scenario-tabs">
+      <button class="scenario-tab active" data-scenario="0">Launching a new category</button>
+      <button class="scenario-tab" data-scenario="1">A complex consumer purchase</button>
+      <button class="scenario-tab" data-scenario="2">Defending an innovation narrative</button>
+      <button class="scenario-tab" data-scenario="3">Events — booth and conference</button>
+    </div>
+
     <!-- SCENARIO 1: New category -->
-    <div class="usecase-block">
+    <div class="usecase-block active">
       <div class="usecase-label-col">
         <div class="usecase-scenario-tag">Scenario 01</div>
         <div class="usecase-scenario-name">Launching a new category</div>
@@ -1098,6 +1135,21 @@
       } catch(err) {}
     });
   }
+</script>
+
+<script>
+  // Scenario tabs
+  const scenarioTabs = document.querySelectorAll('.scenario-tab');
+  const scenarioBlocks = document.querySelectorAll('.usecase-block');
+  scenarioTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = parseInt(tab.dataset.scenario);
+      scenarioTabs.forEach(t => t.classList.remove('active'));
+      scenarioBlocks.forEach(b => b.classList.remove('active'));
+      tab.classList.add('active');
+      scenarioBlocks[idx].classList.add('active');
+    });
+  });
 </script>
 
 </body>
