@@ -256,9 +256,14 @@
 
   /* ============ BEFORE / AFTER DIAGRAM ============ */
   .diagram-wrapper {
-    background: var(--soft-blush);
+    background: var(--espresso);
     padding: 90px 56px;
   }
+  .diagram-wrapper .eyebrow {
+    color: var(--soft-blush);
+    opacity: 0.65;
+  }
+  .diagram-wrapper .eyebrow::before { background: var(--coral); }
   .diagram-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -402,10 +407,11 @@
     line-height: 1.25;
     letter-spacing: -0.6px;
     margin-bottom: 40px;
+    color: var(--warm-white);
   }
   h2.diag-headline br + * ,
   h2.diag-headline br { display: block; margin-top: 12px; }
-  .diag-lighter { font-weight: 400; }
+  .diag-lighter { font-weight: 400; color: var(--soft-blush); opacity: 0.75; }
 
   /* ============ LOGO WALL (leak destinations) ============ */
   .logo-wall-strip {
