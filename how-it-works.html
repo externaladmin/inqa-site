@@ -223,12 +223,18 @@
     border: 1.5px solid rgba(74,118,110,0.22);
   }
 
+  .truth-icon {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+
   .truth-number {
     font-family: var(--display);
     font-size: 48px;
     font-weight: 700;
     line-height: 1;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: -1px;
   }
   .truth-card.primary .truth-number { color: var(--coral); }
@@ -826,7 +832,6 @@
 <section class="truths-wrapper" id="truths">
   <div class="truths-inner">
     <div class="eyebrow">Five operational truths</div>
-    <p style="font-family: var(--display); font-weight: 700; font-size: 28px; color: var(--espresso); letter-spacing: -0.4px; margin-bottom: 16px;">One concierge. <span style="color: var(--coral);">Many surfaces.</span></p>
     <h2 class="section-title">What inqa does — and how it does it.</h2>
     <p class="section-lead">Every conversation inqa runs is governed by five capabilities. The first three are where the conversation earns its keep. The last two are what turn conversations into intelligence.</p>
 
@@ -834,16 +839,41 @@
     <div class="truths-grid">
       <div class="truth-card primary">
         <div class="truth-number">01</div>
+        <div class="truth-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="14" stroke="#F27B7B" stroke-width="2.5" fill="none"/>
+            <circle cx="20" cy="20" r="7" stroke="#F27B7B" stroke-width="2" fill="none"/>
+            <circle cx="20" cy="20" r="2.5" fill="#F27B7B"/>
+          </svg>
+        </div>
         <div class="truth-name">Real-time matching</div>
         <p class="truth-desc">"Listens to what buyers say — explicit and inferred — and matches it to the right answer. Answers, educates, cross-sells."</p>
       </div>
       <div class="truth-card primary">
         <div class="truth-number">02</div>
+        <div class="truth-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 10h24l-4 8H12L8 10z" stroke="#F27B7B" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <path d="M12 18l-3 8h22l-3-8" stroke="#F27B7B" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <line x1="20" y1="26" x2="20" y2="34" stroke="#F27B7B" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="20" cy="36" r="1.5" fill="#F27B7B"/>
+          </svg>
+        </div>
         <div class="truth-name">Built-in qualification</div>
         <p class="truth-desc">"You define what fit looks like. The conversation surfaces the signals naturally. No four-page form."</p>
       </div>
       <div class="truth-card primary">
         <div class="truth-number">03</div>
+        <div class="truth-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="20" r="3.5" stroke="#F27B7B" stroke-width="2.5" fill="none"/>
+            <line x1="9.5" y1="20" x2="17" y2="20" stroke="#F27B7B" stroke-width="2.5"/>
+            <line x1="17" y1="20" x2="25" y2="10" stroke="#F27B7B" stroke-width="2.5"/>
+            <line x1="17" y1="20" x2="25" y2="30" stroke="#F27B7B" stroke-width="2.5"/>
+            <circle cx="30" cy="10" r="3.5" stroke="#F27B7B" stroke-width="2.5" fill="none"/>
+            <circle cx="30" cy="30" r="3.5" fill="#F27B7B"/>
+          </svg>
+        </div>
         <div class="truth-name">Smart routing</div>
         <p class="truth-desc">"Every conversation ends with a deliberate next step. Online sale, the right rep, an info packet, nurture, or a graceful no."</p>
       </div>
@@ -853,11 +883,25 @@
     <div class="truths-grid-secondary">
       <div class="truth-card secondary">
         <div class="truth-number">04</div>
+        <div class="truth-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="4" y1="36" x2="36" y2="36" stroke="#4A766E" stroke-width="2" stroke-linecap="round"/>
+            <rect x="6" y="24" width="6" height="12" rx="2" fill="#4A766E" opacity="0.4"/>
+            <rect x="17" y="16" width="6" height="20" rx="2" fill="#4A766E" opacity="0.7"/>
+            <rect x="28" y="6" width="6" height="30" rx="2" fill="#4A766E"/>
+          </svg>
+        </div>
         <div class="truth-name">Aggregate intelligence</div>
         <p class="truth-desc">"Top questions, objections, competitor mentions, emerging use cases — across every conversation."</p>
       </div>
       <div class="truth-card secondary">
         <div class="truth-number">05</div>
+        <div class="truth-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4l14 5v10c0 8-6 14-14 17C6 33 0 27 0 19V9l14-5z" transform="translate(6 2)" stroke="#4A766E" stroke-width="2.5" fill="none"/>
+            <path d="M13 20l3 3 7-7" stroke="#4A766E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="truth-name">Brand control</div>
         <p class="truth-desc">"Your story, your values, your tone. Accurate. Consistent. Configurable per surface, segment, moment."</p>
       </div>
