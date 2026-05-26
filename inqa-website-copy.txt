@@ -1,0 +1,378 @@
+========== PAGE: index.html ==========
+inqa.ai — Website Concept
+inqa .ai
+How it works
+For events
+For funnels
+About
+Contact
+The conversational layer for awareness
+inqa  is how you engage buyers in conversation  — the instant curiosity strikes.
+For marketing leaders launching something new — a category, a product, a way of working.
+Talk to us
+See how it works
+Where your awareness spend goes today
+Your channels create curiosity.  Then it leaves.
+Every channel you invest in creates a moment when a real person becomes interested in your product. Today, that moment ends somewhere you don't control.
+Today
+Your channels
+Events, Ads, Social, Content, Conferences, Shop floor
+→
+Curiosity
+Real people, real questions
+Leaks to
+ChatGPT · Reddit · YouTube · Peer Forums
+You paid for the awareness. Someone else captured the conversation.
+With inqa
+Stays with you
+A real conversation, 100% yours
+inqa is how you stay in the conversation — wherever you create awareness.
+Where inqa shows up
+Wherever curiosity strikes.
+Events
+Booth scan  →  conversation that continues at home
+Ads
+Click-through to a real Q&amp;A — not a form
+Social
+Reply to a post  →  answer to the actual question
+QR / OOH
+Billboard scan  →  context they can act on
+Email
+They reply  →  conversation, not a thread
+Website
+First question gets a real answer
+A real conversation —  100% yours.
+Voice or text, wherever curiosity strikes. On your booth wall. After your ad. On your QR code. On your website.
+Not a chatbot. Not a generic LLM. The layer above your funnel — there's nothing to replace. Just more signals to capture. Powered by AI.
+Not every impression starts a conversation — but the right ones will.
+YourBrand .ai
+Real conversation, powered by inqa
+Hi — what brings you here today?
+I saw your booth at SaaStr. Trying to figure out if this works for a 60-person company.
+Good question. We have a few customers right around your size — 40 to 80 people. Quick check: are you already running marketing automation?
+HubSpot, yeah.
+Perfect. We sit upstream of HubSpot — so you're not replacing anything. Want me to walk through the integration, or hear how a similar customer set it up?
+Similar customer story please
+Type a message…
+What you'll know
+Synthesized intelligence — across every conversation.
+Not a vanity dashboard. The kind of read on your market that lets you walk into a board meeting with answers — instead of guesses.
+What you might see, depending on what you're launching.
+Launching a new category
+Complex consumer purchase
+Defending innovation reputation
+Top questions this week
+Top objections
+Competitor mentions
+Emerging segment
+Conversion by channel
+Brand voice consistency
+How we work
+AI agents aren't sold off the shelf.  They're tuned for you.
+inqa isn't a SaaS subscription. We work alongside your team — tuning the conversation, the qualification, the routing, the brand voice — against the conversion goals that matter to you.
+Less hands-off. More hands-on.  Ready in weeks, not months.
+The whole point
+Change how someone thinks about something —
+before others do.
+Get in touch
+Ready to talk?
+Tell us what you're launching. No deck, no demo script — just a direct conversation.
+Send
+Thanks — we'll be in touch shortly.
+inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026
+
+========== PAGE: how-it-works.html ==========
+How it works — inqa.ai
+inqa .ai
+How it works
+For events
+For funnels
+About
+Contact
+A real conversation —  100% yours.
+Not a chatbot. Not a generic LLM. The layer above your funnel — there's nothing to replace. Just more signals to capture. Powered by AI.
+Five operational truths
+What inqa does — and how it does it.
+Every conversation inqa runs is governed by five capabilities. The first three are where the conversation earns its keep. The last two are what turn conversations into intelligence.
+01
+Real-time matching
+"Listens to what buyers say — explicit and inferred — and matches it to the right answer. Answers, educates, cross-sells."
+02
+Built-in qualification
+"You define what fit looks like. The conversation surfaces the signals naturally. No four-page form."
+03
+Smart routing
+"Every conversation ends with a deliberate next step. Online sale, the right rep, an info packet, nurture, or a graceful no."
+04
+Aggregate intelligence
+"Top questions, objections, competitor mentions, emerging use cases — across every conversation."
+05
+Brand control
+"Your story, your values, your tone. Accurate. Consistent. Configurable per surface, segment, moment."
+"And if a conversation needs to reach a rep, they don't get a list — they get a brief, prioritized, contextualized handoff. Every first call is a productive second meeting."
+In context
+How it plays out — for your scenario.
+The same five capabilities. Different buyer situations. Here's what inqa looks like when it's actually running.
+Scenario 01
+Launching a new category
+The product exists. The category doesn't yet.
+You're not competing with an established alternative — you're asking buyers to see the world differently. The first question at every booth, after every ad, is some version of: "Wait — so what exactly is this?" The conversation that answers that question is the most important moment in your funnel. It happens hundreds of times a week, in places you're not.
+inqa sits on your QR code, on your ad click, on your post-event follow-up link. When someone asks "how is this different from what I'm already doing?" — the conversation is trained to handle it precisely, in your voice, without a rep on the line.
+01 Real-time matching
+02 Built-in qualification
+04 Aggregate intelligence
+What you get
+Across a week of conversations: the top "what is this?" framings your buyers use, which explanations land, which comparisons come up most. Your messaging team has a read on the category narrative — live, not in a quarterly survey.
+Scenario 02
+A complex consumer purchase
+High consideration. Spec-heavy. Personal.
+The buyer did their research on YouTube before they walked into your booth. They came back to your website at 11pm with six tabs open. They have specific questions — about compatibility, about learning curve, about whether this is right for someone at their level. No one in a general awareness channel can answer those questions in the moment they're being asked.
+inqa is trained on the full product knowledge — specs, comparisons, use cases by skill level, common objections. It runs on the ad click, on the QR from the product card, on the post-interest follow-up. A buyer who lands at midnight gets the same considered, accurate conversation as one who calls a specialist at noon.
+03 Smart routing
+05 Brand control
+Every spec question answered at the moment of peak consideration — not 48 hours later. Conversations that route to purchase, to a specialist, or to a nurture sequence based on where the buyer actually is — not based on which form they filled out.
+Scenario 03
+An established brand defending its innovation narrative
+Known name. Misunderstood direction.
+Your brand is known. That's the problem. Buyers think they already understand what you do — and what they think is last decade's version. Every conversation in the market starts from the wrong premise. Enterprise procurement teams compare you to legacy alternatives. Analysts use frameworks that don't fit your current product. The narrative about your innovation is being written by sources you don't control.
+inqa is trained specifically on the new narrative — the contrast with the legacy position, the proof points on the innovation direction, the handling of FUD-style objections from procurement. It runs at every awareness touchpoint: events where your team is explaining the change, ad campaigns repositioning the brand, content targeted at technical evaluators.
+Every buying conversation starts from the right premise — not the legacy one. Objections about the old narrative are handled with evidence, consistently, across every surface. Your innovation story reaches the right evaluators at the moment they're forming opinions.
+Scenario 04
+Events — booth and conference
+High cost. High moment. Short window.
+You spent six figures to get to this conference. Your team had great conversations at the booth. Then the event ended. The badge scans went into a spreadsheet. The conversations that happened on the show floor — the specific questions, the real objections, the moments of genuine interest — disappeared. The follow-up email went to everyone equally, because no one knew the difference.
+inqa runs at the booth via QR. The conversation starts when they scan — and continues after they leave. On the flight home, when they're actually thinking about it. In the week after, when the buying conversation with their team starts. The window that used to close when the conference ended now stays open.
+Qualified signal from booth conversations — not badge data. Every follow-up starts with context. Your rep knows what they asked, what they cared about, and what the right next step is. The six-figure investment in being there converts into conversations that go somewhere.
+How we work
+AI agents aren't sold off the shelf.  They're tuned for you.
+inqa isn't a SaaS subscription. We work alongside your team — tuning the conversation, the qualification, the routing, the brand voice — against the conversion goals that matter to you.
+Less hands-off. More hands-on.  Ready in weeks, not months.
+The whole point
+Change how someone thinks about something —
+before others do.
+Ready to talk?
+Let's make it real.
+Tell us what you're launching. We'll show you exactly what inqa looks like in your scenario — no deck, no demo script, just a direct conversation.
+Send
+Thanks — we'll be in touch shortly.
+inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026
+
+========== PAGE: for-events.html ==========
+For events — inqa.ai
+inqa .ai
+How it works
+For events
+For funnels
+About
+Contact
+The real conversation  starts when they leave   the booth.
+Events create the moment of curiosity. inqa is how that moment stays with you — past the badge scan, past the flight home, past the point where your team lost the thread.
+Talk about your next event
+See how it works
+The events problem
+You spent on the moment.  It left anyway.
+Booth. Travel. Sponsorship. Hotel. Swag. A team of four for three days. You created a moment of genuine curiosity — someone stopped, listened, asked a question that mattered.
+Then the event ended. The conversation about your product — the real one, the one that happens on the flight home, in Slack with their team, in ChatGPT at midnight — happened somewhere you don't own. With information you didn't supply.
+You got badge data. They got a generic follow-up email. And the six-figure investment became a spreadsheet of names.
+What you spent
+Booth design and build
+Sponsorship and floor space
+Team travel and accommodation
+Swag, collateral, demos
+Your team's time — all of it
+What you got back
+Badge scans
+Business cards
+A list with no context
+The conversation happened. Just not with you.
+Where it goes instead
+They leave the booth — and the  conversation moves.
+The moment of curiosity your booth created doesn't disappear. It follows them out the door.
+The hallway
+They mention you to a colleague ten minutes later. That person has a competing opinion.
+Their phone, right there
+Between sessions, they Google you. They find what they find.
+Dinner
+Three of them compare notes. One saw your competitor's booth too.
+The flight home
+They have two hours and no wi-fi to shape their view. You're not in that conversation.
+You paid for the awareness. The moment of curiosity was real.  The conversation just happened somewhere you weren't — with information you didn't supply, framing you didn't set, and a next step that wasn't yours.
+How inqa works at events
+QR at the booth. Conversation that  doesn't stop.
+inqa sits at every point in the event journey — from the first scan at the booth to the buying conversation that happens three weeks later.
+1
+The scan at the booth
+A QR code on your booth wall, your product card, or your handout. They scan when curiosity peaks — not when your rep has a minute. The conversation starts immediately, in your voice, trained on everything your brand knows.
+No app. No form. Just a conversation.
+2
+The conversation that answers what they actually asked
+Not a brochure. Not a chatbot FAQ. A real-time conversation trained on your product, your positioning, your objection handling — that listens to what they're actually asking and matches it to the right answer. If they ask about pricing, it handles that. If they ask how you compare to a specific competitor, it handles that.
+3
+The follow-through — on the flight home
+The event ends. They leave. But the link is still live. On the plane, at dinner, in the Uber back — when they actually have time to think about what they saw, the conversation is still there. They can pick it up where they left it. The moment of curiosity doesn't close with the convention center.
+4
+Qualification — without a form
+You define what fit looks like. The conversation surfaces the signals naturally. Team size, budget range, timeline, existing stack — it comes out in the flow of a real conversation, not a four-field qualification gate that kills the moment.
+5
+Routing — to the right next step
+Every conversation ends with a deliberate next step. If they're ready to talk to a rep, the handoff comes with a brief — not a name in a spreadsheet. If they're not ready, they go into nurture with the right context. If they're clearly not a fit, a graceful close. No one gets the same generic follow-up email.
+And if they need a rep — the rep gets a brief, not a list.
+What you'll know
+Synthesized intelligence — from every booth conversation.
+Not badge data. The kind of signal that tells you which sessions drove real curiosity, which objections came up most, and how your event conversations converted compared to every other channel.
+Top questions from booth conversations
+How does this work for a team our size?  58
+What does setup actually involve?  41
+How is this different from what we're using?  37
+What does pricing look like?  29
+Can we see a live example?  23
+Three new question patterns emerged in the afternoon sessions.
+Top objections at this event
+"Already have something for this"  44
+"Needs to go through procurement"  31
+"Not the right time — ask me in Q3"  26
+"Need to see a case study first"  19
+"Already have something" up significantly vs. last event. Worth a messaging adjustment.
+Which sessions drove the most curiosity
+Keynote Day 1  38% of scans
+Panel: Growth in a Down Market  24% of scans
+Lunch break traffic  18% of scans
+Opening networking reception  14% of scans
+Sponsor the Day 1 keynote next year.
+Conversion — events vs. other channels
+14%
+Event conversations converting at 14% — vs. 4% from website and 9% from ads.
+Events create the highest-intent conversations. The question is whether you're capturing them. Now you have the number to prove it internally.
+How we work
+AI agents aren't sold off the shelf.  They're tuned for you.
+inqa isn't a SaaS subscription. We work alongside your team — tuning the conversation, the qualification, the routing, the brand voice — against the conversion goals that matter to you.
+Less hands-off. More hands-on.  Ready in weeks, not months.
+The whole point
+Change how someone thinks about something —
+before others do.
+Ready to talk?
+Tell us about your next event.
+What's the conference? What are you launching there? We'll show you exactly what inqa would look like running at your booth — what the conversation captures, how it routes, what you'd know on the plane home.
+Send
+Thanks — we'll be in touch shortly.
+inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026
+
+========== PAGE: for-funnels.html ==========
+For funnels — inqa.ai
+inqa .ai
+How it works
+For events
+For funnels
+About
+Contact
+For brands losing buyers  in the form.
+For growth leaders running high-volume acquisition into a high-consideration sale.
+Talk to us
+See how it works
+Where your acquisition spend dies
+You paid to bring them in.  Your form loses most of them.
+Most multi-step signup funnels lose 80% or more of qualified traffic between the landing page and the demo. Form abandonment runs 55–74%. Each additional field cuts conversion by ~4%. The math is brutal — and it's happening on infrastructure you built and paid for.
+Sources: HubSpot, Foundry CRO, Surface Labs, 2025–2026.
+The problem, mapped
+Today
+Your channels
+Ads, content, paid social, retargeting
+→
+Landing page
+Curiosity captured
+Self-serve intake form
+8–12 questions. Decision tree. Most buyers exit.
+You paid for the buyer. Your form lost them.
+With inqa
+Conversation
+One thread. Real-time.
+Outcome
+Book a demo, route to nurture, online sale, or graceful no.
+inqa is the conversation that replaces the form. Qualification, education, routing — all inside.
+The reframe
+The funnel wasn't broken.  It was a workaround.
+The self-serve intake form exists because brands couldn't talk to every buyer at the moment of interest. So we built funnels — multi-step flows where buyers do the work of qualifying themselves before they earn the right to talk.
+That tradeoff made sense before. It doesn't anymore.
+The conversation is the answer the funnel was substituting for. It qualifies, educates, handles objections, and routes — all in one thread. The buyer doesn't navigate a flow. They have a conversation.
+The new shape
+Ad. Conversation. Outcome.
+One thread, not eight questions.
+01
+Qualification, in context
+Your fit criteria, surfaced naturally. No "what's your household income" out of nowhere — questions emerge when the conversation earns them.
+02
+Education that lands
+Objections answered when they come up. Comparisons made in the buyer's words. Cross-sells happen because they fit, not because they're scripted.
+03
+Routing with intent
+Demo booked. Or routed to nurture. Or handed an info packet. Or thanked and released. Every conversation ends with a deliberate next step.
+What stays
+Your stack stays. Your team stays.  Your funnel doesn't.
+We sit at the entry point. The conversation feeds your CRM, your calendar, your sales team — same as the form did, but with richer signal. We're upstream of what you already use. Nothing to replace. Just better signal flowing through.
+Works with
+HubSpot
+Salesforce
+Calendly
+Webflow
+Segment
+How we work
+AI agents aren't sold off the shelf.  They're tuned for you.
+inqa isn't a SaaS subscription. We work alongside your team — replacing the self-serve intake form with a conversation tuned to your specific qualification logic, your brand voice, and the conversion goals that matter to you.
+Less hands-off. More hands-on.  Ready in weeks, not months.
+The whole point
+Change how someone thinks about something —
+before others do.
+Get in touch
+Ready to replace the form?
+Tell us where your funnel is bleeding. We'll tell you what a conversation could do instead.
+Thanks — we'll be in touch shortly.
+inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026
+Concept v1 — buttons and nav are illustrative.
+
+========== PAGE: about.html ==========
+About — inqa.ai
+inqa .ai
+How it works
+For events
+For funnels
+About
+Contact
+Two founders who kept seeing the same problem.
+Between them, decades at the intersection of marketing and technology — watching awareness spend disappear before it could ever convert.
+Why inqa exists
+The awareness spend was working.  The conversation wasn't.
+Every company we worked with had the same gap. They'd invest in awareness — events, ads, content, social — and they'd create real curiosity. People wanted to know more.
+But the moment curiosity hit, it left. It went to  ChatGPT . To  Reddit threads . To  YouTube . To  peer forums . The questions were happening — just not anywhere the brand could see, shape, or respond to.
+ChatGPT
+Reddit
+YouTube
+Peer forums
+Competitor sites
+The brand paid for the awareness. Someone else captured the conversation. And by the time the person showed up at a form or a sales call, the narrative had already been set — by someone else.
+inqa exists because those conversations belong with you.
+The founders
+Built by people who've been on both sides of the problem.
+DR
+Deeps Ramanathan
+Co-Founder &amp; CEO
+20+ years driving revenue across startups and enterprise
+Former CMO at multiple organisations
+Previous roles at Google, Twitter, IBM, and YC
+"Every company I've worked with had the same blind spot: they'd spend millions driving traffic, then lose 90% of it to forms and wait times."
+FS
+Fei Sha
+Co-Founder &amp; CTO
+20+ years in AI, data science, and engineering
+Built predictive models at Allstate, Verisk, and Degreed
+Deep expertise in conversational AI and real-time systems
+"Predictive models tell you who might buy. Conversational AI lets you help them while they're still deciding."
+The company
+inqa is a product of  Magentiq Inc. , founded in North America. We work with a small number of marketing teams at a time — by design.
+Not because we can't scale. Because this kind of work requires close collaboration. The conversation has to be tuned to your brand, your market, your goals. That takes real attention — and we'd rather do it properly than spread ourselves thin.
+Get in touch
+Want to talk?
+Tell us what you're working on. No deck required — just a direct conversation.
+Send
+Thanks — we'll be in touch shortly.
+inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026
+

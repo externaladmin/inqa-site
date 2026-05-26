@@ -4,7 +4,7 @@
     {
       "name": "inqa-site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765"],
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/deeps/Documents/inqa-site"],
       "port": 8765
     }
   ]
