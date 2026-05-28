@@ -78,7 +78,7 @@
     font-family: var(--body);
     color: var(--charcoal);
     background: var(--warm-white);
-    line-height: 1.55;
+    line-height: 1.65;
     font-size: 17px;
   }
 
@@ -128,7 +128,7 @@
   /* ============ HERO ============ */
   .hero {
     background: var(--soft-blush);
-    padding: 110px 56px 130px;
+    padding: 96px 56px 64px;
     position: relative;
     overflow: hidden;
   }
@@ -145,7 +145,7 @@
     color: var(--patina);
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -163,11 +163,22 @@
     line-height: 0.98;
     color: var(--espresso);
     letter-spacing: -2.5px;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     max-width: 1100px;
   }
   h1.hero-title .lighter { font-weight: 400; letter-spacing: -1.5px; font-size: 0.9em; }
   h1.hero-title .accent { color: var(--coral); }
+  .hero-subheadline {
+    font-family: var(--body);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--slate);
+    max-width: 640px;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
   .hero-sub {
     font-family: var(--body);
     font-size: 19px;
@@ -671,7 +682,7 @@
     justify-content: center;
   }
   .deploy-card-body {
-    padding: 18px 20px 22px;
+    padding: 28px 24px;
   }
   .deploy-label {
     font-family: var(--display);
@@ -696,7 +707,7 @@
   /* ============ MULTI-SURFACE MOCKUP ============ */
   .mockup-wrapper {
     background: var(--warm-white);
-    padding: 90px 56px;
+    padding: 96px 56px;
   }
   .mockup-inner-full {
     max-width: 1100px;
@@ -733,13 +744,13 @@
   .multi-surface-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 20px;
   }
   .surface-cell {
     background: var(--warm-white);
     border: 1px solid rgba(74,118,110,0.2);
     border-radius: 12px;
-    padding: 24px;
+    padding: 28px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -1070,7 +1081,7 @@
   /* ============ INSIGHTS / DASHBOARD SECTION ============ */
   .insights-wrapper {
     background: var(--soft-blush);
-    padding: 100px 56px;
+    padding: 96px 56px;
   }
   .insights-inner {
     max-width: 1100px;
@@ -1234,7 +1245,7 @@
   /* ============ DARK THESIS SECTION (the rhythm break) ============ */
   .thesis-wrapper {
     background: var(--espresso);
-    padding: 130px 56px;
+    padding: 112px 56px;
     text-align: center;
   }
   .thesis-inner {
@@ -1274,7 +1285,7 @@
   /* ============ CONTACT SECTION ============ */
   .contact-section {
     background: var(--soft-blush);
-    padding: 100px 56px;
+    padding: 96px 56px;
     text-align: center;
   }
   .contact-inner {
@@ -1351,6 +1362,245 @@
     .manifesto-quote { font-size: 32px; }
     .manifesto-wrapper { padding: 80px 40px; }
   }
+
+  /* ============ DIAGNOSTIC SECTION ============ */
+  .diagnostic-wrapper {
+    background: var(--soft-blush);
+    padding: 96px 56px 80px;
+  }
+  .diagnostic-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .diagnostic-leadin {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 32px;
+    max-width: 780px;
+  }
+  .diagnostic-headline {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--espresso);
+    letter-spacing: -0.6px;
+    margin-bottom: 56px;
+    max-width: 840px;
+  }
+  .diagnostic-lighter {
+    font-weight: 400;
+    color: var(--slate);
+  }
+
+  /* Two-panel comparison grid */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .compare-panel {
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .compare-panel--today {
+    background: var(--espresso);
+  }
+  .compare-panel--inqa {
+    background: var(--soft-blush);
+    border: 1.5px solid rgba(242,123,123,0.3);
+  }
+  .compare-panel-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    align-self: flex-start;
+  }
+  .compare-panel--today .compare-panel-label {
+    color: rgba(255,255,255,0.4);
+  }
+  .compare-panel--inqa .compare-panel-label {
+    color: var(--patina);
+  }
+  .compare-node {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+  }
+  .compare-panel--today .compare-node {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .compare-panel--inqa .compare-node {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .compare-node-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .compare-panel--today .compare-node-label {
+    color: rgba(255,255,255,0.5);
+  }
+  .compare-panel--inqa .compare-node-label {
+    color: var(--slate);
+  }
+  .compare-node-content {
+    font-family: var(--body);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .compare-panel--today .compare-node-content {
+    color: rgba(255,255,255,0.75);
+  }
+  .compare-panel--inqa .compare-node-content {
+    color: var(--espresso);
+  }
+  .compare-node--leak {
+    background: rgba(242,123,123,0.20) !important;
+    border: 1px solid rgba(242,123,123,0.40) !important;
+  }
+  .compare-panel--today .compare-node--leak .compare-node-label,
+  .compare-panel--today .compare-node--leak .compare-node-content {
+    color: #F27B7B;
+  }
+  .compare-node--win {
+    background: var(--patina) !important;
+    border: none !important;
+  }
+  .compare-panel--inqa .compare-node--win .compare-node-label,
+  .compare-panel--inqa .compare-node--win .compare-node-content {
+    color: white;
+  }
+  .compare-arrow {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  .compare-panel--today .compare-arrow {
+    color: rgba(255,255,255,0.30);
+  }
+  .compare-panel--inqa .compare-arrow {
+    color: rgba(74,118,110,0.40);
+  }
+  .compare-closing {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .compare-panel--today .compare-closing {
+    color: rgba(255,255,255,0.40);
+  }
+  .compare-panel--inqa .compare-closing {
+    color: var(--slate);
+  }
+
+  /* ============ IMAGE PLACEHOLDERS ============ */
+  .img-placeholder {
+    background: #EDE8E4;
+    border: 2px dashed #C4BDB8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .img-placeholder__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .img-placeholder__inner span:first-child {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #9A9190;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .img-placeholder__inner span:last-child {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #B4ADAB;
+  }
+  .img-placeholder--diagnostic {
+    width: 100%;
+    height: 420px;
+    margin-top: 40px;
+  }
+  .img-placeholder--concierge {
+    width: 100%;
+    max-width: 800px;
+    height: 480px;
+    margin: 0 auto 48px;
+    display: flex;
+  }
+
+  /* ============ TWO-WAY AWARENESS BEAT ============ */
+  .twoway-beat-wrapper {
+    background: var(--warm-white);
+    padding: 80px 56px;
+    text-align: center;
+  }
+  .twoway-beat-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .twoway-beat-p1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--espresso);
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+  }
+  .twoway-beat-p2 {
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .twoway-beat-p3 {
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--espresso);
+    line-height: 1.65;
+  }
+  .twoway-beat-coda {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--coral);
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 64px 24px 48px; }
+    .hero-subheadline { font-size: 16px; }
+    .diagnostic-wrapper { padding: 64px 24px 56px; }
+    .diagnostic-headline { font-size: 26px; }
+    .compare-grid { grid-template-columns: 1fr; gap: 12px; }
+    .img-placeholder--diagnostic { display: none; }
+    .img-placeholder--concierge { height: 300px; }
+    .twoway-beat-wrapper { padding: 56px 24px; }
+    .mockup-wrapper { padding: 64px 24px; }
+    .insights-wrapper { padding: 64px 24px; }
+  }
 </style>
 </head>
 <body>
@@ -1375,10 +1625,15 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">For marketing leaders launching something new — a category, a product, a way of working.</div>
     <h1 class="hero-title">
-      <span class="accent">inqa</span> turns buyer curiosity into real conversations — <span class="lighter">and then into leads, sales, and insight.</span>
+      <span class="accent">inqa</span> turns the curiosity you create into real conversations — <span class="lighter">and then into leads, sales, and insight.</span>
     </h1>
+    <p class="hero-subheadline">Deploy a custom talk or type product expert across any ad, event, or social post.<br>inqa gives your buyers the immediate answers they want, while quietly building your pipeline.</p>
+    <div class="cta-row" style="margin-bottom: 48px;">
+      <a class="btn btn-primary" href="#contact">Talk to us</a>
+      <a class="btn btn-secondary" href="#how-it-works">See how it works</a>
+    </div>
   </div>
-  <div class="deploy-marquee-outer" style="margin: 40px 0 0;">
+  <div class="deploy-marquee-outer">
     <div class="deploy-track">
 
       <!-- CARD 1: Events -->
@@ -1794,72 +2049,70 @@
 
     </div><!-- end deploy-track -->
   </div><!-- end deploy-marquee-outer -->
-  <div class="hero-inner" style="margin-top: 44px;">
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Talk to us</a>
-      <a class="btn btn-secondary" href="#how-it-works">See how it works</a>
-    </div>
-  </div>
 </section>
 
-<!-- ============ DIAGRAM ============ -->
-<section class="diagram-wrapper" id="diagram">
-  <div class="diagram-inner">
-    <div class="eyebrow">Every awareness channel you spend on today is one-way</div>
-    <p style="font-family: var(--body); font-style: italic; font-size: 16px; color: var(--slate); margin-bottom: 24px; max-width: 720px;">Today's buyer wants this: <span style="font-style: italic;">&ldquo;Let me ask anything, get me there fast, and tell me what I need to know.&rdquo;</span> If you're not providing it, someone else is.</p>
-    <h2 class="section-title diag-headline">You expect each event, talk, ad, and post<br><span style="white-space:nowrap">to create a <span class="accent">moment of curiosity.</span></span><br><span class="diag-lighter">That interest is captured elsewhere — even though you generated it.</span></h2>
+<!-- ============ DIAGNOSTIC ============ -->
+<section class="diagnostic-wrapper" id="diagnostic">
+  <div class="diagnostic-inner">
 
-    <!-- BEFORE -->
-    <div class="diagram-row today">
-      <div class="diagram-label">Today</div>
-      <div class="flow">
-        <div class="flow-node your-stuff">
-          <div class="flow-node-label">Your channels</div>
-          <div class="flow-node-content">Events, Talks, Ads, Social, Content, Conferences</div>
+    <p class="diagnostic-leadin">Today&rsquo;s buyer wants this: <em>&ldquo;Let me ask anything, get me there fast, and tell me what I need to know.&rdquo;</em> If you&rsquo;re not providing it, someone else is.</p>
+
+    <h2 class="diagnostic-headline">You expect each event, talk, ad, and post to create a moment of curiosity.<br><span class="diagnostic-lighter">That interest is captured elsewhere &mdash; even though you generated it.</span></h2>
+
+    <!-- Two-panel comparison diagram -->
+    <div class="compare-grid">
+
+      <!-- LEFT: TODAY -->
+      <div class="compare-panel compare-panel--today">
+        <div class="compare-panel-label">TODAY</div>
+
+        <div class="compare-node">
+          <div class="compare-node-label">YOUR CHANNELS</div>
+          <div class="compare-node-content">Events &middot; Talks &middot; Ads</div>
         </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node">
-          <div class="flow-node-label">Curiosity</div>
-          <div class="flow-node-content">Real people, real questions</div>
+        <div class="compare-arrow">↓</div>
+        <div class="compare-node">
+          <div class="compare-node-label">CURIOSITY</div>
+          <div class="compare-node-content">Real people, real questions</div>
         </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node leak">
-          <div class="flow-node-label">Leaks to</div>
-          <div class="flow-node-content">ChatGPT · Reddit · YouTube · Peer Forums</div>
+        <div class="compare-arrow">↓</div>
+        <div class="compare-node compare-node--leak">
+          <div class="compare-node-label">LEAKS TO</div>
+          <div class="compare-node-content">ChatGPT &middot; Reddit<br>YouTube &middot; Peer Forums</div>
         </div>
+
+        <p class="compare-closing">&ldquo;You paid for the awareness. Someone else got the conversation.&rdquo;</p>
       </div>
-    </div>
 
-  </div>
-</section>
+      <!-- RIGHT: WITH INQA -->
+      <div class="compare-panel compare-panel--inqa">
+        <div class="compare-panel-label">WITH INQA</div>
 
-<!-- ============ BIG 3 OUTCOMES ============ -->
-<section class="big3-wrapper">
-  <div class="big3-inner">
-    <div class="eyebrow">With inqa</div>
-    <h2 class="big3-title">Answers at the moment of curiosity.<br><span class="accent">With a conversation that&rsquo;s 100% yours.</span></h2>
-
-    <div class="twoway-inner">
-      <p class="twoway-body">You need to land that message with your audience. <span class="twoway-lead">inqa makes awareness creation and demand generation two-way.</span> Buyers ask real questions. You hear what&rsquo;s landing, what&rsquo;s confusing, and what your market actually needs to know. <span class="twoway-coda">Mid-flight — not after your next survey.</span></p>
-    </div>
-
-    <div class="diagram-row with-inqa" style="max-width:860px;margin:40px auto 56px;">
-      <div class="diagram-label">With inqa</div>
-      <div class="flow">
-        <div class="flow-node your-stuff">
-          <div class="flow-node-label">Your channels</div>
-          <div class="flow-node-content">Events, Talks, Ads, Social, Content, Conferences</div>
+        <div class="compare-node">
+          <div class="compare-node-label">YOUR CHANNELS</div>
+          <div class="compare-node-content">Events &middot; Talks &middot; Ads</div>
         </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node">
-          <div class="flow-node-label">Curiosity</div>
-          <div class="flow-node-content">Real people, real questions</div>
+        <div class="compare-arrow">↓</div>
+        <div class="compare-node">
+          <div class="compare-node-label">CURIOSITY</div>
+          <div class="compare-node-content">Real people, real questions</div>
         </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node inqa">
-          <div class="flow-node-label">Stays with you</div>
-          <div class="flow-node-content">A real conversation,<br>100% yours</div>
+        <div class="compare-arrow">↓</div>
+        <div class="compare-node compare-node--win">
+          <div class="compare-node-label">STAYS WITH YOU</div>
+          <div class="compare-node-content">A real conversation.<br>100% yours.</div>
         </div>
+
+        <p class="compare-closing">&ldquo;They get your story. Not a generated version of it.&rdquo;</p>
+      </div>
+
+    </div><!-- end compare-grid -->
+
+    <!-- Image placeholder — diagnostic screenshot -->
+    <div class="img-placeholder img-placeholder--diagnostic">
+      <div class="img-placeholder__inner">
+        <span>Product screenshot coming</span>
+        <span>A real inqa conversation — full-screen concierge UI</span>
       </div>
     </div>
 
@@ -1867,11 +2120,11 @@
 </section>
 
 <!-- ============ TWO-WAY AWARENESS BEAT ============ -->
-<section style="background: var(--warm-white); padding: 80px 56px; text-align: center;">
-  <div style="max-width: 900px; margin: 0 auto;">
-    <p style="font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--espresso); margin-bottom: 20px; letter-spacing: -0.3px;">Every awareness channel you run today is one-way.</p>
-    <p style="font-family: var(--body); font-size: 16px; color: var(--slate); line-height: 1.7; margin-bottom: 20px;">You push. Buyers receive. You get clicks back — not what they actually thought.</p>
-    <p style="font-family: var(--body); font-size: 16px; color: var(--espresso); line-height: 1.7;">inqa makes awareness two-way. Buyers ask real questions. You hear what's landing, what's confusing, and what your market actually needs to know.<br><span style="font-family: var(--display); font-weight: 700; color: var(--coral);">Mid-flight — not after your next survey.</span></p>
+<section class="twoway-beat-wrapper">
+  <div class="twoway-beat-inner">
+    <p class="twoway-beat-p1">Every awareness channel you run today is one-way.</p>
+    <p class="twoway-beat-p2">You push. Buyers receive. You get clicks back — not what they actually thought.</p>
+    <p class="twoway-beat-p3">inqa makes awareness two-way. Buyers ask real questions. You hear what&rsquo;s landing, what&rsquo;s confusing, and what your market actually needs to know.<br><span class="twoway-beat-coda">Mid-flight &mdash; not after your next survey.</span></p>
   </div>
 </section>
 
@@ -1883,6 +2136,14 @@
       <div class="eyebrow">A conversation that captures demand and grows sales.</div>
       <h2 class="section-title">One concierge agent. Many conversations. <span class="accent">Every channel.</span></h2>
       <p class="mockup-italic">Not a 2015 chatbot, but a better experience, a <strong>concierge agent,</strong> powered by AI. The inqa team is in the loop, always — tuning, improving, deploying side-by-side with your team. Your data is always yours and is only used to improve your setup.</p>
+    </div>
+
+    <!-- Image placeholder — concierge UI -->
+    <div class="img-placeholder img-placeholder--concierge">
+      <div class="img-placeholder__inner">
+        <span>Product screenshot coming</span>
+        <span>Full-screen concierge UI — real conversation in progress</span>
+      </div>
     </div>
 
     <div class="multi-surface-grid">
@@ -2053,7 +2314,7 @@
   <div class="insights-inner">
     <div class="eyebrow">What you'll know</div>
     <h2 class="section-title">Synthesized intelligence —<br><span class="accent">across every conversation.</span></h2>
-    <p class="section-lead">Not a vanity dashboard. The kind of read on your market that lets you adjust your messaging before your next campaign and walk into a board meeting with answers — instead of guesses.</p>
+    <p class="section-lead">Not a vanity dashboard. The kind of read on your market that lets you adjust your messaging before your next campaign — not after your next survey.</p>
 
     <div class="switcher-tabs">
       <button class="switcher-tab active" data-segment="0">Launching a new category</button>
@@ -2098,16 +2359,16 @@
 </section>
 
 <!-- ============ WHERE ARE YOU MISSING OUT ============ -->
-<section style="background: var(--warm-white); padding: 64px 56px; text-align: center;">
+<section style="background: var(--warm-white); padding: 80px 56px; text-align: center;">
   <div style="max-width: 1100px; margin: 0 auto;">
     <h2 style="font-family: var(--display); font-weight: 700; font-size: 24px; color: var(--espresso); margin-bottom: 12px; letter-spacing: -0.4px;">Where are you missing out?</h2>
-    <p style="font-family: var(--body); font-style: italic; font-size: 15px; color: var(--slate); margin-bottom: 40px;">Four scenarios. Each one a place curiosity leaks today.</p>
+    <p style="font-family: var(--body); font-style: italic; font-size: 15px; color: var(--slate); margin-bottom: 28px;">Four scenarios. Each one a place curiosity leaks today.</p>
 
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center;">
-      <a href="/for-events" style="display: inline-block; padding: 12px 24px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> At events</a>
-      <a href="/for-speakers" style="display: inline-block; padding: 12px 24px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> On stage</a>
-      <a href="/for-funnels" style="display: inline-block; padding: 12px 24px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> In your funnel</a>
-      <a href="/for-launches" style="display: inline-block; padding: 12px 24px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> At launch</a>
+      <a href="/for-events" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> At events</a>
+      <a href="/for-speakers" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> On stage</a>
+      <a href="/for-funnels" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> In your funnel</a>
+      <a href="/for-launches" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> At launch</a>
     </div>
   </div>
 </section>
