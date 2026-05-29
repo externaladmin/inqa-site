@@ -989,6 +989,23 @@
     font-size: 13px;
     color: var(--slate);
   }
+  .footer-links {
+    font-family: var(--display);
+    font-size: 11px;
+    color: var(--slate);
+    opacity: 0.6;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+  }
+  .footer-links a {
+    color: var(--slate);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover {
+    opacity: 1;
+  }
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 1024px) {
@@ -1334,7 +1351,8 @@
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  inqa.ai &nbsp;&middot;&nbsp; &copy; Magentiq Inc. 2026
+  <div>inqa.ai &nbsp;&middot;&nbsp; &copy; Magentiq Inc. 2026</div>
+  <div class="footer-links"><a href="/for-events">Events</a> &nbsp;·&nbsp; <a href="/for-speakers">Speakers</a> &nbsp;·&nbsp; <a href="/for-launches">Launches</a> &nbsp;·&nbsp; <a href="/for-funnels">Funnels</a></div>
 </footer>
 
 </body>
