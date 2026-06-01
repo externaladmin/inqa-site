@@ -2652,7 +2652,7 @@
                 <div class="calc-stat-label">Captured</div>
                 <div class="calc-stat-val calc-val-dark" id="out-form-captured">30/mo</div>
                 <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-captured" style="background:#C4BDB8"></div></div>
-                <div class="calc-stat-sub calc-sub-gray" id="out-form-rate">1.5% via form</div>
+                <div class="calc-stat-sub calc-sub-gray" id="out-form-rate">1.5% via slow processes like forms or badge scans</div>
               </div>
 
               <div class="calc-stat">
@@ -2677,7 +2677,7 @@
                 <div class="calc-stat-label">Captured</div>
                 <div class="calc-stat-val calc-val-green" id="out-inqa-captured">240/mo</div>
                 <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-captured" style="background:#0F6E56"></div></div>
-                <div class="calc-stat-sub calc-sub-green" id="out-inqa-rate">12% via conversation</div>
+                <div class="calc-stat-sub calc-sub-green" id="out-inqa-rate">12% via instant conversation</div>
               </div>
 
               <div class="calc-stat">
@@ -3196,7 +3196,7 @@
       driftMain: 'of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.',
       driftSrc: 'McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research',
       formSrc: 'Unbounce 2024 · IRP Commerce — high-AOV consumer products avg. 1.4–1.6%',
-      inqaRateLabel: '12% via conversation',
+      inqaRateLabel: '12% via instant conversation',
       defaults: { moments: 2000, value: 2500, close: 18 },
       ranges: {
         moments: { min: 200, max: 15000, step: 200, minL: '200', maxL: '15K' },
@@ -3218,7 +3218,7 @@
       driftMain: 'of B2B buyers now use AI tools in purchase research — before visiting any vendor website.',
       driftSrc: 'Averi / Forrester 2026 — 680M citations study across ChatGPT, Perplexity, Gemini',
       formSrc: 'SaaS Hero / Daydream 2026 — B2B visitor-to-demo/form avg. 1.5–2.5%',
-      inqaRateLabel: '14% via conversation',
+      inqaRateLabel: '14% via instant conversation',
       defaults: { moments: 500, value: 20000, close: 22 },
       ranges: {
         moments: { min: 100,  max: 10000,  step: 100,  minL: '100',  maxL: '10K' },
@@ -3280,7 +3280,7 @@
     setText('out-inqa-pipeline', fmtM(r.iP));
     setText('out-additional',    fmtM(r.add));
     setText('out-net-new',       '+' + fmtN(r.net) + ' more conversations per month');
-    setText('out-form-rate',     Math.round(m.formRate * 100) + '% via form');
+    setText('out-form-rate',     Math.round(m.formRate * 100) + '% via slow processes like forms or badge scans');
     setText('out-inqa-rate',     m.inqaRateLabel);
     setText('source-form',       m.formSrc);
     setWidth('bar-form-captured', (r.fC / r.mo) * 100);
