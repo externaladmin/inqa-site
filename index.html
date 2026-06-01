@@ -1347,6 +1347,11 @@
   }
 
   @media (max-width: 900px) {
+    .deploy-header { padding: 0 24px; margin-bottom: 40px; }
+    .deploy-title { font-size: 32px; }
+    footer { padding: 20px 24px; }
+    .footer-contact { font-size: 11px; }
+    .footer-links { font-size: 10px; margin-top: 10px; }
     nav ul { gap: 16px; font-size: 12px; }
     h1.hero-title { font-size: 48px; }
     .hero-sub { white-space: normal; font-size: 16px; }
@@ -1366,6 +1371,14 @@
     .manifesto-quote { font-size: 24px; }
     .manifesto-setup { font-size: 16px; margin-bottom: 32px; }
     .manifesto-consequence { font-size: 18px; margin-top: 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .deploy-header { padding: 0 16px; margin-bottom: 32px; }
+    .deploy-title { font-size: 28px; }
+    footer { padding: 16px 16px; }
+    .footer-contact { font-size: 10px; }
+    .footer-links { font-size: 9px; margin-top: 8px; }
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -2965,12 +2978,12 @@
 </section>
 
 <!-- ============ WHERE ARE YOU MISSING OUT ============ -->
-<section style="background: var(--warm-white); padding: 80px 56px; text-align: center;">
+<section class="where-missing-section" style="background: var(--warm-white); text-align: center;">
   <div style="max-width: 1100px; margin: 0 auto;">
     <h2 style="font-family: var(--display); font-weight: 700; font-size: 24px; color: var(--espresso); margin-bottom: 12px; letter-spacing: -0.4px;">Where are you missing out?</h2>
     <p style="font-family: var(--body); font-style: italic; font-size: 15px; color: var(--slate); margin-bottom: 28px;">Four scenarios. Each one a place curiosity leaks today.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center;">
+    <div class="where-missing-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center;">
       <a href="/for-events" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> At events</a>
       <a href="/for-speakers" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> On stage</a>
       <a href="/for-funnels" style="display: inline-block; padding: 14px 28px; border: 1.5px solid var(--espresso); background: transparent; color: var(--espresso); font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 24px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px;"><span style="color: var(--coral);">→</span> In your funnel</a>
@@ -2980,16 +2993,23 @@
 </section>
 
 <style>
+  .where-missing-section {
+    padding: 80px 56px;
+  }
   @media (max-width: 900px) {
+    .where-missing-section {
+      padding: 60px 24px;
+    }
     .where-missing-grid {
       grid-template-columns: repeat(2, 1fr) !important;
-      padding: 48px 24px !important;
     }
   }
   @media (max-width: 600px) {
+    .where-missing-section {
+      padding: 48px 24px;
+    }
     .where-missing-grid {
       grid-template-columns: 1fr !important;
-      padding: 48px 24px !important;
     }
   }
 </style>
