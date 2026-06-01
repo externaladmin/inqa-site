@@ -24,29 +24,20 @@
   "@type": "SoftwareApplication",
   "name": "inqa",
   "url": "https://www.inqa.ai",
-  "description": "AI conversation layer that captures buyer curiosity at events, launches, ads and talks. Trained on your product. 100% yours.",
+  "description": "inqa puts a real conversation at every moment of buyer curiosity — events, launches, ads, talks. Trained on your product. 100% yours.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "offers": {
     "@type": "Offer",
-    "description": "Sized at roughly half the loaded cost of a junior sales rep. Contact for pricing."
+    "price": "0",
+    "priceCurrency": "USD"
   },
   "creator": {
     "@type": "Organization",
     "name": "Magentiq Inc.",
     "url": "https://www.inqa.ai",
-    "founder": [
-      {
-        "@type": "Person",
-        "name": "Deeps Ramanathan",
-        "jobTitle": "Co-Founder and CEO"
-      },
-      {
-        "@type": "Person",
-        "name": "Fei Sha",
-        "jobTitle": "Co-Founder and CTO"
-      }
-    ]
+    "email": "deeps@inqa.ai",
+    "foundingLocation": "San Francisco, CA"
   }
 }
 </script>
@@ -1531,9 +1522,6 @@
 
   /* ============ IMAGE PLACEHOLDERS ============ */
   .img-placeholder {
-    background: #EDE8E4;
-    border: 2px dashed #C4BDB8;
-    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1564,7 +1552,7 @@
   }
   .img-placeholder--concierge {
     width: 100%;
-    max-width: 800px;
+    max-width: 963px;
     height: 700px;
     margin: 0 auto 48px;
     display: flex;
@@ -1619,6 +1607,460 @@
     .mockup-wrapper { padding: 64px 24px; }
     .insights-wrapper { padding: 64px 24px; }
   }
+
+  /* ── CURIOSITY CALCULATOR ─────────────────────────────────────────────── */
+
+  .section-calc {
+    background-color: #FAF8F6;
+    background-image: radial-gradient(circle, rgba(61,44,44,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    padding: 96px 0;
+  }
+
+  .calc-eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .calc-eyebrow-rule {
+    width: 20px;
+    height: 1.5px;
+    background: #F27B7B;
+    flex-shrink: 0;
+  }
+
+  .calc-eyebrow-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #4A766E;
+  }
+
+  .calc-h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    color: #3D2C2C;
+    line-height: 1.15;
+    margin: 0 0 12px;
+  }
+
+  .calc-intro {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #5C5858;
+    margin: 0 0 36px;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  /* Card */
+  .calc-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 40px 32px;
+    box-shadow: 0 4px 40px rgba(61,44,44,0.08), 0 1px 8px rgba(61,44,44,0.04);
+  }
+
+  /* Mode */
+  .calc-mode-intro {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #5C5858;
+    margin: 0 0 10px;
+  }
+
+  .calc-modes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .calc-mode-btn {
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: 1.5px solid #D4CCC8;
+    background: #fff;
+    color: #5C5858;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+
+  .calc-mode-btn.active {
+    background: #3D2C2C;
+    border-color: #3D2C2C;
+    color: #fff;
+  }
+
+  .calc-mode-btn:hover:not(.active) {
+    border-color: #F27B7B;
+    color: #F27B7B;
+  }
+
+  /* Body grid */
+  .calc-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* Drift callout */
+  .calc-drift {
+    background: rgba(61,44,44,0.05);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .calc-drift-pct {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #3D2C2C;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 52px;
+  }
+
+  .calc-drift-main {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3D2C2C;
+    line-height: 1.45;
+    margin: 0 0 4px;
+  }
+
+  .calc-drift-source {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    color: #7A7170;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Sliders */
+  .calc-slider-group {
+    margin-bottom: 24px;
+  }
+
+  .calc-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .calc-slider-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #3D2C2C;
+  }
+
+  .calc-slider-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #F27B7B;
+    min-width: 72px;
+    text-align: right;
+  }
+
+  .calc-slider-hint {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10.5px;
+    color: #7A7170;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+
+  .calc-track-wrap {
+    position: relative;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+
+  .calc-track-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #EDE8E4;
+    border-radius: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .calc-track-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #F27B7B;
+    border-radius: 2px;
+    width: 20%;
+    transition: width 0.05s;
+  }
+
+  .calc-track-thumb {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: #F27B7B;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    box-shadow: 0 1px 4px rgba(61,44,44,0.2);
+    left: 20%;
+    transition: left 0.05s;
+    pointer-events: none;
+  }
+
+  .calc-range {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  .calc-minmax {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .calc-minmax span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    color: #B4B2A9;
+  }
+
+  /* Comparison cards */
+  .calc-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .calc-card-without {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 16px 16px 14px;
+  }
+
+  .calc-card-with {
+    background: #fff;
+    border: 1.5px solid #F27B7B;
+    border-radius: 12px;
+    padding: 16px 16px 14px;
+    position: relative;
+  }
+
+  .calc-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #7A7170;
+    margin-bottom: 14px;
+  }
+
+  .calc-with-pill {
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    background: #F27B7B;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+
+  .calc-stat {
+    margin-bottom: 12px;
+  }
+
+  .calc-stat-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    color: #7A7170;
+    margin-bottom: 1px;
+  }
+
+  .calc-stat-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1;
+    transition: all 0.2s;
+  }
+
+  .calc-val-dark  { color: #3D2C2C; }
+  .calc-val-coral { color: #F27B7B; }
+  .calc-val-green { color: #0F6E56; }
+  .calc-val-muted { color: #B4B2A9; }
+
+  .calc-bar-track {
+    height: 5px;
+    background: #F0ECE8;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 6px 0 3px;
+  }
+
+  .calc-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    width: 0;
+    transition: width 0.3s;
+  }
+
+  .calc-stat-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+  }
+
+  .calc-sub-gray  { color: #B4B2A9; }
+  .calc-sub-coral { color: #F27B7B; }
+  .calc-sub-green { color: #0F6E56; }
+
+  .calc-pipeline-row {
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 11px;
+    margin-top: 8px;
+  }
+
+  .calc-pipeline-row--with {
+    border-top-color: rgba(242,123,123,0.2);
+  }
+
+  .calc-pipeline-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    color: #7A7170;
+    margin-bottom: 2px;
+  }
+
+  .calc-pipeline-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #3D2C2C;
+    transition: all 0.2s;
+  }
+
+  .calc-source-note {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 9.5px;
+    color: #B4B2A9;
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* Big result */
+  .calc-result {
+    background: #3D2C2C;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .calc-result-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+
+  .calc-result-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: #F27B7B;
+    line-height: 1;
+    transition: all 0.2s;
+  }
+
+  .calc-result-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 4px;
+  }
+
+  .calc-cta-btn {
+    display: inline-block;
+    background: #F27B7B;
+    color: #fff;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .calc-cta-btn:hover { background: #993C1D; }
+
+  .calc-disclaimer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10.5px;
+    color: #7A7170;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .calc-body    { grid-template-columns: 1fr; }
+    .calc-compare { grid-template-columns: 1fr 1fr; }
+    .calc-card    { padding: 24px 20px 20px; }
+  }
+
+  @media (max-width: 520px) {
+    .calc-compare { grid-template-columns: 1fr; }
+    .calc-result  { flex-direction: column; align-items: flex-start; }
+  }
+  /* ── END CALCULATOR CSS ───────────────────────────────────────────────── */
 </style>
 </head>
 <body>
@@ -2136,14 +2578,169 @@
   </div>
 </section>
 
-<!-- ============ TWO-WAY AWARENESS BEAT ============ -->
-<section class="twoway-beat-wrapper">
-  <div class="twoway-beat-inner">
-    <p class="twoway-beat-p1">Every awareness channel you run today is one-way.</p>
-    <p class="twoway-beat-p2">You push. Buyers receive. You get clicks back — not what they actually thought.</p>
-    <p class="twoway-beat-p3">inqa makes awareness two-way. Buyers ask real questions. You hear what&rsquo;s landing, what&rsquo;s confusing, and what your market actually needs to know.<br><span class="twoway-beat-coda">Mid-flight &mdash; not after your next survey.</span></p>
-  </div>
+<!-- ══ CURIOSITY CALCULATOR ══════════════════════════════════════════════ -->
+<section class="section-calc">
+  <div class="container">
+
+    <div class="calc-eyebrow-row">
+      <div class="calc-eyebrow-rule"></div>
+      <span class="calc-eyebrow-text">The curiosity calculator</span>
+    </div>
+
+    <h2 class="calc-h2">How much curiosity are you<br>leaving on the table?</h2>
+    <p class="calc-intro">Based on published research. Select your situation and adjust the numbers.</p>
+
+    <div class="calc-card">
+
+      <p class="calc-mode-intro">Is the product you're generating interest for a</p>
+      <div class="calc-modes">
+        <button class="calc-mode-btn active" data-mode="b2c">High Consideration B2C</button>
+        <button class="calc-mode-btn" data-mode="b2b">B2B</button>
+      </div>
+
+      <div class="calc-body">
+
+        <!-- LEFT — inputs -->
+        <div class="calc-inputs">
+
+          <div class="calc-drift">
+            <div class="calc-drift-pct" id="drift-pct">55%</div>
+            <div>
+              <p class="calc-drift-main" id="drift-main">of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.</p>
+              <p class="calc-drift-source" id="drift-source">McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research</p>
+            </div>
+          </div>
+
+          <!-- Slider: moments -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-moments">Curious people per month</span>
+              <span class="calc-slider-val" id="value-moments">2,000</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-moments">Ad clicks, event attendees, social link visitors — people who showed genuine interest</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-moments"></div>
+                <div class="calc-track-thumb" id="thumb-moments"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-moments" min="200" max="15000" step="200" value="2000">
+            </div>
+            <div class="calc-minmax"><span id="min-moments">200</span><span id="max-moments">15K</span></div>
+          </div>
+
+          <!-- Slider: value -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-value">Average product value</span>
+              <span class="calc-slider-val" id="value-value">$2,500</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-value">What a converted buyer spends</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-value"></div>
+                <div class="calc-track-thumb" id="thumb-value"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-value" min="500" max="10000" step="500" value="2500">
+            </div>
+            <div class="calc-minmax"><span id="min-value">$500</span><span id="max-value">$10K</span></div>
+          </div>
+
+          <!-- Slider: close -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-close">Conversion rate</span>
+              <span class="calc-slider-val" id="value-close">18%</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-close">How often a real conversation turns into a sale</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-close"></div>
+                <div class="calc-track-thumb" id="thumb-close"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-close" min="5" max="40" step="1" value="18">
+            </div>
+            <div class="calc-minmax"><span id="min-close">5%</span><span id="max-close">40%</span></div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT — output -->
+        <div class="calc-output">
+
+          <div class="calc-compare">
+
+            <!-- Without inqa -->
+            <div class="calc-card-without">
+              <div class="calc-card-label">Without inqa</div>
+
+              <div class="calc-stat">
+                <div class="calc-stat-label">Captured</div>
+                <div class="calc-stat-val calc-val-dark" id="out-form-captured">30/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-captured" style="background:#C4BDB8"></div></div>
+                <div class="calc-stat-sub calc-sub-gray" id="out-form-rate">1.5% via form</div>
+              </div>
+
+              <div class="calc-stat">
+                <div class="calc-stat-label">Going to ChatGPT, Claude, and so on</div>
+                <div class="calc-stat-val calc-val-coral" id="out-form-drift">1,100/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-drift" style="background:#F27B7B"></div></div>
+                <div class="calc-stat-sub calc-sub-coral">Researching without you</div>
+              </div>
+
+              <div class="calc-pipeline-row">
+                <div class="calc-pipeline-label">Annual pipeline</div>
+                <div class="calc-pipeline-val" id="out-form-pipeline">$97K</div>
+                <div class="calc-source-note" id="source-form">Unbounce 2024 · IRP Commerce</div>
+              </div>
+            </div>
+
+            <!-- With inqa -->
+            <div class="calc-card-with">
+              <div class="calc-with-pill">With inqa</div>
+
+              <div class="calc-stat" style="margin-top:10px">
+                <div class="calc-stat-label">Captured</div>
+                <div class="calc-stat-val calc-val-green" id="out-inqa-captured">240/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-captured" style="background:#0F6E56"></div></div>
+                <div class="calc-stat-sub calc-sub-green" id="out-inqa-rate">12% via conversation</div>
+              </div>
+
+              <div class="calc-stat">
+                <div class="calc-stat-label">Still drifting</div>
+                <div class="calc-stat-val calc-val-muted" id="out-inqa-drift">880/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-drift" style="background:#E1EDE8"></div></div>
+                <div class="calc-stat-sub calc-sub-gray">Significantly reduced</div>
+              </div>
+
+              <div class="calc-pipeline-row calc-pipeline-row--with">
+                <div class="calc-pipeline-label">Annual pipeline</div>
+                <div class="calc-pipeline-val" id="out-inqa-pipeline">$778K</div>
+                <div class="calc-source-note">Modelled estimate</div>
+              </div>
+            </div>
+
+          </div><!-- /.calc-compare -->
+
+          <!-- Big number -->
+          <div class="calc-result">
+            <div>
+              <div class="calc-result-label">Additional pipeline / year</div>
+              <div class="calc-result-val" id="out-additional">$681K</div>
+              <div class="calc-result-sub" id="out-net-new">+210 more conversations per month</div>
+            </div>
+            <a href="#contact" class="calc-cta-btn">Talk to us →</a>
+          </div>
+
+          <p class="calc-disclaimer">
+            Illustrative only — your results will vary. Form capture and AI drift rates are published benchmarks. inqa conversation rate is a modelled estimate; no live customer data is used in this calculation.
+          </p>
+
+        </div><!-- /.calc-output -->
+      </div><!-- /.calc-body -->
+    </div><!-- /.calc-card -->
+  </div><!-- /.container -->
 </section>
+<!-- ══ END CALCULATOR ═════════════════════════════════════════════════════ -->
 
 <!-- ============ HOW IT WORKS / PRODUCT MOCKUP ============ -->
 <section class="mockup-wrapper" id="how-it-works">
@@ -2157,25 +2754,26 @@
 
     <!-- Laptop screen frame — concierge UI -->
     <div class="img-placeholder img-placeholder--concierge">
-      <svg width="100%" height="100%" viewBox="0 0 800 700" style="max-width: 800px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg width="100%" height="100%" viewBox="0 0 963 700" style="max-width: 963px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <!-- Laptop screen body -->
-        <rect x="20" y="20" width="760" height="600" rx="16" fill="#F5F2F0" stroke="#D4CCC8" stroke-width="2"/>
+        <rect x="20" y="20" width="923" height="600" rx="16" fill="#F5F2F0" stroke="#D4CCC8" stroke-width="2"/>
 
         <!-- Screen display area with clipping for rounded corners -->
         <defs>
           <clipPath id="screenClip">
-            <rect x="28" y="28" width="744" height="584" rx="12"/>
+            <rect x="28" y="28" width="907" height="584" rx="12"/>
           </clipPath>
         </defs>
 
-        <!-- Product screenshot image -->
-        <image x="28" y="28" width="744" height="584" xlink:href="https://cdn.prod.website-files.com/698f3bd6681659364544e37c/6a1b3649edaee5a60b48fce6_UI%20-%20Inqa%20ipad%20screen%20nighttime%202234%E2%80%8A%C3%97%E2%80%8A1438.png" preserveAspectRatio="xMidYMid slice" clip-path="url(#screenClip)"/>
+        <!-- Placeholder text -->
+        <text x="481.5" y="280" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="600" fill="#9A9190">Product screenshot coming</text>
+        <text x="481.5" y="340" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="14" fill="#B4ADAB">A real inqa conversation — full-screen concierge UI</text>
 
         <!-- Laptop base/hinge -->
-        <rect x="40" y="620" width="720" height="12" rx="6" fill="#E8E2DE"/>
+        <rect x="40" y="620" width="883" height="12" rx="6" fill="#E8E2DE"/>
 
         <!-- Laptop stand/base -->
-        <ellipse cx="400" cy="650" rx="280" ry="20" fill="#D4CCC8"/>
+        <ellipse cx="481.5" cy="650" rx="361.5" ry="20" fill="#D4CCC8"/>
       </svg>
     </div>
 
@@ -2610,6 +3208,183 @@
       }, 200);
     });
   });
+</script>
+
+<script>
+/* ── CURIOSITY CALCULATOR ─────────────────────────────────────────────── */
+(function () {
+
+  var MODES = {
+    b2c: {
+      formRate: 0.015, inqaRate: 0.12, driftRate: 0.55,
+      driftPct: '55%',
+      driftMain: 'of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.',
+      driftSrc: 'McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research',
+      formSrc: 'Unbounce 2024 · IRP Commerce — high-AOV consumer products avg. 1.4–1.6%',
+      inqaRateLabel: '12% via conversation',
+      defaults: { moments: 2000, value: 2500, close: 18 },
+      ranges: {
+        moments: { min: 200, max: 15000, step: 200, minL: '200', maxL: '15K' },
+        value:   { min: 500, max: 10000, step: 500, minL: '$500', maxL: '$10K' },
+        close:   { min: 5,   max: 40,    step: 1,   minL: '5%',   maxL: '40%' }
+      },
+      labels: {
+        moments: 'Curious people per month',
+        momentshint: 'Ad clicks, event attendees, social link visitors — people who showed genuine interest',
+        value: 'Average product value',
+        valuehint: 'What a converted buyer spends',
+        close: 'Conversion rate',
+        closehint: 'How often a real conversation turns into a sale'
+      }
+    },
+    b2b: {
+      formRate: 0.02, inqaRate: 0.14, driftRate: 0.73,
+      driftPct: '73%',
+      driftMain: 'of B2B buyers now use AI tools in purchase research — before visiting any vendor website.',
+      driftSrc: 'Averi / Forrester 2026 — 680M citations study across ChatGPT, Perplexity, Gemini',
+      formSrc: 'SaaS Hero / Daydream 2026 — B2B visitor-to-demo/form avg. 1.5–2.5%',
+      inqaRateLabel: '14% via conversation',
+      defaults: { moments: 500, value: 20000, close: 22 },
+      ranges: {
+        moments: { min: 100,  max: 10000,  step: 100,  minL: '100',  maxL: '10K' },
+        value:   { min: 5000, max: 100000, step: 5000, minL: '$5K',  maxL: '$100K' },
+        close:   { min: 5,    max: 40,     step: 1,    minL: '5%',   maxL: '40%' }
+      },
+      labels: {
+        moments: 'Engaged prospects per month',
+        momentshint: 'Event attendees, ad click-throughs, content readers who reached a landing page',
+        value: 'Average deal value',
+        valuehint: 'ACV or average contract value',
+        close: 'Conversation-to-close rate',
+        closehint: 'How often a qualified conversation becomes a won deal'
+      }
+    }
+  };
+
+  var mode = 'b2c';
+  var vals = { moments: 2000, value: 2500, close: 18 };
+
+  function fmtM(n) {
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+    return '$' + Math.round(n);
+  }
+  function fmtN(n) {
+    if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+    return Math.round(n).toLocaleString();
+  }
+  function fmtV(n) {
+    if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+    return '$' + n.toLocaleString();
+  }
+
+  function setText(id, t) { var e = document.getElementById(id); if (e) e.textContent = t; }
+  function setWidth(id, pct) { var e = document.getElementById(id); if (e) e.style.width = Math.min(100, Math.round(pct)) + '%'; }
+
+  function compute() {
+    var m = MODES[mode];
+    var mo = vals.moments, v = vals.value, cl = vals.close / 100;
+    var fC = Math.round(mo * m.formRate);
+    var iC = Math.round(mo * m.inqaRate);
+    var dN = Math.round(mo * m.driftRate);
+    var dW = Math.round(mo * (m.driftRate - (m.inqaRate - m.formRate)));
+    var fP = fC * 12 * v * cl;
+    var iP = iC * 12 * v * cl;
+    return { fC: fC, iC: iC, dN: dN, dW: dW, fP: fP, iP: iP,
+             add: iP - fP, net: iC - fC, mo: mo };
+  }
+
+  function update() {
+    var r = compute();
+    var m = MODES[mode];
+    setText('out-form-captured', fmtN(r.fC) + '/mo');
+    setText('out-form-drift',    fmtN(r.dN) + '/mo');
+    setText('out-form-pipeline', fmtM(r.fP));
+    setText('out-inqa-captured', fmtN(r.iC) + '/mo');
+    setText('out-inqa-drift',    fmtN(r.dW) + '/mo');
+    setText('out-inqa-pipeline', fmtM(r.iP));
+    setText('out-additional',    fmtM(r.add));
+    setText('out-net-new',       '+' + fmtN(r.net) + ' more conversations per month');
+    setText('out-form-rate',     Math.round(m.formRate * 100) + '% via form');
+    setText('out-inqa-rate',     m.inqaRateLabel);
+    setText('source-form',       m.formSrc);
+    setWidth('bar-form-captured', (r.fC / r.mo) * 100);
+    setWidth('bar-form-drift',    (r.dN / r.mo) * 100);
+    setWidth('bar-inqa-captured', (r.iC / r.mo) * 100);
+    setWidth('bar-inqa-drift',    (r.dW / r.mo) * 100);
+  }
+
+  function updateSliderUI(key) {
+    var m = MODES[mode];
+    var r = m.ranges[key];
+    var v = vals[key];
+    var pct = ((v - r.min) / (r.max - r.min)) * 100;
+    var fill  = document.getElementById('fill-'  + key);
+    var thumb = document.getElementById('thumb-' + key);
+    var valEl = document.getElementById('value-' + key);
+    if (fill)  fill.style.width = pct + '%';
+    if (thumb) thumb.style.left = pct + '%';
+    if (valEl) {
+      if (key === 'moments') valEl.textContent = fmtN(v);
+      else if (key === 'value') valEl.textContent = fmtV(v);
+      else valEl.textContent = v + '%';
+    }
+  }
+
+  function switchMode(id) {
+    mode = id;
+    var m = MODES[id];
+    vals = { moments: m.defaults.moments, value: m.defaults.value, close: m.defaults.close };
+    document.querySelectorAll('.calc-mode-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.mode === id);
+    });
+    setText('drift-pct',    m.driftPct);
+    setText('drift-main',   m.driftMain);
+    setText('drift-source', m.driftSrc);
+    setText('label-moments', m.labels.moments);
+    setText('hint-moments',  m.labels.momentshint);
+    setText('label-value',   m.labels.value);
+    setText('hint-value',    m.labels.valuehint);
+    setText('label-close',   m.labels.close);
+    setText('hint-close',    m.labels.closehint);
+    ['moments', 'value', 'close'].forEach(function (key) {
+      var r = m.ranges[key];
+      var inp = document.getElementById('range-' + key);
+      if (inp) { inp.min = r.min; inp.max = r.max; inp.step = r.step; inp.value = vals[key]; }
+      var minEl = document.getElementById('min-' + key);
+      var maxEl = document.getElementById('max-' + key);
+      if (minEl) minEl.textContent = r.minL;
+      if (maxEl) maxEl.textContent = r.maxL;
+      updateSliderUI(key);
+    });
+    update();
+  }
+
+  function init() {
+    document.querySelectorAll('.calc-mode-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { switchMode(this.dataset.mode); });
+    });
+    ['moments', 'value', 'close'].forEach(function (key) {
+      var inp = document.getElementById('range-' + key);
+      if (!inp) return;
+      inp.addEventListener('input', function () {
+        vals[key] = Number(this.value);
+        updateSliderUI(key);
+        update();
+      });
+      updateSliderUI(key);
+    });
+    update();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+/* ── END CALCULATOR JS ────────────────────────────────────────────────── */
 </script>
 
 </body>
