@@ -117,6 +117,33 @@
   nav ul a { color: var(--slate); text-decoration: none; transition: color 0.2s; }
   nav ul a:hover { color: var(--coral); }
 
+  /* Hamburger menu button - hidden on desktop */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 6px;
+  }
+  .nav-toggle span {
+    width: 24px;
+    height: 2.5px;
+    background: var(--espresso);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
   /* ============ HERO ============ */
   .hero {
     background: var(--soft-blush);
@@ -1347,6 +1374,32 @@
   }
 
   @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-toggle { display: flex; }
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--warm-white);
+      flex-direction: column;
+      gap: 0;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(61,44,44,0.07);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-menu.active {
+      max-height: 400px;
+    }
+    .nav-menu li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(61,44,44,0.05);
+    }
+    .nav-menu li:last-child {
+      border-bottom: none;
+    }
     .deploy-header { padding: 0 24px; margin-bottom: 40px; }
     .deploy-title { font-size: 32px; }
     footer { padding: 20px 24px; }
@@ -2059,7 +2112,12 @@
 <!-- ============ NAV ============ -->
 <nav>
   <a href="/" class="wordmark">inqa<span class="ai">.ai</span></a>
-  <ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-menu" id="nav-menu">
     <li><a href="/how-it-works">How it works</a></li>
     <li><a href="/for-events">For events</a></li>
     <li><a href="/for-speakers">For speakers</a></li>
@@ -3380,6 +3438,38 @@
 
 })();
 /* ── END CALCULATOR JS ────────────────────────────────────────────────── */
+</script>
+
+<script>
+/* ── MOBILE NAV TOGGLE ──────────────────────────────────────────────── */
+(function() {
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', function() {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('nav')) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+    }
+  });
+})();
+/* ── END MOBILE NAV TOGGLE ──────────────────────────────────────────── */
 </script>
 
 </body>
