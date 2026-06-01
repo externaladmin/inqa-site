@@ -1355,6 +1355,7 @@
     .multi-surface-grid { grid-template-columns: 1fr; }
     .surface-cell { aspect-ratio: auto; min-height: 280px; }
     .mockup-wrapper { padding: 72px 24px; }
+    .section-calc { padding: 72px 24px; }
     .big3-cards { grid-template-columns: 1fr; }
     .big3-wrapper { padding: 72px 24px; }
     .twoway-lead { font-size: 20px; }
@@ -1605,6 +1606,7 @@
     .img-placeholder--concierge { height: 420px; }
     .twoway-beat-wrapper { padding: 56px 24px; }
     .mockup-wrapper { padding: 64px 24px; }
+    .section-calc { padding: 64px 24px; }
     .insights-wrapper { padding: 64px 24px; }
   }
 
@@ -1614,48 +1616,24 @@
     background-color: #FAF8F6;
     background-image: radial-gradient(circle, rgba(61,44,44,0.07) 1px, transparent 1px);
     background-size: 28px 28px;
-    padding: 96px 0;
+    padding: 96px 56px;
   }
 
-  .calc-eyebrow-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  .section-calc .container {
+    max-width: 1280px;
+    margin: 0 auto;
   }
 
-  .calc-eyebrow-rule {
-    width: 20px;
-    height: 1.5px;
-    background: #F27B7B;
-    flex-shrink: 0;
+  .section-calc .eyebrow {
+    margin-bottom: 24px;
   }
 
-  .calc-eyebrow-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 8px;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    color: #4A766E;
+  .section-calc .section-title {
+    margin-bottom: 24px;
   }
 
-  .calc-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: clamp(28px, 4vw, 40px);
-    color: #3D2C2C;
-    line-height: 1.15;
-    margin: 0 0 12px;
-  }
-
-  .calc-intro {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    color: #5C5858;
-    margin: 0 0 36px;
-    line-height: 1.6;
-    max-width: 560px;
+  .section-calc .section-lead {
+    margin-bottom: 40px;
   }
 
   /* Card */
@@ -2582,13 +2560,10 @@
 <section class="section-calc">
   <div class="container">
 
-    <div class="calc-eyebrow-row">
-      <div class="calc-eyebrow-rule"></div>
-      <span class="calc-eyebrow-text">The curiosity calculator</span>
-    </div>
+    <div class="eyebrow">The curiosity calculator</div>
 
-    <h2 class="calc-h2">How much curiosity are you<br>leaving on the table?</h2>
-    <p class="calc-intro">Based on published research. Select your situation and adjust the numbers.</p>
+    <h2 class="section-title">How much curiosity are you<br>leaving on the table?</h2>
+    <p class="section-lead">Based on published research. Select your situation and adjust the numbers.</p>
 
     <div class="calc-card">
 
