@@ -367,6 +367,13 @@
     .hero--split { grid-template-columns: 1fr; }
     .hero-photo-half { height: 280px; }
   }
+  @media (max-width: 906px) {
+    .hero--split .deploy-marquee-outer {
+      margin-top: -100px;
+      position: relative;
+      z-index: 10;
+    }
+  }
   .hero--split .deploy-marquee-outer {
     grid-column: 1 / -1;
   }
