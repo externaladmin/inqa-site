@@ -2710,177 +2710,9 @@
 
     </div><!-- end compare-grid -->
 
-    <!-- Image placeholder — diagnostic screenshot -->
-    <div class="img-placeholder img-placeholder--diagnostic">
-      <div class="img-placeholder__inner">
-        <span>Product screenshot coming</span>
-        <span>A real inqa conversation — full-screen concierge UI</span>
-      </div>
-    </div>
 
   </div>
 </section>
-
-<!-- ══ CURIOSITY CALCULATOR ══════════════════════════════════════════════ -->
-<section class="section-calc">
-  <div class="container">
-
-    <div class="eyebrow">The curiosity calculator</div>
-
-    <h2 class="section-title">How much curiosity are you<br>leaving on the table?</h2>
-    <p class="section-lead">Based on published research. Select your situation and adjust the numbers.</p>
-
-    <div class="calc-card">
-
-      <p class="calc-mode-intro">I'm generating interest for a</p>
-      <div class="calc-modes">
-        <button class="calc-mode-btn active" data-mode="b2c">High Consideration B2C Product</button>
-        <button class="calc-mode-btn" data-mode="b2b">B2B Product</button>
-      </div>
-
-      <div class="calc-body">
-
-        <!-- LEFT — inputs -->
-        <div class="calc-inputs">
-
-          <div class="calc-drift">
-            <div class="calc-drift-pct" id="drift-pct">55%</div>
-            <div>
-              <p class="calc-drift-main" id="drift-main">of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.</p>
-              <p class="calc-drift-source" id="drift-source">McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research</p>
-            </div>
-          </div>
-
-          <!-- Slider: moments -->
-          <div class="calc-slider-group">
-            <div class="calc-slider-header">
-              <span class="calc-slider-label" id="label-moments">Curious people per month</span>
-              <span class="calc-slider-val" id="value-moments">2,000</span>
-            </div>
-            <p class="calc-slider-hint" id="hint-moments">Ad clicks, event attendees, social link visitors — people who showed genuine interest</p>
-            <div class="calc-track-wrap">
-              <div class="calc-track-bg">
-                <div class="calc-track-fill" id="fill-moments"></div>
-                <div class="calc-track-thumb" id="thumb-moments"></div>
-              </div>
-              <input type="range" class="calc-range" id="range-moments" min="200" max="15000" step="200" value="2000">
-            </div>
-            <div class="calc-minmax"><span id="min-moments">200</span><span id="max-moments">15K</span></div>
-          </div>
-
-          <!-- Slider: value -->
-          <div class="calc-slider-group">
-            <div class="calc-slider-header">
-              <span class="calc-slider-label" id="label-value">Average product value</span>
-              <span class="calc-slider-val" id="value-value">$2,500</span>
-            </div>
-            <p class="calc-slider-hint" id="hint-value">What a converted buyer spends</p>
-            <div class="calc-track-wrap">
-              <div class="calc-track-bg">
-                <div class="calc-track-fill" id="fill-value"></div>
-                <div class="calc-track-thumb" id="thumb-value"></div>
-              </div>
-              <input type="range" class="calc-range" id="range-value" min="500" max="10000" step="500" value="2500">
-            </div>
-            <div class="calc-minmax"><span id="min-value">$500</span><span id="max-value">$10K</span></div>
-          </div>
-
-          <!-- Slider: close -->
-          <div class="calc-slider-group">
-            <div class="calc-slider-header">
-              <span class="calc-slider-label" id="label-close">Conversion rate</span>
-              <span class="calc-slider-val" id="value-close">18%</span>
-            </div>
-            <p class="calc-slider-hint" id="hint-close">How often a real visitor turns into a sale</p>
-            <div class="calc-track-wrap">
-              <div class="calc-track-bg">
-                <div class="calc-track-fill" id="fill-close"></div>
-                <div class="calc-track-thumb" id="thumb-close"></div>
-              </div>
-              <input type="range" class="calc-range" id="range-close" min="5" max="40" step="1" value="18">
-            </div>
-            <div class="calc-minmax"><span id="min-close">5%</span><span id="max-close">40%</span></div>
-          </div>
-
-        </div>
-
-        <!-- RIGHT — output -->
-        <div class="calc-output">
-
-          <div class="calc-compare">
-
-            <!-- Without inqa -->
-            <div class="calc-card-without">
-              <div class="calc-card-label">Without inqa</div>
-
-              <div class="calc-stat">
-                <div class="calc-stat-label">Captured</div>
-                <div class="calc-stat-val calc-val-dark" id="out-form-captured">30/mo</div>
-                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-captured" style="background:#C4BDB8"></div></div>
-                <div class="calc-stat-sub calc-sub-gray" id="out-form-rate">1.5% via slow processes like forms or badge scans</div>
-              </div>
-
-              <div class="calc-stat">
-                <div class="calc-stat-label">Going to ChatGPT, Claude, and so on</div>
-                <div class="calc-stat-val calc-val-coral" id="out-form-drift">1,100/mo</div>
-                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-drift" style="background:#F27B7B"></div></div>
-                <div class="calc-stat-sub calc-sub-coral">Researching without you</div>
-              </div>
-
-              <div class="calc-pipeline-row">
-                <div class="calc-pipeline-label">Annual pipeline</div>
-                <div class="calc-pipeline-val" id="out-form-pipeline">$97K</div>
-                <div class="calc-source-note" id="source-form">Unbounce 2024 · IRP Commerce</div>
-              </div>
-            </div>
-
-            <!-- With inqa -->
-            <div class="calc-card-with">
-              <div class="calc-with-pill">With inqa</div>
-
-              <div class="calc-stat" style="margin-top:20px">
-                <div class="calc-stat-label">Captured</div>
-                <div class="calc-stat-val calc-val-green" id="out-inqa-captured">240/mo</div>
-                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-captured" style="background:#0F6E56"></div></div>
-                <div class="calc-stat-sub calc-sub-green" id="out-inqa-rate">12% via instant conversation</div>
-              </div>
-
-              <div class="calc-stat">
-                <div class="calc-stat-label">Still drifting</div>
-                <div class="calc-stat-val calc-val-muted" id="out-inqa-drift">880/mo</div>
-                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-drift" style="background:#E1EDE8"></div></div>
-                <div class="calc-stat-sub calc-sub-gray">Significantly reduced</div>
-              </div>
-
-              <div class="calc-pipeline-row calc-pipeline-row--with">
-                <div class="calc-pipeline-label">Annual pipeline</div>
-                <div class="calc-pipeline-val" id="out-inqa-pipeline">$778K</div>
-                <div class="calc-source-note">Modelled estimate</div>
-              </div>
-            </div>
-
-          </div><!-- /.calc-compare -->
-
-          <!-- Big number -->
-          <div class="calc-result">
-            <div>
-              <div class="calc-result-label">Additional pipeline / year</div>
-              <div class="calc-result-val" id="out-additional">$681K</div>
-              <div class="calc-result-sub" id="out-net-new">+210 more conversations per month</div>
-            </div>
-            <a href="#contact" class="calc-cta-btn">Talk to us →</a>
-          </div>
-
-          <p class="calc-disclaimer">
-            Illustrative only — your results will vary. Form capture and AI drift rates are published benchmarks. inqa conversation rate is a modelled estimate; no live customer data is used in this calculation.
-          </p>
-
-        </div><!-- /.calc-output -->
-      </div><!-- /.calc-body -->
-    </div><!-- /.calc-card -->
-  </div><!-- /.container -->
-</section>
-<!-- ══ END CALCULATOR ═════════════════════════════════════════════════════ -->
 
 <!-- ============ HOW IT WORKS / PRODUCT MOCKUP ============ -->
 <section class="mockup-wrapper" id="how-it-works">
@@ -3165,6 +2997,167 @@
     }
   }
 </style>
+
+<!-- ══ CURIOSITY CALCULATOR ══════════════════════════════════════════════ -->
+<section class="section-calc">
+  <div class="container">
+
+    <div class="eyebrow">The curiosity calculator</div>
+
+    <h2 class="section-title">How much curiosity are you<br>leaving on the table?</h2>
+    <p class="section-lead">Based on published research. Select your situation and adjust the numbers.</p>
+
+    <div class="calc-card">
+
+      <p class="calc-mode-intro">I'm generating interest for a</p>
+      <div class="calc-modes">
+        <button class="calc-mode-btn active" data-mode="b2c">High Consideration B2C Product</button>
+        <button class="calc-mode-btn" data-mode="b2b">B2B Product</button>
+      </div>
+
+      <div class="calc-body">
+
+        <!-- LEFT — inputs -->
+        <div class="calc-inputs">
+
+          <div class="calc-drift">
+            <div class="calc-drift-pct" id="drift-pct">55%</div>
+            <div>
+              <p class="calc-drift-main" id="drift-main">of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.</p>
+              <p class="calc-drift-source" id="drift-source">McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research</p>
+            </div>
+          </div>
+
+          <!-- Slider: moments -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-moments">Curious people per month</span>
+              <span class="calc-slider-val" id="value-moments">2,000</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-moments">Ad clicks, event attendees, social link visitors — people who showed genuine interest</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-moments"></div>
+                <div class="calc-track-thumb" id="thumb-moments"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-moments" min="200" max="15000" step="200" value="2000">
+            </div>
+            <div class="calc-minmax"><span id="min-moments">200</span><span id="max-moments">15K</span></div>
+          </div>
+
+          <!-- Slider: value -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-value">Average product value</span>
+              <span class="calc-slider-val" id="value-value">$2,500</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-value">What a converted buyer spends</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-value"></div>
+                <div class="calc-track-thumb" id="thumb-value"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-value" min="500" max="10000" step="500" value="2500">
+            </div>
+            <div class="calc-minmax"><span id="min-value">$500</span><span id="max-value">$10K</span></div>
+          </div>
+
+          <!-- Slider: close -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-close">Conversion rate</span>
+              <span class="calc-slider-val" id="value-close">18%</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-close">How often a real visitor turns into a sale</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-close"></div>
+                <div class="calc-track-thumb" id="thumb-close"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-close" min="5" max="40" step="1" value="18">
+            </div>
+            <div class="calc-minmax"><span id="min-close">5%</span><span id="max-close">40%</span></div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT — output -->
+        <div class="calc-output">
+
+          <div class="calc-compare">
+
+            <!-- Without inqa -->
+            <div class="calc-card-without">
+              <div class="calc-card-label">Without inqa</div>
+
+              <div class="calc-stat">
+                <div class="calc-stat-label">Captured</div>
+                <div class="calc-stat-val calc-val-dark" id="out-form-captured">30/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-captured" style="background:#C4BDB8"></div></div>
+                <div class="calc-stat-sub calc-sub-gray" id="out-form-rate">1.5% via slow processes like forms or badge scans</div>
+              </div>
+
+              <div class="calc-stat">
+                <div class="calc-stat-label">Going to ChatGPT, Claude, and so on</div>
+                <div class="calc-stat-val calc-val-coral" id="out-form-drift">1,100/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-drift" style="background:#F27B7B"></div></div>
+                <div class="calc-stat-sub calc-sub-coral">Researching without you</div>
+              </div>
+
+              <div class="calc-pipeline-row">
+                <div class="calc-pipeline-label">Annual pipeline</div>
+                <div class="calc-pipeline-val" id="out-form-pipeline">$97K</div>
+                <div class="calc-source-note" id="source-form">Unbounce 2024 · IRP Commerce</div>
+              </div>
+            </div>
+
+            <!-- With inqa -->
+            <div class="calc-card-with">
+              <div class="calc-with-pill">With inqa</div>
+
+              <div class="calc-stat" style="margin-top:20px">
+                <div class="calc-stat-label">Captured</div>
+                <div class="calc-stat-val calc-val-green" id="out-inqa-captured">240/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-captured" style="background:#0F6E56"></div></div>
+                <div class="calc-stat-sub calc-sub-green" id="out-inqa-rate">12% via instant conversation</div>
+              </div>
+
+              <div class="calc-stat">
+                <div class="calc-stat-label">Still drifting</div>
+                <div class="calc-stat-val calc-val-muted" id="out-inqa-drift">880/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-drift" style="background:#E1EDE8"></div></div>
+                <div class="calc-stat-sub calc-sub-gray">Significantly reduced</div>
+              </div>
+
+              <div class="calc-pipeline-row calc-pipeline-row--with">
+                <div class="calc-pipeline-label">Annual pipeline</div>
+                <div class="calc-pipeline-val" id="out-inqa-pipeline">$778K</div>
+                <div class="calc-source-note">Modelled estimate</div>
+              </div>
+            </div>
+
+          </div><!-- /.calc-compare -->
+
+          <!-- Big number -->
+          <div class="calc-result">
+            <div>
+              <div class="calc-result-label">Additional pipeline / year</div>
+              <div class="calc-result-val" id="out-additional">$681K</div>
+              <div class="calc-result-sub" id="out-net-new">+210 more conversations per month</div>
+            </div>
+            <a href="#contact" class="calc-cta-btn">Talk to us →</a>
+          </div>
+
+          <p class="calc-disclaimer">
+            Illustrative only — your results will vary. Form capture and AI drift rates are published benchmarks. inqa conversation rate is a modelled estimate; no live customer data is used in this calculation.
+          </p>
+
+        </div><!-- /.calc-output -->
+      </div><!-- /.calc-body -->
+    </div><!-- /.calc-card -->
+  </div><!-- /.container -->
+</section>
+<!-- ══ END CALCULATOR ═════════════════════════════════════════════════════ -->
 
 <!-- ============ THESIS (dark rhythm break) ============ -->
 <section class="thesis-wrapper">
