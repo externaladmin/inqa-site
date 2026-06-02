@@ -1045,15 +1045,23 @@
 
 <!-- ============ NAV ============ -->
 <nav>
-  <a class="wordmark" href="/">inqa<span class="ai">.ai</span></a>
-  <ul>
+  <a href="/" class="wordmark">inqa<span class="ai">.ai</span></a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-menu" id="nav-menu">
     <li><a href="/how-it-works">How it works</a></li>
-    <li><a href="/for-events">For events</a></li>
-    <li><a href="/for-speakers">For speakers</a></li>
-    <!-- <li><a href="/for-funnels">For funnels</a></li> -->
-    <li><a href="/for-launches" class="active">For launches</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" id="use-cases-toggle">Use cases <span class="dropdown-arrow">↓</span></button>
+      <ul class="nav-dropdown-menu" id="use-cases-menu">
+        <li><a href="/for-events">For events</a></li>
+        <li><a href="/for-speakers">For speakers</a></li>
+        <li><a href="/for-launches">For launches</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Let's collab</a></li>
   </ul>
 </nav>
 
