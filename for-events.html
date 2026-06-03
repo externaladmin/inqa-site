@@ -168,6 +168,17 @@
     position: relative;
     overflow: hidden;
   }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/events-hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    opacity: 0.13;
+    z-index: 0;
+  }
   .hero-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -445,6 +456,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: grayscale(100%);
   }
   .leak-card-image::after {
     content: "";
@@ -582,6 +594,30 @@
     padding: 6px 14px;
     letter-spacing: 0.1px;
   }
+  .journey-step-photo {
+    margin-top: 16px;
+    max-width: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  .journey-step-photo img {
+    display: block;
+    width: 100%;
+    filter: grayscale(100%);
+  }
+  .journey-step-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #F27B7B;
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  @media (max-width: 900px) {
+    .journey-step-photo { max-width: 100%; }
+  }
   .journey-human-note {
     font-family: var(--body);
     font-style: italic;
@@ -684,12 +720,33 @@
     padding: 100px 56px;
   }
   .partnership-inner {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px;
+    align-items: center;
   }
-  .partnership-inner .eyebrow {
-    justify-content: center;
+  .partnership-text { }
+  .partnership-portrait {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .partnership-portrait img {
+    display: block;
+    width: 100%;
+    border-radius: 16px;
+  }
+  @media (max-width: 900px) {
+    .partnership-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .partnership-portrait {
+      max-width: 280px;
+      margin: 0 auto;
+    }
   }
   .partnership-quote {
     font-family: var(--display);
@@ -1048,7 +1105,7 @@
     <div class="leak-grid">
       <div class="leak-card">
         <div class="leak-card-image">
-          <img src="hallway.jpg" alt="Conference hallway conversation">
+          <img src="/images/events-leak-hallway.png" alt="Conference hallway conversation">
         </div>
         <div class="leak-card-body">
           <div class="leak-card-name">The hallway</div>
@@ -1057,7 +1114,7 @@
       </div>
       <div class="leak-card">
         <div class="leak-card-image">
-          <img src="phone.jpg" alt="People on phones">
+          <img src="/images/events-leak-phone.png" alt="Person on phone between sessions">
         </div>
         <div class="leak-card-body">
           <div class="leak-card-name">Their phone, right there</div>
@@ -1066,7 +1123,7 @@
       </div>
       <div class="leak-card">
         <div class="leak-card-image">
-          <img src="dinner.jpg" alt="Group dinner conversation">
+          <img src="/images/events-leak-dinner.png" alt="Group dinner conversation">
         </div>
         <div class="leak-card-body">
           <div class="leak-card-name">Dinner</div>
@@ -1075,7 +1132,7 @@
       </div>
       <div class="leak-card">
         <div class="leak-card-image">
-          <img src="flight.jpg" alt="On the flight home">
+          <img src="/images/events-leak-flight.png" alt="On the flight home">
         </div>
         <div class="leak-card-body">
           <div class="leak-card-name">The flight home</div>
@@ -1106,6 +1163,9 @@
           <div class="journey-step-title">The scan at the booth</div>
           <p class="journey-step-desc">A QR code on your booth wall, your product card, or your handout. They scan when curiosity peaks — not when your rep has a minute. The conversation starts immediately, in your voice, trained on everything your brand knows.</p>
           <span class="journey-step-aside">No app. No form. Just a conversation.</span>
+          <div class="journey-step-photo">
+            <img src="/images/events-journey-scan.png" alt="Scanning a QR code at an event booth">
+          </div>
         </div>
       </div>
 
@@ -1122,6 +1182,9 @@
         <div class="journey-step-body">
           <div class="journey-step-title">The follow-through — on the flight home</div>
           <p class="journey-step-desc">The event ends. They leave. But the link is still live. On the plane, at dinner, in the Uber back — when they actually have time to think about what they saw, the conversation is still there. They can pick it up where they left it. The moment of curiosity doesn't close with the convention center.</p>
+          <div class="journey-step-photo">
+            <img src="/images/events-journey-flight.png" alt="Continuing the conversation on the flight home">
+          </div>
         </div>
       </div>
 
@@ -1202,6 +1265,20 @@
 </section>
 
 
+
+<!-- ============ PARTNERSHIP ============ -->
+<section class="partnership-wrapper" id="partnership">
+  <div class="partnership-inner">
+    <div class="partnership-text">
+    <div class="eyebrow">How we work</div>
+    <p class="partnership-quote">AI agents aren't sold off the shelf. <span class="accent">They're tuned for you.</span></p>
+    <p class="partnership-body">inqa isn't a SaaS subscription. You run it like a Google or Meta campaign, while our team — helps you set it up, tailored to your information and brand voice, tune the conversation, the qualification, the routing, the brand voice — against the conversion goals that matter to you. Live and running across every surface. <span class="accent">Ready in weeks, not months.</span></p>
+    </div><!-- end partnership-text -->
+    <div class="partnership-portrait">
+      <img src="/deeps_duotone.png" alt="Deeps Ramanathan, co-founder of inqa">
+    </div>
+  </div><!-- end partnership-inner -->
+</section>
 
 <!-- ============ THESIS (dark rhythm break) ============ -->
 <section class="thesis-wrapper">
