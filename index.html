@@ -1524,15 +1524,46 @@
     width: 100%;
     height: 420px;
     overflow: hidden;
+    position: relative;
   }
   .editorial-break .duotone,
   .editorial-break img {
     height: 420px;
   }
+  .editorial-break-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 56px;
+    z-index: 10;
+  }
+  .editorial-break-line {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.2;
+    color: var(--warm-white);
+    letter-spacing: -0.8px;
+  }
+  .editorial-break-line-accent {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.2;
+    color: var(--coral);
+    letter-spacing: -0.8px;
+  }
   @media (max-width: 900px) {
-    .editorial-break { height: 240px; }
+    .editorial-break { height: 280px; }
     .editorial-break .duotone,
-    .editorial-break img { height: 240px; }
+    .editorial-break img { height: 280px; }
+    .editorial-break-text { padding: 0 24px; }
+    .editorial-break-line,
+    .editorial-break-line-accent { font-size: 28px; }
   }
 
   /* ============ WHERE MISSING OUT — PHOTO CARDS ============ */
@@ -2925,6 +2956,10 @@
   <div class="duotone duotone-espresso">
     <img src="/images/editorial-empty-hall.png" alt="Empty conference hall at end of day">
   </div>
+  <div class="editorial-break-text">
+    <p class="editorial-break-line">Change how someone thinks about something —</p>
+    <p class="editorial-break-line-accent">before others do.</p>
+  </div>
 </div>
 
 <!-- ============ HOW IT WORKS / PRODUCT MOCKUP ============ -->
@@ -3369,14 +3404,6 @@
 </section>
 <!-- ══ END CALCULATOR ═════════════════════════════════════════════════════ -->
 
-<!-- ============ THESIS (dark rhythm break) ============ -->
-<section class="thesis-wrapper">
-  <div class="thesis-inner">
-    <div class="thesis-eyebrow">The whole point</div>
-    <p class="thesis-line">Change how someone thinks about something —</p>
-    <p class="thesis-line-accent">before others do.</p>
-  </div>
-</section>
 
 <!-- ============ LOGO STRIP ============ -->
 <section class="logo-strip-wrapper">
