@@ -1432,6 +1432,51 @@
     margin-top: 6px;
   }
 
+  /* ============ LOGO STRIP ============ */
+  .logo-strip-wrapper {
+    background: var(--warm-white);
+    padding: 64px 56px;
+    border-top: 1px solid rgba(61,44,44,0.07);
+    border-bottom: 1px solid rgba(61,44,44,0.07);
+  }
+  .logo-strip-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .logo-strip-label {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--warm-gray);
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .logo-strip-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .logo-strip-names span {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--espresso);
+    opacity: 0.45;
+    letter-spacing: -0.3px;
+  }
+  .logo-strip-dot {
+    font-size: 14px !important;
+    opacity: 0.25 !important;
+    font-weight: 400 !important;
+  }
+  @media (max-width: 900px) {
+    .logo-strip-wrapper { padding: 48px 24px; }
+    .logo-strip-names span { font-size: 15px; }
+  }
+
   /* ============ CONTACT SECTION ============ */
   .contact-section {
     background: var(--soft-blush);
@@ -3332,6 +3377,23 @@
     <p class="thesis-line-accent">before others do.</p>
   </div>
 </section>
+
+<!-- ============ LOGO STRIP ============ -->
+<section class="logo-strip-wrapper">
+  <div class="logo-strip-inner">
+    <p class="logo-strip-label">Built by the team that created, captured, and converted curiosity at</p>
+    <div class="logo-strip-names">
+      <span>Google</span>
+      <span class="logo-strip-dot">·</span>
+      <span>Twitter</span>
+      <span class="logo-strip-dot">·</span>
+      <span>IBM</span>
+      <span class="logo-strip-dot">·</span>
+      <span>Allstate</span>
+    </div>
+  </div>
+</section>
+<!-- ============ END LOGO STRIP ============ -->
 
 <!-- ============ CONTACT ============ -->
 <section class="contact-section" id="contact">
