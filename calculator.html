@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curiosity Calculator — inqa.ai</title>
+<meta name="description" content="How much curiosity are you leaving on the table? See what inqa could capture for your brand.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #F27B7B;
+    --coral-dark: #993C1D;
+    --patina: #4A766E;
+    --patina-light: #E1F5EE;
+    --patina-dark: #0F6E56;
+    --espresso: #3D2C2C;
+    --charcoal: #2D2A2A;
+    --slate: #5C5858;
+    --soft-blush: #FAE5E0;
+    --warm-white: #FAF8F6;
+    --warm-gray: #7A7170;
+    --display: 'Inter', sans-serif;
+    --body: 'Open Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    color: var(--charcoal);
+    background: var(--warm-white);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 56px;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: var(--warm-white);
+    border-bottom: 1px solid rgba(61,44,44,0.07);
+    z-index: -1;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--espresso);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .wordmark .ai { color: var(--coral); font-weight: 400; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    align-items: center;
+  }
+  nav ul a { color: var(--slate); text-decoration: none; transition: color 0.2s; }
+  nav ul a:hover { color: var(--coral); }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-toggle {
+    background: none; border: none; color: var(--slate);
+    font-family: var(--display); font-size: 14px; font-weight: 600;
+    cursor: pointer; padding: 0; display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+  }
+  .nav-dropdown-toggle:hover { color: var(--coral); }
+  .dropdown-arrow { font-size: 12px; transition: transform 0.2s; }
+  .nav-dropdown-toggle.active .dropdown-arrow { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: auto; right: 0;
+    background: var(--warm-white); border: 1px solid rgba(61,44,44,0.1);
+    border-radius: 4px; list-style: none; padding: 8px 0; margin-top: 8px;
+    min-width: 140px; opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: all 0.2s ease; z-index: 1000;
+  }
+  .nav-dropdown-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu li { padding: 0; }
+  .nav-dropdown-menu li a {
+    display: block; padding: 10px 16px; color: var(--slate);
+    text-decoration: none; transition: color 0.2s, background 0.2s;
+  }
+  .nav-dropdown-menu li a:hover { color: var(--coral); background: rgba(74,118,110,0.05); }
+
+  .nav-toggle {
+    display: none; flex-direction: column; background: none;
+    border: none; cursor: pointer; padding: 0; gap: 6px;
+  }
+  .nav-toggle span {
+    width: 24px; height: 2.5px; background: var(--espresso);
+    border-radius: 2px; transition: all 0.3s ease;
+  }
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+  .nav-cta-btn {
+    background: var(--coral) !important;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta-btn:hover {
+    background: #de6868 !important;
+    transform: translateY(-1px);
+  }
+
+  /* ============ PAGE HEADER ============ */
+  .calc-page-header {
+    background: var(--soft-blush);
+    padding: 80px 56px 48px;
+    text-align: center;
+  }
+  .calc-page-header-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .calc-page-eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .calc-page-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1.5px;
+    background: var(--patina);
+  }
+  .calc-page-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.1;
+    color: var(--espresso);
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+  .calc-page-title .accent { color: var(--coral); }
+  .calc-page-sub {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--slate);
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ============ CALCULATOR ============ */
+  .section-calc {
+    background-color: #FAF8F6;
+    background-image: radial-gradient(circle, rgba(61,44,44,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    padding: 64px 56px 96px;
+  }
+  .section-calc .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .calc-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 40px 32px;
+    box-shadow: 0 4px 40px rgba(61,44,44,0.08), 0 1px 8px rgba(61,44,44,0.04);
+  }
+  .calc-mode-intro {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    color: #5C5858;
+    margin: 0 0 10px;
+  }
+  .calc-modes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .calc-mode-btn {
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: 1.5px solid #D4CCC8;
+    background: #fff;
+    color: #5C5858;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+  .calc-mode-btn.active {
+    background: #3D2C2C;
+    border-color: #3D2C2C;
+    color: #fff;
+  }
+  .calc-mode-btn:hover:not(.active) {
+    border-color: #F27B7B;
+    color: #F27B7B;
+  }
+  .calc-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .calc-drift {
+    background: rgba(61,44,44,0.05);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .calc-drift-pct {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 34px;
+    color: #3D2C2C;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 52px;
+  }
+  .calc-drift-main {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3D2C2C;
+    line-height: 1.45;
+    margin: 0 0 4px;
+  }
+  .calc-drift-source {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #7A7170;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .calc-slider-group { margin-bottom: 24px; }
+  .calc-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+  .calc-slider-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    color: #3D2C2C;
+  }
+  .calc-slider-val {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 23px;
+    color: #F27B7B;
+    min-width: 72px;
+    text-align: right;
+  }
+  .calc-slider-hint {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #7A7170;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  .calc-track-wrap {
+    position: relative;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+  .calc-track-bg {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 4px;
+    background: #EDE8E4;
+    border-radius: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .calc-track-fill {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    background: #F27B7B;
+    border-radius: 2px;
+    width: 20%;
+    transition: width 0.05s;
+  }
+  .calc-track-thumb {
+    position: absolute;
+    top: 50%;
+    width: 16px; height: 16px;
+    background: #F27B7B;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    box-shadow: 0 1px 4px rgba(61,44,44,0.2);
+    left: 20%;
+    transition: left 0.05s;
+    pointer-events: none;
+  }
+  .calc-range {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0; padding: 0;
+  }
+  .calc-minmax { display: flex; justify-content: space-between; }
+  .calc-minmax span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #B4B2A9;
+  }
+  .calc-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+  .calc-card-without {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 16px 16px 14px;
+  }
+  .calc-card-with {
+    background: #fff;
+    border: 1.5px solid #F27B7B;
+    border-radius: 12px;
+    padding: 16px 16px 14px;
+    position: relative;
+  }
+  .calc-card-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #7A7170;
+    margin-bottom: 14px;
+  }
+  .calc-with-pill {
+    position: absolute;
+    top: -10px; left: 14px;
+    background: #F27B7B;
+    color: #fff;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+  .calc-stat { margin-bottom: 12px; }
+  .calc-stat-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #7A7170;
+    margin-bottom: 1px;
+  }
+  .calc-stat-val {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1;
+    transition: all 0.2s;
+  }
+  .calc-val-dark  { color: #3D2C2C; }
+  .calc-val-coral { color: #F27B7B; }
+  .calc-val-green { color: #0F6E56; }
+  .calc-val-muted { color: #B4B2A9; }
+  .calc-bar-track {
+    height: 5px;
+    background: #F0ECE8;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 6px 0 3px;
+  }
+  .calc-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    width: 0;
+    transition: width 0.3s;
+  }
+  .calc-stat-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+  }
+  .calc-sub-gray  { color: #B4B2A9; }
+  .calc-sub-coral { color: #F27B7B; }
+  .calc-sub-green { color: #0F6E56; }
+  .calc-pipeline-row {
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 11px;
+    margin-top: 8px;
+  }
+  .calc-pipeline-row--with {
+    border-top-color: rgba(242,123,123,0.2);
+  }
+  .calc-pipeline-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #7A7170;
+    margin-bottom: 2px;
+  }
+  .calc-pipeline-val {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    color: #3D2C2C;
+    transition: all 0.2s;
+  }
+  .calc-source-note {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #B4B2A9;
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .calc-result {
+    background: #3D2C2C;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .calc-result-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+  .calc-result-val {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 44px;
+    color: #F27B7B;
+    line-height: 1;
+    transition: all 0.2s;
+  }
+  .calc-result-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 4px;
+  }
+  .btn {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary {
+    background: var(--coral);
+    color: white;
+  }
+  .btn-primary:hover { background: #de6868; transform: translateY(-1px); }
+  .calc-cta-btn {
+    display: inline-block;
+    background: #F27B7B;
+    color: #fff;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .calc-cta-btn:hover { background: #993C1D; }
+  .calc-disclaimer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #7A7170;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact-section {
+    background: var(--soft-blush);
+    padding: 96px 56px;
+    text-align: center;
+  }
+  .contact-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1.5px;
+    background: var(--patina);
+  }
+  h2.section-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--espresso);
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  .section-lead {
+    font-family: var(--body);
+    font-size: 19px;
+    color: var(--slate);
+    margin-bottom: 40px;
+    max-width: 780px;
+    line-height: 1.6;
+  }
+  .contact-section .eyebrow { justify-content: center; }
+  .contact-section .section-title { text-align: center; margin: 0 auto 12px; }
+  .contact-section .section-lead { text-align: center; margin: 0 auto 32px; }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contact-form input {
+    font-family: var(--body);
+    font-size: 16px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(74,118,110,0.25);
+    border-radius: 8px;
+    color: var(--charcoal);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .contact-form input:focus { border-color: var(--coral); }
+  .contact-form input::placeholder { color: var(--warm-gray); }
+  .contact-form .btn { width: 100%; justify-content: center; }
+  .contact-success { display: none; padding: 24px 0; }
+  .contact-success.visible { display: block; }
+  .contact-success-msg {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--patina);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--espresso);
+    padding: 24px 56px;
+    text-align: center;
+  }
+  .footer-contact {
+    font-family: var(--display);
+    font-size: 12px;
+    color: var(--soft-blush);
+    opacity: 0.5;
+  }
+  .footer-links {
+    font-family: var(--display);
+    font-size: 11px;
+    color: var(--soft-blush);
+    opacity: 0.6;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+  }
+  .footer-links a {
+    color: var(--soft-blush);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 1; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-toggle { display: flex; }
+    .nav-menu {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--warm-white);
+      flex-direction: column;
+      gap: 0;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(61,44,44,0.07);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-menu.active { max-height: 400px; }
+    .nav-menu li { padding: 12px 0; border-bottom: 1px solid rgba(61,44,44,0.05); }
+    .nav-menu li:last-child { border-bottom: none; }
+    .nav-dropdown-menu {
+      position: static;
+      opacity: 1; visibility: visible; transform: none;
+      max-height: 0; overflow: hidden;
+      background: transparent; border: none; margin: 0; padding: 0;
+      transition: max-height 0.3s ease;
+    }
+    .nav-dropdown-menu.active { max-height: 200px; }
+    .nav-dropdown-menu li { padding: 8px 0 8px 16px; border: none; }
+    .nav-dropdown-menu li a { padding: 0; font-size: 13px; color: var(--slate); }
+    nav ul { gap: 16px; font-size: 12px; }
+    .calc-page-header { padding: 56px 24px 36px; }
+    .calc-page-title { font-size: 32px; }
+    .section-calc { padding: 48px 24px 72px; }
+    footer { padding: 20px 24px; }
+    .footer-contact { font-size: 11px; }
+    .footer-links { font-size: 10px; margin-top: 10px; }
+    .contact-section { padding: 64px 24px; }
+  }
+  @media (max-width: 800px) {
+    .calc-body { grid-template-columns: 1fr; }
+    .calc-compare { grid-template-columns: 1fr 1fr; }
+    .calc-card { padding: 24px 20px 20px; }
+  }
+  @media (max-width: 600px) {
+    .calc-page-header { padding: 48px 16px 28px; }
+    .calc-page-title { font-size: 28px; }
+    footer { padding: 16px 16px; }
+    .footer-contact { font-size: 10px; }
+    .footer-links { font-size: 9px; margin-top: 8px; }
+  }
+  @media (max-width: 520px) {
+    .calc-compare { grid-template-columns: 1fr; }
+    .calc-result { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="/" class="wordmark">inqa<span class="ai">.ai</span></a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="/how-it-works">How it works</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" id="use-cases-toggle">Use cases <span class="dropdown-arrow">↓</span></button>
+      <ul class="nav-dropdown-menu" id="use-cases-menu">
+        <li><a href="/for-events">For events</a></li>
+        <li><a href="/for-speakers">For speakers</a></li>
+        <li><a href="/for-launches">For launches</a></li>
+      </ul>
+    </li>
+    <li><a href="/calculator" class="nav-cta-btn">See your numbers</a></li>
+    <li><a href="#contact">Let's collab</a></li>
+  </ul>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="calc-page-header">
+  <div class="calc-page-header-inner">
+    <div class="calc-page-eyebrow">Curiosity calculator</div>
+    <h1 class="calc-page-title">How much curiosity are you <span class="accent">leaving on the table?</span></h1>
+    <p class="calc-page-sub">Select your situation and adjust the numbers. Based on published research — your results will vary.</p>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="section-calc">
+  <div class="container">
+    <div class="calc-card">
+
+      <p class="calc-mode-intro">I'm generating interest for a</p>
+      <div class="calc-modes">
+        <button class="calc-mode-btn active" data-mode="b2c">High Consideration B2C Product</button>
+        <button class="calc-mode-btn" data-mode="b2b">B2B Product</button>
+      </div>
+
+      <div class="calc-body">
+
+        <!-- LEFT — inputs -->
+        <div class="calc-inputs">
+
+          <div class="calc-drift">
+            <div class="calc-drift-pct" id="drift-pct">55%</div>
+            <div>
+              <p class="calc-drift-main" id="drift-main">of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.</p>
+              <p class="calc-drift-source" id="drift-source">McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research</p>
+            </div>
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-moments">Curious people per month</span>
+              <span class="calc-slider-val" id="value-moments">2,000</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-moments">Ad clicks, event attendees, social link visitors — people who showed genuine interest</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-moments"></div>
+                <div class="calc-track-thumb" id="thumb-moments"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-moments" min="200" max="15000" step="200" value="2000">
+            </div>
+            <div class="calc-minmax"><span id="min-moments">200</span><span id="max-moments">15K</span></div>
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-value">Average product value</span>
+              <span class="calc-slider-val" id="value-value">$2,500</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-value">What a converted buyer spends</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-value"></div>
+                <div class="calc-track-thumb" id="thumb-value"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-value" min="500" max="10000" step="500" value="2500">
+            </div>
+            <div class="calc-minmax"><span id="min-value">$500</span><span id="max-value">$10K</span></div>
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span class="calc-slider-label" id="label-close">Conversion rate</span>
+              <span class="calc-slider-val" id="value-close">18%</span>
+            </div>
+            <p class="calc-slider-hint" id="hint-close">How often a real visitor turns into a sale</p>
+            <div class="calc-track-wrap">
+              <div class="calc-track-bg">
+                <div class="calc-track-fill" id="fill-close"></div>
+                <div class="calc-track-thumb" id="thumb-close"></div>
+              </div>
+              <input type="range" class="calc-range" id="range-close" min="5" max="40" step="1" value="18">
+            </div>
+            <div class="calc-minmax"><span id="min-close">5%</span><span id="max-close">40%</span></div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT — output -->
+        <div class="calc-output">
+
+          <div class="calc-compare">
+
+            <div class="calc-card-without">
+              <div class="calc-card-label">Without inqa</div>
+              <div class="calc-stat">
+                <div class="calc-stat-label">Captured</div>
+                <div class="calc-stat-val calc-val-dark" id="out-form-captured">30/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-captured" style="background:#C4BDB8"></div></div>
+                <div class="calc-stat-sub calc-sub-gray" id="out-form-rate">1.5% via slow processes like forms or badge scans</div>
+              </div>
+              <div class="calc-stat">
+                <div class="calc-stat-label">Going to ChatGPT, Claude, and so on</div>
+                <div class="calc-stat-val calc-val-coral" id="out-form-drift">1,100/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-form-drift" style="background:#F27B7B"></div></div>
+                <div class="calc-stat-sub calc-sub-coral">Researching without you</div>
+              </div>
+              <div class="calc-pipeline-row">
+                <div class="calc-pipeline-label">Annual pipeline</div>
+                <div class="calc-pipeline-val" id="out-form-pipeline">$97K</div>
+                <div class="calc-source-note" id="source-form">Unbounce 2024 · IRP Commerce</div>
+              </div>
+            </div>
+
+            <div class="calc-card-with">
+              <div class="calc-with-pill">With inqa</div>
+              <div class="calc-stat" style="margin-top:20px">
+                <div class="calc-stat-label">Captured</div>
+                <div class="calc-stat-val calc-val-green" id="out-inqa-captured">240/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-captured" style="background:#0F6E56"></div></div>
+                <div class="calc-stat-sub calc-sub-green" id="out-inqa-rate">12% via instant conversation</div>
+              </div>
+              <div class="calc-stat">
+                <div class="calc-stat-label">Still drifting</div>
+                <div class="calc-stat-val calc-val-muted" id="out-inqa-drift">880/mo</div>
+                <div class="calc-bar-track"><div class="calc-bar-fill" id="bar-inqa-drift" style="background:#E1EDE8"></div></div>
+                <div class="calc-stat-sub calc-sub-gray">Significantly reduced</div>
+              </div>
+              <div class="calc-pipeline-row calc-pipeline-row--with">
+                <div class="calc-pipeline-label">Annual pipeline</div>
+                <div class="calc-pipeline-val" id="out-inqa-pipeline">$778K</div>
+                <div class="calc-source-note">Modelled estimate</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="calc-result">
+            <div>
+              <div class="calc-result-label">Additional pipeline / year</div>
+              <div class="calc-result-val" id="out-additional">$681K</div>
+              <div class="calc-result-sub" id="out-net-new">+210 more conversations per month</div>
+            </div>
+            <a href="#contact" class="calc-cta-btn">Talk to us →</a>
+          </div>
+
+          <p class="calc-disclaimer">
+            Illustrative only — your results will vary. Form capture and AI drift rates are published benchmarks. inqa conversation rate is a modelled estimate; no live customer data is used in this calculation.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="eyebrow">Get in touch</div>
+    <h2 class="section-title">Ready to talk?</h2>
+    <p class="section-lead">Tell us what you're launching. No deck, no demo script — just a direct conversation.</p>
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xaqvlggg" method="POST">
+      <input type="text" name="first_name" placeholder="First name" required>
+      <input type="email" name="email" placeholder="Work email" required>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <div id="contact-success" class="contact-success">
+      <p class="contact-success-msg">Thanks — we'll be in touch shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-contact">inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026</div>
+  <div class="footer-links"><a href="/for-events">Events</a> &nbsp;·&nbsp; <a href="/for-speakers">Speakers</a> &nbsp;·&nbsp; <a href="/for-launches">Launches</a> &nbsp;·&nbsp; <a href="/for-funnels">Funnels</a> &nbsp;·&nbsp; <a href="/calculator">Calculator</a> &nbsp;·&nbsp; <a href="/about">About</a></div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('contact-success').classList.add('visible');
+        }
+      } catch(err) {}
+    });
+  }
+</script>
+
+<script>
+(function () {
+  var MODES = {
+    b2c: {
+      formRate: 0.015, inqaRate: 0.12, driftRate: 0.55,
+      driftPct: '55%',
+      driftMain: 'of high-consideration buyers now use ChatGPT, Claude, and so on when researching a purchase decision.',
+      driftSrc: 'McKinsey Oct 2025 — 50%+ of consumers use AI for high-consideration purchase research',
+      formSrc: 'Unbounce 2024 · IRP Commerce — high-AOV consumer products avg. 1.4–1.6%',
+      inqaRateLabel: '12% via instant conversation',
+      defaults: { moments: 2000, value: 2500, close: 18 },
+      ranges: {
+        moments: { min: 200, max: 15000, step: 200, minL: '200', maxL: '15K' },
+        value:   { min: 500, max: 10000, step: 500, minL: '$500', maxL: '$10K' },
+        close:   { min: 5,   max: 40,    step: 1,   minL: '5%',   maxL: '40%' }
+      },
+      labels: {
+        moments: 'Curious people per month',
+        momentshint: 'Ad clicks, event attendees, social link visitors — people who showed genuine interest',
+        value: 'Average product value',
+        valuehint: 'What a converted buyer spends',
+        close: 'Conversion rate',
+        closehint: 'How often a real visitor turns into a sale'
+      }
+    },
+    b2b: {
+      formRate: 0.02, inqaRate: 0.14, driftRate: 0.73,
+      driftPct: '73%',
+      driftMain: 'of B2B buyers now use AI tools in purchase research — before visiting any vendor website.',
+      driftSrc: 'Averi / Forrester 2026 — 680M citations study across ChatGPT, Perplexity, Gemini',
+      formSrc: 'SaaS Hero / Daydream 2026 — B2B visitor-to-demo/form avg. 1.5–2.5%',
+      inqaRateLabel: '14% via instant conversation',
+      defaults: { moments: 500, value: 20000, close: 22 },
+      ranges: {
+        moments: { min: 100,  max: 10000,  step: 100,  minL: '100',  maxL: '10K' },
+        value:   { min: 5000, max: 100000, step: 5000, minL: '$5K',  maxL: '$100K' },
+        close:   { min: 5,    max: 40,     step: 1,    minL: '5%',   maxL: '40%' }
+      },
+      labels: {
+        moments: 'Engaged prospects per month',
+        momentshint: 'Event attendees, ad click-throughs, content readers who reached a landing page',
+        value: 'Average deal value',
+        valuehint: 'ACV or average contract value',
+        close: 'Qualified lead-to-close rate',
+        closehint: 'How often a qualified lead becomes a won deal'
+      }
+    }
+  };
+
+  var mode = 'b2c';
+  var vals = { moments: 2000, value: 2500, close: 18 };
+
+  function fmtM(n) {
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+    return '$' + Math.round(n);
+  }
+  function fmtN(n) {
+    if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+    return Math.round(n).toLocaleString();
+  }
+  function fmtV(n) {
+    if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+    return '$' + n.toLocaleString();
+  }
+
+  function setText(id, t) { var e = document.getElementById(id); if (e) e.textContent = t; }
+  function setWidth(id, pct) { var e = document.getElementById(id); if (e) e.style.width = Math.min(100, Math.round(pct)) + '%'; }
+
+  function compute() {
+    var m = MODES[mode];
+    var mo = vals.moments, v = vals.value, cl = vals.close / 100;
+    var fC = Math.round(mo * m.formRate);
+    var iC = Math.round(mo * m.inqaRate);
+    var dN = Math.round(mo * m.driftRate);
+    var dW = Math.round(mo * (m.driftRate - (m.inqaRate - m.formRate)));
+    var fP = fC * 12 * v * cl;
+    var iP = iC * 12 * v * cl;
+    return { fC: fC, iC: iC, dN: dN, dW: dW, fP: fP, iP: iP,
+             add: iP - fP, net: iC - fC, mo: mo };
+  }
+
+  function update() {
+    var r = compute();
+    var m = MODES[mode];
+    setText('out-form-captured', fmtN(r.fC) + '/mo');
+    setText('out-form-drift',    fmtN(r.dN) + '/mo');
+    setText('out-form-pipeline', fmtM(r.fP));
+    setText('out-inqa-captured', fmtN(r.iC) + '/mo');
+    setText('out-inqa-drift',    fmtN(r.dW) + '/mo');
+    setText('out-inqa-pipeline', fmtM(r.iP));
+    setText('out-additional',    fmtM(r.add));
+    setText('out-net-new',       '+' + fmtN(r.net) + ' more conversations per month');
+    setText('out-form-rate',     Math.round(m.formRate * 100) + '% via slow processes like forms or badge scans');
+    setText('out-inqa-rate',     m.inqaRateLabel);
+    setText('source-form',       m.formSrc);
+    setWidth('bar-form-captured', (r.fC / r.mo) * 100);
+    setWidth('bar-form-drift',    (r.dN / r.mo) * 100);
+    setWidth('bar-inqa-captured', (r.iC / r.mo) * 100);
+    setWidth('bar-inqa-drift',    (r.dW / r.mo) * 100);
+  }
+
+  function updateSliderUI(key) {
+    var m = MODES[mode];
+    var r = m.ranges[key];
+    var v = vals[key];
+    var pct = ((v - r.min) / (r.max - r.min)) * 100;
+    var fill  = document.getElementById('fill-'  + key);
+    var thumb = document.getElementById('thumb-' + key);
+    var valEl = document.getElementById('value-' + key);
+    if (fill)  fill.style.width = pct + '%';
+    if (thumb) thumb.style.left = pct + '%';
+    if (valEl) {
+      if (key === 'moments') valEl.textContent = fmtN(v);
+      else if (key === 'value') valEl.textContent = fmtV(v);
+      else valEl.textContent = v + '%';
+    }
+  }
+
+  function switchMode(id) {
+    mode = id;
+    var m = MODES[id];
+    vals = { moments: m.defaults.moments, value: m.defaults.value, close: m.defaults.close };
+    document.querySelectorAll('.calc-mode-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.mode === id);
+    });
+    setText('drift-pct',    m.driftPct);
+    setText('drift-main',   m.driftMain);
+    setText('drift-source', m.driftSrc);
+    setText('label-moments', m.labels.moments);
+    setText('hint-moments',  m.labels.momentshint);
+    setText('label-value',   m.labels.value);
+    setText('hint-value',    m.labels.valuehint);
+    setText('label-close',   m.labels.close);
+    setText('hint-close',    m.labels.closehint);
+    ['moments', 'value', 'close'].forEach(function (key) {
+      var r = m.ranges[key];
+      var inp = document.getElementById('range-' + key);
+      if (inp) { inp.min = r.min; inp.max = r.max; inp.step = r.step; inp.value = vals[key]; }
+      var minEl = document.getElementById('min-' + key);
+      var maxEl = document.getElementById('max-' + key);
+      if (minEl) minEl.textContent = r.minL;
+      if (maxEl) maxEl.textContent = r.maxL;
+      updateSliderUI(key);
+    });
+    update();
+  }
+
+  function init() {
+    document.querySelectorAll('.calc-mode-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { switchMode(this.dataset.mode); });
+    });
+    ['moments', 'value', 'close'].forEach(function (key) {
+      var inp = document.getElementById('range-' + key);
+      if (!inp) return;
+      inp.addEventListener('input', function () {
+        vals[key] = Number(this.value);
+        updateSliderUI(key);
+        update();
+      });
+      updateSliderUI(key);
+    });
+    update();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<script>
+(function() {
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function() {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('nav')) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+    }
+  });
+})();
+
+(function() {
+  const toggle = document.getElementById('use-cases-toggle');
+  const menu = document.getElementById('use-cases-menu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.nav-dropdown')) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

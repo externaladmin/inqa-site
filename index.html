@@ -183,6 +183,21 @@
     background: rgba(74,118,110,0.05);
   }
 
+  .nav-cta-btn {
+    background: var(--coral) !important;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta-btn:hover {
+    background: #de6868 !important;
+    transform: translateY(-1px);
+  }
+
   /* Hamburger menu button - hidden on desktop */
   .nav-toggle {
     display: none;
@@ -2523,6 +2538,7 @@
         <li><a href="/for-launches">For launches</a></li>
       </ul>
     </li>
+    <li><a href="/calculator" class="nav-cta-btn">See your numbers</a></li>
     <li><a href="#contact">Let's collab</a></li>
   </ul>
 </nav>
@@ -3301,7 +3317,7 @@ Turn the curiosity you create into real conversations — <span class="lighter">
 <section class="where-missing-section">
   <div class="where-missing-inner">
     <h2 class="where-missing-title">How much curiosity are you leaving on the table?</h2>
-    <p class="where-missing-sub">Four scenarios. Each one a place curiosity leaks today. Learn more or adjust the numbers for your situation.</p>
+    <p class="where-missing-sub">Four scenarios. Each one a place curiosity leaks today.</p>
     <div class="where-missing-grid">
       <a href="/for-events" class="missing-card">
         <div class="duotone duotone-coral">
@@ -3331,8 +3347,8 @@ Turn the curiosity you create into real conversations — <span class="lighter">
   </div>
 </section>
 
-<!-- ══ CURIOSITY CALCULATOR ══════════════════════════════════════════════ -->
-<section class="section-calc">
+<!-- ══ CURIOSITY CALCULATOR (hidden — now at /calculator) ══════════════ -->
+<section class="section-calc" style="display:none">
   <div class="container">
 
     <div class="calc-card">
@@ -3526,7 +3542,7 @@ Turn the curiosity you create into real conversations — <span class="lighter">
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-contact">inqa.ai &nbsp;·&nbsp; © Magentiq Inc. 2026</div>
-  <div class="footer-links"><a href="/for-events">Events</a> &nbsp;·&nbsp; <a href="/for-speakers">Speakers</a> &nbsp;·&nbsp; <a href="/for-launches">Launches</a> &nbsp;·&nbsp; <a href="/for-funnels">Funnels</a> &nbsp;·&nbsp; <a href="/about">About</a></div>
+  <div class="footer-links"><a href="/for-events">Events</a> &nbsp;·&nbsp; <a href="/for-speakers">Speakers</a> &nbsp;·&nbsp; <a href="/for-launches">Launches</a> &nbsp;·&nbsp; <a href="/for-funnels">Funnels</a> &nbsp;·&nbsp; <a href="/calculator">Calculator</a> &nbsp;·&nbsp; <a href="/about">About</a></div>
 </footer>
 
 <script>
