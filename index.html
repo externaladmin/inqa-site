@@ -2793,9 +2793,9 @@
       <h1 class="hero-greeting">Hi&nbsp;&mdash; I'm inqa.</h1>
       <p class="hero-lede">Brands put me wherever they&rsquo;ve just shown the market something new &mdash; a launch, a keynote, a booth, a whitepaper. That&rsquo;s when the questions spike, and when there&rsquo;s usually no one there to ask.</p>
       <div class="hero-argument">
-        <p>LLMs and search tell you about a company.<br>Some of it is old. Some of it was never true.<br>The rest of it was never public.<br><span class="payoff">I'm your direct line to the company.</span></p>
+        <p>LLMs and search tell you about a company.<br>Some old. Some never true. The rest not public.<br><span class="payoff">I'm your direct line to the company.</span></p>
       </div>
-      <p class="hero-invite">So &mdash; curious about inqa? Ask me. I&rsquo;d rather just tell you than make you dig.</p>
+      <p class="hero-invite">Curious about inqa? Ask away. I&rsquo;d rather just tell you than make you dig.</p>
     </div>
 
     <!-- RIGHT — the event photo, with the live concierge opening over it -->
@@ -4239,10 +4239,13 @@
   var frame = document.getElementById('cc-frame');
   if (!stage || !launch || !frame) return;
 
-  /* Swap for a homepage-dedicated key + Gemini billing before this ships wide:
-     homepage traffic will blow past the 75/day hello key fast. */
+  /* Dedicated homepage key (access.json: "inqa.ai homepage — public concierge",
+     250 sessions/day, slug=inqa). Separate from the hello.inqa.ai key so
+     homepage traffic is capped and revocable on its own, and call records tell
+     the two public surfaces apart. The real ceiling is Gemini's quota, not this
+     cap — keep billing on. */
   var ORIGIN = 'https://demo.inqa.ai';
-  var KEY = 'Kxq0CTWFTSUruB67JNBkpQbv';
+  var KEY = 'ZsFXiVP3nIwPYqs2KaY7Cbxz';
 
   function src() {
     return ORIGIN + '/demo.html?demo=inqa&k=' + encodeURIComponent(KEY)
