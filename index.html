@@ -184,6 +184,7 @@
   }
 
   .nav-cta-btn {
+    display: inline-block;
     background: var(--coral) !important;
     color: white !important;
     padding: 8px 16px;
@@ -191,6 +192,7 @@
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.2px;
+    white-space: nowrap;
     transition: background 0.2s, transform 0.2s;
   }
   .nav-cta-btn:hover {
@@ -393,6 +395,245 @@
   }
   .hero--split .deploy-marquee-outer {
     grid-column: 1 / -1;
+  }
+
+  /* ============ HERO — CONCIERGE ============ */
+  /* Left column carries the hello.inqa.ai first-person copy; the right column
+     is the event photo with the live concierge diamond sitting on it. Clicking
+     the diamond opens the real inqa-live concierge in a panel over the photo,
+     contained within this column rather than as a full-screen modal. */
+  .hero--concierge {
+    background: var(--soft-blush);
+    padding: 0;
+    overflow: hidden;
+  }
+  .hero-concierge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 620px;
+  }
+  .hero-copy {
+    padding: 92px 44px 84px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-greeting {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(40px, 4.6vw, 56px);
+    line-height: 1.03;
+    letter-spacing: -1.8px;
+    color: var(--espresso);
+    margin-bottom: 26px;
+  }
+  .hero-lede {
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--slate);
+    max-width: 520px;
+    margin-bottom: 30px;
+  }
+  .hero-argument {
+    border-left: 2px solid var(--coral);
+    padding-left: 24px;
+    margin-bottom: 30px;
+    max-width: 520px;
+  }
+  .hero-argument p {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--espresso);
+    letter-spacing: -0.2px;
+  }
+  .hero-argument .payoff { color: var(--coral); font-weight: 700; }
+  .hero-invite {
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--slate);
+    max-width: 520px;
+  }
+
+  /* RIGHT — photo backdrop + concierge that opens over it */
+  .hero-stage {
+    position: relative;
+    overflow: hidden;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --launch-accent: var(--coral);
+    --launch-scale: 1.45;
+  }
+  .hero-stage-photo { position: absolute; inset: 0; }
+  .hero-stage-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; filter: grayscale(100%); display: block;
+  }
+  .hero-stage-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: #F27B7B; mix-blend-mode: multiply; opacity: 0.62; pointer-events: none;
+  }
+  .hero-stage .launch-wrap {
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    text-align: center;
+    transition: opacity .3s ease;
+  }
+  .hero-stage.cc-open .launch-wrap { opacity: 0; pointer-events: none; }
+  .launch-label {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: .1px;
+    color: var(--espresso);
+  }
+  .launch-label .sub {
+    display: block;
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 13.5px;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+  .hero-stage .launch-label { color: #fff; margin-left: 0; text-align: center; }
+  .hero-stage .launch-label .sub { color: rgba(255,255,255,0.88); }
+
+  /* Diamond — ported from inqa-live/static/hello.html so the homepage launcher
+     and the concierge it opens read as one product. */
+  .launch-btn {
+    position: relative;
+    width: calc(64px * var(--launch-scale, 1));
+    height: calc(64px * var(--launch-scale, 1));
+    border: none; background: none; cursor: pointer; flex-shrink: 0;
+  }
+  .launch-diamond {
+    position: absolute; inset: 0;
+    transform: rotate(45deg);
+    background: var(--launch-accent, var(--coral));
+    box-shadow: 0 calc(8px * var(--launch-scale, 1)) calc(24px * var(--launch-scale, 1)) rgba(61,44,44,.28),
+                0 0 0 0 var(--launch-accent, var(--coral));
+    animation: launch-pulse 2.4s ease-in-out infinite;
+    transition: transform .2s ease;
+  }
+  .launch-btn:hover .launch-diamond { transform: rotate(45deg) scale(1.08); }
+  .launch-diamond-inner {
+    position: absolute; inset: 0; transform: rotate(-45deg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: calc(3px * var(--launch-scale, 1));
+    padding-bottom: calc(8px * var(--launch-scale, 1));
+  }
+  .launch-phone { display: flex; align-items: center; justify-content: center; margin-bottom: calc(1px * var(--launch-scale, 1)); }
+  .launch-phone svg { width: calc(15px * var(--launch-scale, 1)); height: calc(15px * var(--launch-scale, 1)); display: block; }
+  .launch-talk, .launch-live {
+    font-family: var(--display);
+    font-size: calc(6.5px * var(--launch-scale, 1));
+    font-weight: 800; color: #fff; opacity: .95; white-space: nowrap;
+  }
+  .launch-talk { letter-spacing: calc(1.5px * var(--launch-scale, 1)); }
+  .launch-live { letter-spacing: calc(1px * var(--launch-scale, 1)); }
+  .launch-wave-row { display: flex; align-items: center; gap: calc(5px * var(--launch-scale, 1)); }
+  .launch-wave { display: flex; align-items: center; gap: calc(2px * var(--launch-scale, 1)); height: calc(14px * var(--launch-scale, 1)); }
+  .launch-wave span {
+    width: calc(2px * var(--launch-scale, 1));
+    border-radius: 99px; background: rgba(255,255,255,.9);
+    height: calc(4px * var(--launch-scale, 1));
+    animation: launch-wave-bar 1.1s ease-in-out infinite;
+  }
+  .launch-wave.left  span:nth-child(1){ animation-duration:.9s;  animation-delay:0s;   }
+  .launch-wave.left  span:nth-child(2){ animation-duration:1.15s;animation-delay:.2s;  }
+  .launch-wave.left  span:nth-child(3){ animation-duration:1s;   animation-delay:.08s; }
+  .launch-wave.right span:nth-child(1){ animation-duration:1.05s;animation-delay:.12s; }
+  .launch-wave.right span:nth-child(2){ animation-duration:.85s; animation-delay:.02s; }
+  .launch-wave.right span:nth-child(3){ animation-duration:1.2s; animation-delay:.22s; }
+  @keyframes launch-wave-bar {
+    0%, 100% { height: calc(4px  * var(--launch-scale, 1)); }
+    50%      { height: calc(12px * var(--launch-scale, 1)); }
+  }
+  @keyframes launch-pulse {
+    0%, 100% { box-shadow: 0 calc(8px * var(--launch-scale,1)) calc(24px * var(--launch-scale,1)) rgba(61,44,44,.28), 0 0 0 0 rgba(242,123,123,.5); }
+    50%      { box-shadow: 0 calc(8px * var(--launch-scale,1)) calc(24px * var(--launch-scale,1)) rgba(61,44,44,.28), 0 0 0 calc(12px * var(--launch-scale,1)) rgba(242,123,123,0); }
+  }
+
+  /* Contained overlay — panel opens over the photo, within the right column */
+  .cc-scrim {
+    position: absolute; inset: 0; z-index: 4;
+    background: rgba(61,44,44,0); pointer-events: none;
+    transition: background .4s ease;
+  }
+  .hero-stage.cc-open .cc-scrim { background: rgba(61,44,44,0.4); pointer-events: auto; }
+  .cc-slider {
+    position: absolute; inset: 0; z-index: 5;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transform: scale(.82);
+    transition: opacity .4s ease, transform .5s cubic-bezier(.22,.9,.32,1);
+  }
+  .hero-stage.cc-open .cc-slider { opacity: 1; pointer-events: auto; transform: scale(1); }
+  .cc-panel {
+    position: relative;
+    width: min(380px, 84%);
+    height: min(560px, 88%);
+    border-radius: 18px; overflow: hidden;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(61,44,44,.34);
+  }
+  .cc-panel iframe { width: 100%; height: 100%; border: none; display: block; }
+  .cc-close {
+    position: absolute; top: 10px; right: 12px; z-index: 6;
+    width: 32px; height: 32px; border-radius: 50%; border: none;
+    background: rgba(61,44,44,.55); color: #fff; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; line-height: 1; transition: background .15s ease;
+  }
+  .cc-close:hover { background: rgba(61,44,44,.8); }
+
+  @media (max-width: 900px) {
+    .hero-concierge-grid { grid-template-columns: 1fr; min-height: 0; }
+    .hero-copy { padding: 64px 24px 40px; }
+    .hero-stage { min-height: 480px; }
+  }
+
+  /* ============ DEMAND-CAPTURE HEADER (relocated above scenario cards) ============ */
+  .scenario-intro {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 8px 4px 0;
+  }
+  .scenario-intro-eyebrow {
+    font-family: var(--display);
+    font-size: 12px; font-weight: 600;
+    color: var(--patina);
+    letter-spacing: 2.5px; text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .scenario-intro-eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--coral); }
+  .scenario-intro-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    color: var(--espresso);
+    max-width: 900px;
+    margin-bottom: 18px;
+  }
+  .scenario-intro-title .lighter { font-weight: 400; font-size: 0.92em; letter-spacing: -0.6px; }
+  .scenario-intro-sub {
+    font-family: var(--body);
+    font-size: 17px; line-height: 1.6;
+    color: var(--slate); max-width: 720px;
+  }
+  .scenario-intro-sub .accent { color: var(--coral); font-weight: 600; }
+  @media (max-width: 900px) {
+    .scenario-intro-title { font-size: 30px; }
   }
 
   /* ============ SECTIONS ============ */
@@ -2544,24 +2785,56 @@
 </nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero hero--split">
-  <div class="hero-photo-half">
-    <div class="duotone duotone-coral" style="width:100%; height:100%;">
-      <img src="/images/hero-event-floor.png" alt="Busy conference floor">
+<section class="hero hero--concierge">
+  <div class="hero-concierge-grid">
+
+    <!-- LEFT — first-person concierge copy (from hello.inqa.ai) -->
+    <div class="hero-copy">
+      <h1 class="hero-greeting">Hi&nbsp;&mdash; I'm inqa.</h1>
+      <p class="hero-lede">Brands put me wherever they&rsquo;ve just shown the market something new &mdash; a launch, a keynote, a booth, a whitepaper. That&rsquo;s when the questions spike, and when there&rsquo;s usually no one there to ask.</p>
+      <div class="hero-argument">
+        <p>LLMs and search tell you about a company.<br>Some of it is old. Some of it was never true.<br>The rest of it was never public.<br><span class="payoff">I'm your direct line to the company.</span></p>
+      </div>
+      <p class="hero-invite">So &mdash; curious about inqa? Ask me. I&rsquo;d rather just tell you than make you dig.</p>
     </div>
-  </div>
-  <div class="hero-content-half">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Demand capture for brand and marketing teams</div>
-    <h1 class="hero-title">
-Turn the curiosity you create into real conversations — <span class="lighter">and then into leads, sales, and insight.</span>
-    </h1>
-    <p class="hero-subheadline">If you&rsquo;re running events, talks, or launching something new &mdash; deploy your own voice or type AI expert across any event, talk, ad, or social post. inqa <span class="accent">gives your audience the immediate answers they want,</span> while quietly growing your sales.</p>
-    <div class="cta-row" style="margin-bottom: 48px;">
-      <a class="btn btn-primary" href="#contact">Talk to us</a>
+
+    <!-- RIGHT — the event photo, with the live concierge opening over it -->
+    <div class="hero-stage" id="cc-stage">
+      <div class="hero-stage-photo">
+        <img src="/images/hero-event-floor.png" alt="Busy conference floor">
+      </div>
+
+      <div class="launch-wrap">
+        <button class="launch-btn" id="cc-launch" aria-label="Talk to inqa">
+          <span class="launch-diamond">
+            <span class="launch-diamond-inner">
+              <span class="launch-phone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg></span>
+              <span class="launch-talk">TALK</span>
+              <span class="launch-wave-row">
+                <span class="launch-wave left"><span></span><span></span><span></span></span>
+                <span class="launch-live">LIVE</span>
+                <span class="launch-wave right"><span></span><span></span><span></span></span>
+              </span>
+            </span>
+          </span>
+        </button>
+        <span class="launch-label">Ask me anything<span class="sub">Talk or type. No form, no waiting.</span></span>
+      </div>
+
+      <div class="cc-scrim" id="cc-scrim"></div>
+      <div class="cc-slider">
+        <div class="cc-panel">
+          <button class="cc-close" id="cc-close" title="Close" aria-label="Close">✕</button>
+          <iframe id="cc-frame" allow="microphone" title="Talk to inqa"></iframe>
+        </div>
+      </div>
     </div>
+
   </div>
-  </div>
+</section>
+
+<!-- ============ DEPLOY MARQUEE (moved below the hero) ============ -->
+<section class="deploy-wrapper">
   <div class="deploy-marquee-outer">
     <div class="deploy-track">
 
@@ -3036,6 +3309,13 @@ Turn the curiosity you create into real conversations — <span class="lighter">
     </div><!-- end compare-grid -->
 
 
+  </div>
+
+  <!-- Demand-capture header (relocated from the hero) -->
+  <div class="scenario-intro">
+    <div class="scenario-intro-eyebrow">Demand capture for brand and marketing teams</div>
+    <h2 class="scenario-intro-title">Turn the curiosity you create into real conversations &mdash; <span class="lighter">and then into leads, sales, and insight.</span></h2>
+    <p class="scenario-intro-sub">If you&rsquo;re running events, talks, or launching something new &mdash; deploy your own voice or type AI expert across any event, talk, ad, or social post. inqa <span class="accent">gives your audience the immediate answers they want,</span> while quietly growing your sales.</p>
   </div>
 
   <!-- Scenario strip -->
@@ -3942,6 +4222,46 @@ Turn the curiosity you create into real conversations — <span class="lighter">
   });
 })();
 /* ── END NAV DROPDOWN ──────────────────────────────────────────────── */
+
+/* ── HERO CONCIERGE ────────────────────────────────────────────────────
+   Opens the live inqa-live concierge in a panel over the hero photo.
+   The concierge is served from a DIFFERENT origin (inqa-live), so the iframe
+   src is an absolute URL. A cross-origin fetch to /api/check-access would be
+   blocked (inqa-live sets no CORS headers), so we skip the pre-check and let
+   demo.html validate itself on its own origin inside the frame. postMessage
+   still crosses origins, but we don't rely on it: no collapse=1 here, so the
+   concierge fills the fixed panel instead of asking the parent to size it. */
+(function() {
+  var stage = document.getElementById('cc-stage');
+  var launch = document.getElementById('cc-launch');
+  var scrim = document.getElementById('cc-scrim');
+  var closeBtn = document.getElementById('cc-close');
+  var frame = document.getElementById('cc-frame');
+  if (!stage || !launch || !frame) return;
+
+  /* Swap for a homepage-dedicated key + Gemini billing before this ships wide:
+     homepage traffic will blow past the 75/day hello key fast. */
+  var ORIGIN = 'https://demo.inqa.ai';
+  var KEY = 'Kxq0CTWFTSUruB67JNBkpQbv';
+
+  function src() {
+    return ORIGIN + '/demo.html?demo=inqa&k=' + encodeURIComponent(KEY)
+      + '&tray=off&transcript=on&mic=hold&mode=text';
+  }
+  function open() {
+    if (!frame.src || frame.src === 'about:blank') frame.src = src();
+    stage.classList.add('cc-open');
+  }
+  function close() {
+    stage.classList.remove('cc-open');
+    /* Blank after the fade so audio/WS teardown isn't visible mid-animation. */
+    setTimeout(function() { frame.src = 'about:blank'; }, 520);
+  }
+
+  launch.addEventListener('click', open);
+  scrim.addEventListener('click', close);
+  closeBtn.addEventListener('click', close);
+})();
 </script>
 
 </body>
