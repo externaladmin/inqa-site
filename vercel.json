@@ -2,17 +2,12 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/@:handle",
-      "destination": "https://demo.inqa.ai/@:handle"
-    },
-    {
-      "source": "/@:handle/:instance",
-      "destination": "https://demo.inqa.ai/@:handle/:instance"
-    },
-    {
-      "source": "/@:handle/:instance/:position",
-      "destination": "https://demo.inqa.ai/@:handle/:instance/:position"
-    }
+    { "source": "/@:handle", "destination": "https://demo.inqa.ai/@:handle" },
+    { "source": "/@:handle/:instance", "destination": "https://demo.inqa.ai/@:handle/:instance" },
+    { "source": "/@:handle/:instance/:position", "destination": "https://demo.inqa.ai/@:handle/:instance/:position" },
+
+    { "source": "/:handle([a-z0-9][a-z0-9_-]{1,38})", "destination": "https://demo.inqa.ai/@:handle" },
+    { "source": "/:handle([a-z0-9][a-z0-9_-]{1,38})/:instance", "destination": "https://demo.inqa.ai/@:handle/:instance" },
+    { "source": "/:handle([a-z0-9][a-z0-9_-]{1,38})/:instance/:position", "destination": "https://demo.inqa.ai/@:handle/:instance/:position" }
   ]
 }
