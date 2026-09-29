@@ -1,4 +1,18 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/@:handle",
+      "destination": "https://demo.inqa.ai/@:handle"
+    },
+    {
+      "source": "/@:handle/:instance",
+      "destination": "https://demo.inqa.ai/@:handle/:instance"
+    },
+    {
+      "source": "/@:handle/:instance/:position",
+      "destination": "https://demo.inqa.ai/@:handle/:instance/:position"
+    }
+  ]
 }
